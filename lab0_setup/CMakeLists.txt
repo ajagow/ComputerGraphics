@@ -7,6 +7,8 @@ set(CMAKE_AUTOMOC ON)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
+set(Qt5_DIR "/Users/anika/Qt/5.14.0/clang_64/lib/cmake/Qt5")
+
 find_package(Qt5 COMPONENTS Widgets Core Gui OpenGL)
 
 include_directories(
@@ -22,7 +24,7 @@ set(srcs
   main.cpp
 )
 
-add_executable(Lab
+add_executable(Lab0
   ${srcs}
 )
 

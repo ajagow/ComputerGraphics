@@ -1,0 +1,4 @@
+/Users/anika/documents/year 4/cg/ComputerGraphics/lab0_setup/build/CMakeFiles/rebuild_cache.dir
+/Users/anika/documents/year 4/cg/ComputerGraphics/lab0_setup/build/CMakeFiles/edit_cache.dir
+/Users/anika/documents/year 4/cg/ComputerGraphics/lab0_setup/build/CMakeFiles/Lab0.dir
+/Users/anika/documents/year 4/cg/ComputerGraphics/lab0_setup/build/CMakeFiles/Lab0_autogen.dir

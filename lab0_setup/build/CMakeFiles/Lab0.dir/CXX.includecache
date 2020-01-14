@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/lab0_setup/main.cpp
+QtCore
+-
+QtGui
+-
+QtOpenGL
+-
+Lab0.h
+/Users/anika/documents/Year 4/cg/ComputerGraphics/lab0_setup/Lab0.h
+
+/Users/anika/Qt/5.14.0/clang_64/lib/QtCore.framework/QtCore
+
+/Users/anika/Qt/5.14.0/clang_64/lib/QtGui.framework/QtGui
+
+/Users/anika/Qt/5.14.0/clang_64/lib/QtOpenGL.framework/QtOpenGL
+
+/Users/anika/Qt/5.14.0/clang_64/lib/QtWidgets.framework/QtWidgets
+
+/Users/anika/documents/Year 4/cg/ComputerGraphics/lab0_setup/Lab0.h
+QtGui
+-
+QtCore
+-
+QtWidgets
+-
+
