@@ -10,6 +10,7 @@
 #define PPM_H
 
 #include <string>
+#include <vector>
 
 class PPM{
 public:
@@ -19,20 +20,29 @@ public:
     ~PPM();
     // Saves a PPM Image to a new file.
     void savePPM(std::string outputFileName);
+
     // Darken subtracts 50 from each of the red, green
     // and blue color components of all of the pixels
     // in the PPM. Note that no values may be less than
     // 0 in a ppm.
     void darken();
+
     // Sets a pixel to a specific R,G,B value 
     void setPixel(int x, int y, int R, int G, int B);
+
     // Returns the raw pixel data in an array.
     // You may research what 'inline' does.
     inline unsigned char* pixelData(){ return m_PixelData; }
+
     // Returns image width
     inline int getWidth(){ return m_width; }
+
     // Returns image height
     inline int getHeight(){ return m_height; }
+
+    // Returns maxRGB value
+    inline unsigned char getMaxRBGValue() { return m_maxRGBValue; }
+
 // NOTE:    You may add any helper functions you like in the
 //          private section.
 private:    
@@ -42,6 +52,18 @@ private:
     // Store width and height of image.
     int m_width{0};
     int m_height{0};
+
+    //store max rgb value
+    unsigned char m_maxRGBValue{0};
+
+    bool isComment(std::string line);
+
+    std::string removeComment(std::string line);
+
+    std::string removeWhiteSpace(std::string str);
+
+
+    std::vector<std::string> split(std::string sizeString);
 };
 
 

@@ -1,0 +1,4 @@
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment0_CPlusPlus/build/CMakeFiles/rebuild_cache.dir
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment0_CPlusPlus/build/CMakeFiles/edit_cache.dir
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment0_CPlusPlus/build/CMakeFiles/Assignment0.dir
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment0_CPlusPlus/build/CMakeFiles/Assignment0_autogen.dir
