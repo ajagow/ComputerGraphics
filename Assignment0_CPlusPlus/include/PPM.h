@@ -56,13 +56,16 @@ private:
     //store max rgb value
     unsigned char m_maxRGBValue{0};
 
+    // checks to see if a string is a comment or not
     bool isComment(std::string line);
 
+    // removes comments that might appear in line
     std::string removeComment(std::string line);
 
+    // remove white space in a string
     std::string removeWhiteSpace(std::string str);
 
-
+    // splits a string based on white space
     std::vector<std::string> split(std::string sizeString);
 };
 
