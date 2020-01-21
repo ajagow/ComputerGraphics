@@ -6,7 +6,7 @@ Noelle Wong
 * How many hours did it take you to complete this assignment? 
 6 hours
 * Did you collaborate or share ideas with any other students/TAs/Professors? 
-No
+No. We did ask the professor some clarifying questions though.
 * Did you use any external resources? 
   * https://stackoverflow.com/questions/24133413/c-syntax-confusion-declaring-unsigned-char-arrays
   * General C++ documentation
