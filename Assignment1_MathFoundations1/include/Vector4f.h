@@ -19,6 +19,10 @@ struct Vector4f{
     // This initializes the values x,y,z
     Vector4f(float a, float b, float c, float d){
       // TODO:
+      x = a;
+      y = b;
+      z = c;
+      w = d;
     }
 
     // Index operator, allowing us to access the individual
@@ -41,12 +45,20 @@ struct Vector4f{
     // Multiply vector by a uniform-scalar.
     Vector4f& operator *=(float s){
         // TODO:
+        x = x * s;
+        y = y * s;
+        z = z * s;
+        w = w * s;
         return (*this);
     }
 
     // Division Operator
     Vector4f& operator /=(float s){
         // TODO:
+        x = x / s;
+        y = y / s;
+        z = z / s;
+        w = w / s;
 
         return (*this);
     }
@@ -54,6 +66,10 @@ struct Vector4f{
     // Addition operator
     Vector4f& operator +=(const Vector4f& v){
         // TODO:
+        x = x + v[0];
+        y = y + v[1];
+        z = z + v[2];
+        w = w + v[3];
 
       return (*this);
     }
@@ -61,6 +77,10 @@ struct Vector4f{
     // Subtraction operator
     Vector4f& operator -=(const Vector4f& v){
         // TODO:
+        x = x - v[0];
+        y = y - v[1];
+        z = z - v[2];
+        w = w - v[3];
 
       return (*this);
     }
@@ -70,13 +90,18 @@ struct Vector4f{
 // Compute the dot product of a Vector4f
 inline float Dot(const Vector4f& a, const Vector4f& b){
   // TODO:
-  return 0;
+  return (a.x * b.x) + (a.y * b.y) + (a.z * b.z) + (a.w * b.w) ;
 }
 
 // Multiplication of a vector by a scalar values
 inline Vector4f operator *(const Vector4f& v, float s){
   // TODO:
   Vector4f vec;
+  vec.x = v.x * s;
+  vec.y = v.y * s;
+  vec.z = v.z * s;
+  vec.w = v.w * s;
+
   return vec;
 }
 
@@ -84,6 +109,11 @@ inline Vector4f operator *(const Vector4f& v, float s){
 inline Vector4f operator /(const Vector4f& v, float s){
   // TODO:
   Vector4f vec;
+  vec.x = v.x / s;
+  vec.y = v.y / s;
+  vec.z = v.z / s;
+  vec.w = v.w / s;
+
   return vec;
 }
 
@@ -92,19 +122,29 @@ inline Vector4f operator /(const Vector4f& v, float s){
 inline Vector4f operator -(const Vector4f& v){
   // TODO:
   Vector4f vec;
+  vec.x = v.x * -1;
+  vec.y = v.y * -1;
+  vec.z = v.z * -1;
+  vec.w = v.w * -1;
   return vec;
 }
 
 // Return the magnitude of a vector
 inline float Magnitude(const Vector4f& v){
   // TODO:
-  return 0;
+  float x = pow(v.x, 2) + pow(v.y, 2) + pow(v.z, 2) + pow(v.w, 2);
+
+  return sqrt(x);
 }
 
 // Add two vectors together
 inline Vector4f operator +(const Vector4f& a, const Vector4f& b){
   // TODO:
   Vector4f vec;
+  vec.x = a.x + b.x;
+  vec.y = a.y + b.y;
+  vec.z = a.z + b.z;
+  vec.w = a.w + b.w;
   return vec;
 }
 
@@ -112,6 +152,10 @@ inline Vector4f operator +(const Vector4f& a, const Vector4f& b){
 inline Vector4f operator -(const Vector4f& a, const Vector4f& b){
   // TODO:
   Vector4f vec;
+  vec.x = a.x - b.x;
+  vec.y = a.y - b.y;
+  vec.z = a.z - b.z;
+  vec.w = a.w - b.w;
   return vec;
 }
 
@@ -119,16 +163,28 @@ inline Vector4f operator -(const Vector4f& a, const Vector4f& b){
 // Note: This is the vector projection of 'a' onto 'b'
 inline Vector4f Project(const Vector4f& a, const Vector4f& b){
   // TODO:
-  Vector4f vec;
-  return vec;
+  // calculate dot product of a and b
+  float dotProduct = Dot(a, b);
+
+  // calculate magnitude of b
+  float magnitudeB = Magnitude(b);
+
+  float magnitudeBSquared = pow(magnitudeB, 2);
+
+  // multiply (dot product / magnitudeBSqured) and b
+
+  float val = dotProduct / magnitudeBSquared;
+  
+  return b * val;
 }
 
 // Set a vectors magnitude to 1
 // Note: This is NOT generating a normal vector
 inline Vector4f Normalize(const Vector4f& v){
   // TODO:
-  Vector4f vec;
-  return vec;
+  float magnitude = Magnitude(v);
+
+  return v * (1/magnitude);
 }
 
 // a x b (read: 'a crossed b')
@@ -140,6 +196,9 @@ inline Vector4f Normalize(const Vector4f& v){
 inline Vector4f CrossProduct(const Vector4f& a, const Vector4f& b){
   // TODO:
   Vector4f vec;
+  vec.x = a.y * b.z - a.z*b.y;
+  vec.y = a.z * b.x - a.x * b.z;
+  vec.z = a.x *b.y - a.y*b.x;
   return vec;
 }
 

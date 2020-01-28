@@ -42,6 +42,10 @@ public:
     // Makes the matrix an identity matrix
     void identity(){
         // TODO:
+        n[0][0] = 1; n[0][1] = 0; n[0][2] = 0; n[0][3] = 0;
+        n[1][0] = 0; n[1][1] = 1; n[1][2] = 0; n[1][3] = 0;
+        n[2][0] = 0; n[2][1] = 0; n[2][2] = 1; n[2][3] = 0;
+        n[3][0] = 0; n[3][1] = 0; n[3][2] = 0; n[3][3] = 1;
     }
 
     // Index operator with two dimensions

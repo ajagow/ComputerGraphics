@@ -1,0 +1,3 @@
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment1_MathFoundations1/build/CMakeFiles/rebuild_cache.dir
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment1_MathFoundations1/build/CMakeFiles/edit_cache.dir
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment1_MathFoundations1/build/CMakeFiles/Assignment1.dir
