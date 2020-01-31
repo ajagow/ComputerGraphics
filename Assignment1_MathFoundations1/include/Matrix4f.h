@@ -4,6 +4,7 @@
 #define MATRIX4F_H
 
 #include <cmath>
+#include <iostream>
 
 // We need to Vector4f header in order to multiply a matrix
 // by a vector.
@@ -73,22 +74,32 @@ public:
     // Make a matrix rotate about various axis
     Matrix4f MakeRotationX(float t){
         // TODO:
-        return(Matrix4f()); // You will need to modify this.
+        float cosX =  cos(t);
+        float sinX =  sin(t);
+
+        return(Matrix4f(1, 0, 0, 0, 0, cosX, -sinX, 0, 0, sinX, cosX, 0, 0, 0, 0, 1)); // You will need to modify this.
                             // When you test, test against glm_gtx_transform
     }
     Matrix4f MakeRotationY(float t){
         // TODO:
-        return(Matrix4f()); // You will need to modify this.
+        float cosY =  cos(t);
+        float sinY =  sin(t);
+
+        return(Matrix4f(cosY, 0, sinY, 0, 0, 1, 0, 0, -sinY, 0, cosY, 0, 0, 0, 0, 1)); // You will need to modify this.
                             // When you test, test against glm_gtx_transform
     }
     Matrix4f MakeRotationZ(float t){
         // TODO:
-        return(Matrix4f()); // You will need to modify this.
+        float cosZ =  cos(t);
+        float sinZ =  sin(t);
+
+
+        return(Matrix4f(cosZ, -sinZ, 0, 0, sinZ, cosZ, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); // You will need to modify this.
                             // When you test, test against glm_gtx_transform
     }
     Matrix4f MakeScale(float sx,float sy, float sz){
         // TODO:
-        return(Matrix4f()); // You will need to modify this.
+        return(Matrix4f(sx, 0, 0, 0, 0, sy, 0, 0, 0, 0, sz, 0, 0, 0, 0, 1)); // You will need to modify this.
                             // When you test, test against glm_gtx_transform
     }
 
@@ -99,6 +110,25 @@ public:
 Matrix4f operator *(const Matrix4f& A, const Matrix4f& B){
   // TODO:
   Matrix4f mat4;
+  mat4[0][0] = A[0][0] * B[0][0] + A[1][0] * B[0][1] + A[2][0] * B[0][2] + A[3][0] * B[0][3];
+  mat4[0][1] = A[0][0] * B[1][0] + A[1][0] * B[1][1] + A[2][0] * B[1][2] + A[3][0] * B[1][3];
+  mat4[0][2] = A[0][0] * B[2][0] + A[1][0] * B[2][1] + A[2][0] * B[2][2] + A[3][0] * B[2][3];
+  mat4[0][3] = A[0][0] * B[3][0] + A[1][0] * B[3][1] + A[2][0] * B[3][2] + A[3][0] * B[3][3];
+
+  mat4[1][0] = A[0][1] * B[0][0] + A[1][1] *  B[0][1] + A[2][1] * B[0][2] + A[3][1] * B[0][3];
+  mat4[1][1] = A[0][1] * B[1][0] + A[1][1] * B[1][1] + A[2][1] * B[1][2] + A[3][1] * B[1][3];
+  mat4[1][2] = A[0][1] * B[2][0] + A[1][1] * B[2][1] + A[2][1] * B[2][2] + A[3][1] * B[2][3];
+  mat4[1][3] = A[0][1] * B[3][0] + A[1][1] * B[3][1] + A[2][1] * B[3][2] + A[3][1] * B[3][3];
+
+  mat4[2][0] = A[0][2] * B[0][0] + A[1][2] *  B[0][1] + A[2][2] * B[0][2] + A[3][2] * B[0][3];
+  mat4[2][1] = A[0][2] * B[1][0] + A[1][2] * B[1][1] + A[2][2] * B[1][2] + A[3][2] * B[1][3];
+  mat4[2][2] = A[0][2] * B[2][0] + A[1][2] * B[2][1] + A[2][2] * B[2][2] + A[3][2] * B[2][3];
+  mat4[2][3] = A[0][2] * B[3][0] + A[1][2] * B[3][1] + A[2][2] * B[3][2] + A[3][2] * B[3][3];
+
+  mat4[3][0] = A[0][3] * B[0][0] + A[1][3] *  B[0][1] + A[2][3] * B[0][2] + A[3][3] * B[0][3];
+  mat4[3][1] = A[0][3] * B[1][0] + A[1][3] * B[1][1] + A[2][3] * B[1][2] + A[3][3] * B[1][3];
+  mat4[3][2] = A[0][3] * B[2][0] + A[1][3] * B[2][1] + A[2][3] * B[2][2] + A[3][3] * B[2][3];
+  mat4[3][3] = A[0][3] * B[3][0] + A[1][3] * B[3][1] + A[2][3] * B[3][2] + A[3][3] * B[3][3];
 
   return mat4;
 }

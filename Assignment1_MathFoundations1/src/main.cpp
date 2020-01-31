@@ -106,13 +106,16 @@ bool unitTest2(){
 // Sample unit test comparing against GLM.
 // TODO: Test against glm::scale
 bool unitTest3(){
-	glm::mat4 glmScale = glm::mat4(2.0f);
+    glm::mat4 glmScale = glm::scale(glm::vec3(2.0f, 2.0f, 2.0f));
+
 	Vector4f a(1.0f,0,0,0);
 	Vector4f b(0.0f,1.0f,0,0);
 	Vector4f c(0,0,1.0f,0);
 	Vector4f d(0,0,0,1.0f);
 	Matrix4f myScaled(a,b,c,d);
-    myScaled.MakeScale(2.0f,2.0f,2.0f);
+    // i changed: 
+    // myScaled.MakeScale(2.0f,2.0f,2.0f);
+    myScaled = myScaled.MakeScale(2.0f,2.0f,2.0f);
 
     if(
         glmScale[0][0]==myScaled[0][0] &&
@@ -433,6 +436,216 @@ bool unitTest20() {
 
 }
 
+// tests for matrix4f
+bool unitTest21() {
+    glm::mat4 trans(1.0f);
+    glm::mat4 glmRotationMatrix = glm::rotate(trans, 79.0f, glm::vec3(1.0f, 0.0f, 0.0f));
+
+	Matrix4f myIdentity( 1.0f,0,0,0,
+        			     0,1.0f,0,0,
+		        	     0,0,1.0f,0,
+			             0,0,0,1.0f);
+    Matrix4f myRotationMatrix = myIdentity.MakeRotationX(79.0f);
+    
+    // std::cout<< "\n here: " << rotationMatrix[1][1] <<"\n";
+    // std::cout<< "\n here: " << rotated[1][1] <<"\n";
+    if(
+        glmRotationMatrix[0][0]==myRotationMatrix[0][0] &&
+        glmRotationMatrix[0][1]==myRotationMatrix[0][1] &&
+        glmRotationMatrix[0][2]==myRotationMatrix[0][2] &&
+        glmRotationMatrix[0][3]==myRotationMatrix[0][3] &&
+        glmRotationMatrix[1][0]==myRotationMatrix[1][0] &&
+        glmRotationMatrix[1][1]==myRotationMatrix[1][1] &&
+        glmRotationMatrix[1][2]==myRotationMatrix[1][2] &&
+        glmRotationMatrix[1][3]==myRotationMatrix[1][3] &&
+        glmRotationMatrix[2][0]==myRotationMatrix[2][0] &&
+        glmRotationMatrix[2][1]==myRotationMatrix[2][1] &&
+        glmRotationMatrix[2][2]==myRotationMatrix[2][2] &&
+        glmRotationMatrix[2][3]==myRotationMatrix[2][3] &&
+        glmRotationMatrix[3][0]==myRotationMatrix[3][0] &&
+        glmRotationMatrix[3][1]==myRotationMatrix[3][1] &&
+        glmRotationMatrix[3][2]==myRotationMatrix[3][2] &&
+        glmRotationMatrix[3][3]==myRotationMatrix[3][3]){
+            return true;
+    }
+	
+    return false;	
+ 
+}
+
+bool unitTest22() {
+    glm::mat4 trans(1.0f);
+    glm::mat4 glmRotationMatrix = glm::rotate(trans, 129.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+
+	Matrix4f myIdentity( 1.0f,0,0,0,
+        			     0,1.0f,0,0,
+		        	     0,0,1.0f,0,
+			             0,0,0,1.0f);
+
+    Matrix4f myRotationMatrix = myIdentity.MakeRotationY(129.0f);
+    
+    // std::cout<< "\n here: " << rotationMatrix[1][1] <<"\n";
+    // std::cout<< "\n here: " << rotated[1][1] <<"\n";
+    if(
+        glmRotationMatrix[0][0]==myRotationMatrix[0][0] &&
+        glmRotationMatrix[0][1]==myRotationMatrix[0][1] &&
+        glmRotationMatrix[0][2]==myRotationMatrix[0][2] &&
+        glmRotationMatrix[0][3]==myRotationMatrix[0][3] &&
+        glmRotationMatrix[1][0]==myRotationMatrix[1][0] &&
+        glmRotationMatrix[1][1]==myRotationMatrix[1][1] &&
+        glmRotationMatrix[1][2]==myRotationMatrix[1][2] &&
+        glmRotationMatrix[1][3]==myRotationMatrix[1][3] &&
+        glmRotationMatrix[2][0]==myRotationMatrix[2][0] &&
+        glmRotationMatrix[2][1]==myRotationMatrix[2][1] &&
+        glmRotationMatrix[2][2]==myRotationMatrix[2][2] &&
+        glmRotationMatrix[2][3]==myRotationMatrix[2][3] &&
+        glmRotationMatrix[3][0]==myRotationMatrix[3][0] &&
+        glmRotationMatrix[3][1]==myRotationMatrix[3][1] &&
+        glmRotationMatrix[3][2]==myRotationMatrix[3][2] &&
+        glmRotationMatrix[3][3]==myRotationMatrix[3][3]){
+            return true;
+    }
+	
+    return false;	
+ 
+}
+
+bool unitTest23() {
+    glm::mat4 trans(1.0f);
+    glm::mat4 glmRotationMatrix = glm::rotate(trans, 285.0f, glm::vec3(0.0f, 0.0f, 1.0f));
+
+	Matrix4f myIdentity( 1.0f,0,0,0,
+        			     0,1.0f,0,0,
+		        	     0,0,1.0f,0,
+			             0,0,0,1.0f);
+                         
+    Matrix4f myRotationMatrix = myIdentity.MakeRotationZ(285.0f);
+    
+    // std::cout<< "\n here: " << rotationMatrix[1][1] <<"\n";
+    // std::cout<< "\n here: " << rotated[1][1] <<"\n";
+    if(
+        glmRotationMatrix[0][0]==myRotationMatrix[0][0] &&
+        glmRotationMatrix[0][1]==myRotationMatrix[0][1] &&
+        glmRotationMatrix[0][2]==myRotationMatrix[0][2] &&
+        glmRotationMatrix[0][3]==myRotationMatrix[0][3] &&
+        glmRotationMatrix[1][0]==myRotationMatrix[1][0] &&
+        glmRotationMatrix[1][1]==myRotationMatrix[1][1] &&
+        glmRotationMatrix[1][2]==myRotationMatrix[1][2] &&
+        glmRotationMatrix[1][3]==myRotationMatrix[1][3] &&
+        glmRotationMatrix[2][0]==myRotationMatrix[2][0] &&
+        glmRotationMatrix[2][1]==myRotationMatrix[2][1] &&
+        glmRotationMatrix[2][2]==myRotationMatrix[2][2] &&
+        glmRotationMatrix[2][3]==myRotationMatrix[2][3] &&
+        glmRotationMatrix[3][0]==myRotationMatrix[3][0] &&
+        glmRotationMatrix[3][1]==myRotationMatrix[3][1] &&
+        glmRotationMatrix[3][2]==myRotationMatrix[3][2] &&
+        glmRotationMatrix[3][3]==myRotationMatrix[3][3]){
+            return true;
+    }
+	
+    return false;	
+ 
+}
+
+bool unitTest24() {
+    glm::mat4 glmScaleMatrix = glm::scale(glm::vec3(2.0f, 2.0f, 2.0f));
+
+	Matrix4f myIdentity( 1.0f,0,0,0,
+        			     0,1.0f,0,0,
+		        	     0,0,1.0f,0,
+			             0,0,0,1.0f);
+                         
+    Matrix4f myScaleMatrix = myIdentity.MakeScale(2.0f, 2.0f ,2.0f);
+    
+
+    if(
+        glmScaleMatrix[0][0]==myScaleMatrix[0][0] &&
+        glmScaleMatrix[0][1]==myScaleMatrix[0][1] &&
+        glmScaleMatrix[0][2]==myScaleMatrix[0][2] &&
+        glmScaleMatrix[0][3]==myScaleMatrix[0][3] &&
+        glmScaleMatrix[1][0]==myScaleMatrix[1][0] &&
+        glmScaleMatrix[1][1]==myScaleMatrix[1][1] &&
+        glmScaleMatrix[1][2]==myScaleMatrix[1][2] &&
+        glmScaleMatrix[1][3]==myScaleMatrix[1][3] &&
+        glmScaleMatrix[2][0]==myScaleMatrix[2][0] &&
+        glmScaleMatrix[2][1]==myScaleMatrix[2][1] &&
+        glmScaleMatrix[2][2]==myScaleMatrix[2][2] &&
+        glmScaleMatrix[2][3]==myScaleMatrix[2][3] &&
+        glmScaleMatrix[3][0]==myScaleMatrix[3][0] &&
+        glmScaleMatrix[3][1]==myScaleMatrix[3][1] &&
+        glmScaleMatrix[3][2]==myScaleMatrix[3][2] &&
+        glmScaleMatrix[3][3]==myScaleMatrix[3][3]){
+            return true;
+    }
+	
+    return false;	
+ 
+}
+
+bool unitTest25() {
+
+
+    glm::mat4 glmScaleMatrix = glm::mat4(2.0f,129.0f,4.0f,998.0f,
+        			     4.0f,1.0f,44.0f,3441.0f,
+		        	     4.0f,94.0f,45.0f,9.0f,
+			             32.0f,10.0f,23.0f,6.0f);
+
+    glm::mat4 glmScaleMatrix2 = glm::mat4(4.0f,94.0f,45.0f,9.0f,
+        			      32.0f,10.0f,23.0f,6.0f,
+                         2.0f,129.0f,4.0f,998.0f,
+		        	     4.0f,1.0f,44.0f,3441.0f);
+
+	Matrix4f myIdentity( 2.0f,129.0f,4.0f,998.0f,
+        			     4.0f,1.0f,44.0f,3441.0f,
+		        	     4.0f,94.0f,45.0f,9.0f,
+			             32.0f,10.0f,23.0f,6.0f);
+
+    Matrix4f myIdentity2(4.0f,94.0f,45.0f,9.0f,
+        			      32.0f,10.0f,23.0f,6.0f,
+                         2.0f,129.0f,4.0f,998.0f,
+		        	     4.0f,1.0f,44.0f,3441.0f);
+
+                         
+                         
+    Matrix4f myScaleMatrix = myIdentity * myIdentity2;
+    glmScaleMatrix = glmScaleMatrix * glmScaleMatrix2;
+
+    // float fail = myIdentity2[0][0] * myIdentity[0][0] + myIdentity2[1][0] * myIdentity[0][1] + myIdentity2[2][0] * myIdentity[0][2] + myIdentity2[3][0] * myIdentity[0][3];
+
+    // std::cout<< "\n ours:  " << myIdentity2[1][0]<< ", " << myIdentity2[1][1]<< ", " << myIdentity2[1][2] << ", " << myIdentity2[1][3] << "\n";
+    // std::cout<< "\n theirs:  " << glmScaleMatrix2[0][1]<< ", " << glmScaleMatrix2[1][1]<< ", " << glmScaleMatrix2[2][1] << ", " << glmScaleMatrix2[3][1] << "\n";
+
+    std::cout<< "\n fjls;kdfj:  " << glmScaleMatrix[0][0]<< ", " << myScaleMatrix[0][0] << "\n";
+
+    
+
+    if(
+        glmScaleMatrix[0][0]==myScaleMatrix[0][0] &&
+        glmScaleMatrix[0][1]==myScaleMatrix[0][1] &&
+        glmScaleMatrix[0][2]==myScaleMatrix[0][2] &&
+        glmScaleMatrix[0][3]==myScaleMatrix[0][3] &&
+        glmScaleMatrix[1][0]==myScaleMatrix[1][0] &&
+        glmScaleMatrix[1][1]==myScaleMatrix[1][1] &&
+        glmScaleMatrix[1][2]==myScaleMatrix[1][2] &&
+        glmScaleMatrix[1][3]==myScaleMatrix[1][3] &&
+        glmScaleMatrix[2][0]==myScaleMatrix[2][0] &&
+        glmScaleMatrix[2][1]==myScaleMatrix[2][1] &&
+        glmScaleMatrix[2][2]==myScaleMatrix[2][2] &&
+        glmScaleMatrix[2][3]==myScaleMatrix[2][3] &&
+        glmScaleMatrix[3][0]==myScaleMatrix[3][0] &&
+        glmScaleMatrix[3][1]==myScaleMatrix[3][1] &&
+        glmScaleMatrix[3][2]==myScaleMatrix[3][2] &&
+        glmScaleMatrix[3][3]==myScaleMatrix[3][3]){
+            return true;
+    }
+	
+    return false;	
+
+
+ 
+}
+
+
 
 
 int main(){
@@ -442,12 +655,12 @@ int main(){
     // true = 1, false = 0
 
     // Run 'unit tests'
-    // std::cout << "Passed 0: " << unitTest0() << " \n";
-    // std::cout << "Passed 1: " << unitTest1() << " \n";
-    // std::cout << "Passed 2: " << unitTest2() << " \n";
-    // std::cout << "Passed 3: " << unitTest3() << " \n";
-    // std::cout << "Passed 4: " << unitTest4() << " \n";
-    // std::cout << "Passed 5: " << unitTest5() << " \n";
+    std::cout << "Passed 0: " << unitTest0() << " \n";
+    std::cout << "Passed 1: " << unitTest1() << " \n";
+    std::cout << "Passed 2: " << unitTest2() << " \n";
+    std::cout << "Passed 3: " << unitTest3() << " \n";
+    std::cout << "Passed 4: " << unitTest4() << " \n";
+    std::cout << "Passed 5: " << unitTest5() << " \n";
     std::cout << "Passed 6: " << unitTest6() << " \n";
     std::cout << "Passed 7: " << unitTest7() << " \n";
     std::cout << "Passed 8: " << unitTest8() << " \n";
@@ -463,6 +676,12 @@ int main(){
     // std::cout << "Passed 18: " << unitTest18() << " \n";
     std::cout << "Passed 19: " << unitTest19() << " \n";
     std::cout << "Passed 20: " << unitTest20() << " \n";
+    std::cout << "Passed 21: " << unitTest21() << " \n";
+    std::cout << "Passed 22: " << unitTest22() << " \n";
+    std::cout << "Passed 23: " << unitTest23() << " \n";
+    std::cout << "Passed 24: " << unitTest24() << " \n";
+    std::cout << "Passed 25: " << unitTest25() << " \n";
+
 
 
 
