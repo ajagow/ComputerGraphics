@@ -438,17 +438,25 @@ bool unitTest20() {
 
 // tests for matrix4f
 bool unitTest21() {
-    glm::mat4 trans(1.0f);
+    // glm::mat4 trans(1.0f);
+    glm::mat4 trans = glm::mat4(1, 2, 3, 4,
+                                        5, 6 ,7, 8,
+                                        9, 10, 11, 12,
+                                        13, 14, 15 , 16);
     glm::mat4 glmRotationMatrix = glm::rotate(trans, 79.0f, glm::vec3(1.0f, 0.0f, 0.0f));
 
+    Matrix4f myIdentity2(1, 2, 3, 4,
+                                        5, 6 ,7, 8,
+                                        9, 10, 11, 12,
+                                        13, 14, 15 , 16);
 	Matrix4f myIdentity( 1.0f,0,0,0,
         			     0,1.0f,0,0,
 		        	     0,0,1.0f,0,
 			             0,0,0,1.0f);
-    Matrix4f myRotationMatrix = myIdentity.MakeRotationX(79.0f);
+
+    Matrix4f myRotationMatrix =  myIdentity2 * myIdentity.MakeRotationX(79.0f);
     
-    // std::cout<< "\n here: " << rotationMatrix[1][1] <<"\n";
-    // std::cout<< "\n here: " << rotated[1][1] <<"\n";
+
     if(
         glmRotationMatrix[0][0]==myRotationMatrix[0][0] &&
         glmRotationMatrix[0][1]==myRotationMatrix[0][1] &&
@@ -483,6 +491,8 @@ bool unitTest22() {
 			             0,0,0,1.0f);
 
     Matrix4f myRotationMatrix = myIdentity.MakeRotationY(129.0f);
+
+
     
     // std::cout<< "\n here: " << rotationMatrix[1][1] <<"\n";
     // std::cout<< "\n here: " << rotated[1][1] <<"\n";
@@ -585,37 +595,93 @@ bool unitTest24() {
 bool unitTest25() {
 
 
-    glm::mat4 glmScaleMatrix = glm::mat4(2.0f,129.0f,4.0f,998.0f,
-        			     4.0f,1.0f,44.0f,3441.0f,
-		        	     4.0f,94.0f,45.0f,9.0f,
-			             32.0f,10.0f,23.0f,6.0f);
 
-    glm::mat4 glmScaleMatrix2 = glm::mat4(4.0f,94.0f,45.0f,9.0f,
-        			      32.0f,10.0f,23.0f,6.0f,
-                         2.0f,129.0f,4.0f,998.0f,
-		        	     4.0f,1.0f,44.0f,3441.0f);
+    // Matrix4f myIdentity( 1, 5, 9, 13,
+    //     			     2, 6, 10, 14,
+	// 	        	     3, 7, 11, 15,
+	// 		             4, 8, 12, 16);
 
-	Matrix4f myIdentity( 2.0f,129.0f,4.0f,998.0f,
-        			     4.0f,1.0f,44.0f,3441.0f,
-		        	     4.0f,94.0f,45.0f,9.0f,
-			             32.0f,10.0f,23.0f,6.0f);
+    // Matrix4f myIdentity2( 17, 21, 25, 29,
+    //     			     18, 22, 26, 30,
+	// 	        	     19, 23, 27, 31,
+	// 		             21, 24, 28, 32);
 
-    Matrix4f myIdentity2(4.0f,94.0f,45.0f,9.0f,
-        			      32.0f,10.0f,23.0f,6.0f,
-                         2.0f,129.0f,4.0f,998.0f,
-		        	     4.0f,1.0f,44.0f,3441.0f);
+
+    // glm::mat4 glmScaleMatrix = glm::mat4(2.0f,129.0f,4.0f,998.0f,
+    //     			     4.0f,1.0f,44.0f,3441.0f,
+	// 	        	     4.0f,94.0f,45.0f,9.0f,
+	// 		             32.0f,10.0f,23.0f,6.0f);
+
+    // glm::mat4 glmScaleMatrix2 = glm::mat4(4.0f,94.0f,45.0f,9.0f,
+    //     			      32.0f,10.0f,23.0f,6.0f,
+    //                      2.0f,129.0f,4.0f,998.0f,
+	// 	        	     4.0f,1.0f,44.0f,3441.0f);
+
+	// Matrix4f myIdentity( 2.0f,129.0f,4.0f,998.0f,
+    //     			     4.0f,1.0f,44.0f,3441.0f,
+	// 	        	     4.0f,94.0f,45.0f,9.0f,
+	// 		             32.0f,10.0f,23.0f,6.0f);
+
+    // Matrix4f myIdentity2(4.0f,94.0f,45.0f,9.0f,
+    //     			      32.0f,10.0f,23.0f,6.0f,
+    //                      2.0f,129.0f,4.0f,998.0f,
+	// 	        	     4.0f,1.0f,44.0f,3441.0f);
+
+    //     glm::vec4 aGLM = glm::vec4(1, 2, 3, 4);
+    //     glm::vec4 bGLM = glm::vec4(5, 6 ,7, 8);
+
+    // glm::vec4 cGLM = glm::vec4(9, 10, 11, 12);
+
+    // glm::vec4 dGLM = glm::vec4(13, 14, 15 , 16);
+
+
+
+    glm::mat4 glmScaleMatrix = glm::mat4(1, 2, 3, 4,
+                                        5, 6 ,7, 8,
+                                        9, 10, 11, 12,
+                                        13, 14, 15 , 16);
+    
+     glm::mat4 glmScaleMatrix2 = glm::mat4(17, 18, 19, 20,
+                                            21, 22, 23,24,
+                                            25, 26, 27, 28,
+                                            29, 30, 31, 32);
+
+    // glm::mat4 glmScaleMatrix = glm::mat4(aGLM, bGLM, cGLM, dGLM);
+
+    // Vector4f a(1, 2, 3, 4);
+	// Vector4f b(5, 6 ,7, 8);
+	// Vector4f c(9, 10, 11, 12);
+	// Vector4f d(13, 14, 15 , 16);
+	// Matrix4f myIdentity(a,b,c,d);
+
+    Matrix4f myIdentity( 1, 2, 3, 4,
+        			     5, 6 ,7, 8,
+		        	     9, 10, 11, 12,
+			             13, 14, 15 , 16);
+
+    Matrix4f myIdentity2( 17, 18, 19, 20,
+        			     21, 22, 23,24,
+		        	     25, 26, 27, 28,
+			             29, 30, 31, 32);
+
+    std::cout<< "\n theirs: " << glmScaleMatrix[1][2] << "\n";
+    std::cout<< "\n ours: " << myIdentity[1][2] << "\n";
 
                          
-                         
+                        
+    std::cout<< "\n ours:  " << myIdentity[1][0]<< ", " << myIdentity[1][1]<< ", " << myIdentity[1][2] << ", " << myIdentity[1][3] << "\n";
+    std::cout<< "\n theirs:  " << glmScaleMatrix[0][1]<< ", " << glmScaleMatrix[1][1]<< ", " << glmScaleMatrix[2][1] << ", " << glmScaleMatrix[3][1] << "\n";
+
+
     Matrix4f myScaleMatrix = myIdentity * myIdentity2;
     glmScaleMatrix = glmScaleMatrix * glmScaleMatrix2;
 
-    // float fail = myIdentity2[0][0] * myIdentity[0][0] + myIdentity2[1][0] * myIdentity[0][1] + myIdentity2[2][0] * myIdentity[0][2] + myIdentity2[3][0] * myIdentity[0][3];
+    // for(int j = 0; j < 4; j++) {
+    //     for(int i = 0; i < 4; i++) {
+    //         std::cout<< "\n j: " << j <<   "  i: "<< i << " " << glmScaleMatrix[j][i]<< ", " << myScaleMatrix[j][i] << "\n";
+    //     }
+    // }
 
-    // std::cout<< "\n ours:  " << myIdentity2[1][0]<< ", " << myIdentity2[1][1]<< ", " << myIdentity2[1][2] << ", " << myIdentity2[1][3] << "\n";
-    // std::cout<< "\n theirs:  " << glmScaleMatrix2[0][1]<< ", " << glmScaleMatrix2[1][1]<< ", " << glmScaleMatrix2[2][1] << ", " << glmScaleMatrix2[3][1] << "\n";
-
-    std::cout<< "\n fjls;kdfj:  " << glmScaleMatrix[0][0]<< ", " << myScaleMatrix[0][0] << "\n";
 
     
 
@@ -644,6 +710,223 @@ bool unitTest25() {
 
  
 }
+
+
+bool unitTest26() {
+
+
+    glm::mat4 glmScaleMatrix = glm::mat4(2, 4, 81, 24,
+                                            28, 56, 843, 24,
+                                            12, 5432, 757, 424,
+                                            32, 34, 675, 24);
+    
+     glm::mat4 glmScaleMatrix2 = glm::mat4(17, 18, 19, 20,
+                                            21, 22, 23,24,
+                                            25, 26, 27, 28,
+                                            29, 30, 31, 32);
+
+
+
+    Matrix4f myIdentity( 2, 4, 81, 24,
+                                            28, 56, 843, 24,
+                                            12, 5432, 757, 424,
+                                            32, 34, 675, 24);
+
+    Matrix4f myIdentity2( 17, 18, 19, 20,
+        			     21, 22, 23,24,
+		        	     25, 26, 27, 28,
+			             29, 30, 31, 32);
+
+    std::cout<< "\n theirs: " << glmScaleMatrix[1][2] << "\n";
+    std::cout<< "\n ours: " << myIdentity[1][2] << "\n";
+
+                         
+                        
+    std::cout<< "\n ours:  " << myIdentity[1][0]<< ", " << myIdentity[1][1]<< ", " << myIdentity[1][2] << ", " << myIdentity[1][3] << "\n";
+    std::cout<< "\n theirs:  " << glmScaleMatrix[0][1]<< ", " << glmScaleMatrix[1][1]<< ", " << glmScaleMatrix[2][1] << ", " << glmScaleMatrix[3][1] << "\n";
+
+
+    Matrix4f myScaleMatrix = myIdentity * myIdentity2;
+    glmScaleMatrix = glmScaleMatrix * glmScaleMatrix2;
+
+
+
+    
+
+    if(
+        glmScaleMatrix[0][0]==myScaleMatrix[0][0] &&
+        glmScaleMatrix[0][1]==myScaleMatrix[0][1] &&
+        glmScaleMatrix[0][2]==myScaleMatrix[0][2] &&
+        glmScaleMatrix[0][3]==myScaleMatrix[0][3] &&
+        glmScaleMatrix[1][0]==myScaleMatrix[1][0] &&
+        glmScaleMatrix[1][1]==myScaleMatrix[1][1] &&
+        glmScaleMatrix[1][2]==myScaleMatrix[1][2] &&
+        glmScaleMatrix[1][3]==myScaleMatrix[1][3] &&
+        glmScaleMatrix[2][0]==myScaleMatrix[2][0] &&
+        glmScaleMatrix[2][1]==myScaleMatrix[2][1] &&
+        glmScaleMatrix[2][2]==myScaleMatrix[2][2] &&
+        glmScaleMatrix[2][3]==myScaleMatrix[2][3] &&
+        glmScaleMatrix[3][0]==myScaleMatrix[3][0] &&
+        glmScaleMatrix[3][1]==myScaleMatrix[3][1] &&
+        glmScaleMatrix[3][2]==myScaleMatrix[3][2] &&
+        glmScaleMatrix[3][3]==myScaleMatrix[3][3]){
+            return true;
+    }
+	
+    return false;	
+
+
+ 
+}
+
+bool unitTest27() {
+
+
+
+    glm::mat4 glmScaleMatrix = glm::mat4(1, 2, 3, 4,
+                                        5, 6 ,7, 8,
+                                        9, 10, 11, 12,
+                                        13, 14, 15 , 16);
+    
+
+
+
+    Matrix4f myMatrix( 1, 2, 3, 4,
+        			     5, 6 ,7, 8,
+		        	     9, 10, 11, 12,
+			             13, 14, 15 , 16);
+
+    Vector4f a(1, 2, 3, 4);
+
+    glm::vec4 aGLM = glm::vec4(1, 2, 3, 4);
+
+
+
+    Vector4f result1 = myMatrix * a;
+    glm::vec4 result2 = glmScaleMatrix * aGLM;
+
+
+
+    if (result2[0] == result1[0] && result2[1] == result1[1] && result2[2] == result1[2] && result2[3] == result1[3]) {
+        return true;
+    }
+	
+    return false;	
+
+ 
+}
+
+bool unitTest28() {
+
+
+
+    glm::mat4 glmScaleMatrix = glm::mat4(2, 4, 81, 24,
+                                            28, 56, 843, 24,
+                                            12, 5432, 757, 424,
+                                            32, 34, 675, 24);
+    
+
+
+
+    Matrix4f myMatrix( 2, 4, 81, 24,
+                                            28, 56, 843, 24,
+                                            12, 5432, 757, 424,
+                                            32, 34, 675, 24);
+
+    Vector4f a(77, 345, 23, 4);
+
+    glm::vec4 aGLM = glm::vec4(77, 345, 23, 4);
+
+
+
+    Vector4f result1 = myMatrix * a;
+    glm::vec4 result2 = glmScaleMatrix * aGLM;
+
+
+    if (result2[0] == result1[0] && result2[1] == result1[1] && result2[2] == result1[2] && result2[3] == result1[3]) {
+        return true;
+    }
+	
+    return false;	
+
+ 
+}
+
+bool unitTest29() {
+
+
+
+
+
+    glm::vec4 aGLM = glm::vec4(1, 2, 3, 4);
+    glm::vec4 bGLM = glm::vec4(5, 6 ,7, 8);
+
+    glm::vec4 cGLM = glm::vec4(9, 10, 11, 12);
+
+    glm::vec4 dGLM = glm::vec4(13, 14, 15 , 16);
+
+
+
+ 
+    
+     glm::mat4 glmScaleMatrix2 = glm::mat4(17, 18, 19, 20,
+                                            21, 22, 23,24,
+                                            25, 26, 27, 28,
+                                            29, 30, 31, 32);
+
+    glm::mat4 glmScaleMatrix = glm::mat4(aGLM, bGLM, cGLM, dGLM);
+
+    Vector4f a(1, 2, 3, 4);
+	Vector4f b(5, 6 ,7, 8);
+	Vector4f c(9, 10, 11, 12);
+	Vector4f d(13, 14, 15 , 16);
+	Matrix4f myIdentity(a,b,c,d);
+
+    // Matrix4f myIdentity( 1, 2, 3, 4,
+    //     			     5, 6 ,7, 8,
+	// 	        	     9, 10, 11, 12,
+	// 		             13, 14, 15 , 16);
+
+    Matrix4f myIdentity2( 17, 18, 19, 20,
+        			     21, 22, 23,24,
+		        	     25, 26, 27, 28,
+			             29, 30, 31, 32);
+
+    Matrix4f myScaleMatrix = myIdentity * myIdentity2;
+    glmScaleMatrix = glmScaleMatrix * glmScaleMatrix2;
+
+
+
+
+    
+
+    if(
+        glmScaleMatrix[0][0]==myScaleMatrix[0][0] &&
+        glmScaleMatrix[0][1]==myScaleMatrix[0][1] &&
+        glmScaleMatrix[0][2]==myScaleMatrix[0][2] &&
+        glmScaleMatrix[0][3]==myScaleMatrix[0][3] &&
+        glmScaleMatrix[1][0]==myScaleMatrix[1][0] &&
+        glmScaleMatrix[1][1]==myScaleMatrix[1][1] &&
+        glmScaleMatrix[1][2]==myScaleMatrix[1][2] &&
+        glmScaleMatrix[1][3]==myScaleMatrix[1][3] &&
+        glmScaleMatrix[2][0]==myScaleMatrix[2][0] &&
+        glmScaleMatrix[2][1]==myScaleMatrix[2][1] &&
+        glmScaleMatrix[2][2]==myScaleMatrix[2][2] &&
+        glmScaleMatrix[2][3]==myScaleMatrix[2][3] &&
+        glmScaleMatrix[3][0]==myScaleMatrix[3][0] &&
+        glmScaleMatrix[3][1]==myScaleMatrix[3][1] &&
+        glmScaleMatrix[3][2]==myScaleMatrix[3][2] &&
+        glmScaleMatrix[3][3]==myScaleMatrix[3][3]){
+            return true;
+    }
+	
+    return false;	
+
+
+ 
+}
+
+
 
 
 
@@ -681,6 +964,10 @@ int main(){
     std::cout << "Passed 23: " << unitTest23() << " \n";
     std::cout << "Passed 24: " << unitTest24() << " \n";
     std::cout << "Passed 25: " << unitTest25() << " \n";
+    std::cout << "Passed 26: " << unitTest26() << " \n";
+    std::cout << "Passed 27: " << unitTest27() << " \n";
+    std::cout << "Passed 28: " << unitTest28() << " \n";
+    std::cout << "Passed 29: " << unitTest29() << " \n";
 
 
 
