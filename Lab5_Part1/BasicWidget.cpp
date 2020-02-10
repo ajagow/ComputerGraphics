@@ -3,9 +3,9 @@
 //////////////////////////////////////////////////////////////////////
 // Publics
 #if USE_QT_OPENGL
-  BasicWidget::BasicWidget(QWidget* parent) : QOpenGLWidget(parent), vbo_(QOpenGLBuffer::VertexBuffer), ibo_(QOpenGLBuffer::IndexBuffer)
+BasicWidget::BasicWidget(QWidget *parent) : QOpenGLWidget(parent), vbo_(QOpenGLBuffer::VertexBuffer), ibo_(QOpenGLBuffer::IndexBuffer)
 #else
-  BasicWidget::BasicWidget(QWidget* parent) : QOpenGLWidget(parent)
+BasicWidget::BasicWidget(QWidget *parent) : QOpenGLWidget(parent)
 #endif
 {
   setFocusPolicy(Qt::StrongFocus);
@@ -30,24 +30,24 @@ BasicWidget::~BasicWidget()
 QString BasicWidget::vertexShaderString() const
 {
   QString str =
-	"#version 330\n"
-	"layout(location = 0) in vec3 position;\n"
-	"void main()\n"
-	"{\n"
-	"  gl_Position = vec4(position, 1.0);\n"
-	"}\n";
+      "#version 330\n"
+      "layout(location = 0) in vec3 position;\n"
+      "void main()\n"
+      "{\n"
+      "  gl_Position = vec4(position, 3.0);\n"
+      "}\n";
   return str;
 }
 
 QString BasicWidget::fragmentShaderString() const
 {
   QString str =
-	"#version 330\n"
-	"out vec4 color;\n"
-	"void main()\n"
-	"{\n"
-	"  color = vec4(0.0f, 0.0f, 1.0f, 1.0f);\n"
-	"}\n";
+      "#version 330\n"
+      "out vec4 color;\n"
+      "void main()\n"
+      "{\n"
+      "  color = vec4(0.0f, 1.0f, 0.0f, 1.0f);\n"
+      "}\n";
   return str;
 }
 
@@ -59,16 +59,19 @@ void BasicWidget::createShader()
   QOpenGLShader frag(QOpenGLShader::Fragment);
   frag.compileSourceCode(fragmentShaderString());
   bool ok = shaderProgram_.addShader(&vert);
-  if(!ok) {
-	qDebug() << shaderProgram_.log();
+  if (!ok)
+  {
+    qDebug() << shaderProgram_.log();
   }
   ok = shaderProgram_.addShader(&frag);
-  if(!ok) {
-	qDebug() << shaderProgram_.log();
+  if (!ok)
+  {
+    qDebug() << shaderProgram_.log();
   }
   ok = shaderProgram_.link();
-  if(!ok) {
-	qDebug() << shaderProgram_.log();
+  if (!ok)
+  {
+    qDebug() << shaderProgram_.log();
   }
 }
 #else
@@ -92,15 +95,16 @@ void BasicWidget::createShader()
   shaderID_ = prog;
 }
 
-unsigned int BasicWidget::compileShader(unsigned int type, const QString& shaderSrc)
+unsigned int BasicWidget::compileShader(unsigned int type, const QString &shaderSrc)
 {
   unsigned int id = glCreateShader(type);
   // Make sure we can create the shader
-  if(id == 0) {
-	return 0;
+  if (id == 0)
+  {
+    return 0;
   }
   QByteArray ba = shaderSrc.toLocal8Bit();
-  const char* src = ba.data();
+  const char *src = ba.data();
   // Set the source
   glShaderSource(id, 1, &src, nullptr);
   // Compile
@@ -108,21 +112,27 @@ unsigned int BasicWidget::compileShader(unsigned int type, const QString& shader
   // Retrieve the result of our compilation
   int result;
   glGetShaderiv(id, GL_COMPILE_STATUS, &result);
-  if(result == GL_FALSE){
-	int length;
-	glGetShaderiv(id, GL_INFO_LOG_LENGTH, &length);
-	char* errorMessages = new char[length]; // Could also use alloca here.
-	glGetShaderInfoLog(id, length, &length, errorMessages);
-	if(type == GL_VERTEX_SHADER){
-	  qDebug() << "ERROR: GL_VERTEX_SHADER compilation failed!\n" << errorMessages << "\n";
-	}else if(type == GL_FRAGMENT_SHADER){
-	  qDebug() << "ERROR: GL_FRAGMENT_SHADER compilation failed!\n" << errorMessages << "\n";
-	}
-	// Reclaim our memory
-	delete[] errorMessages;
-	// Delete our broken shader
-	glDeleteShader(id);
-	return 0;
+  if (result == GL_FALSE)
+  {
+    int length;
+    glGetShaderiv(id, GL_INFO_LOG_LENGTH, &length);
+    char *errorMessages = new char[length]; // Could also use alloca here.
+    glGetShaderInfoLog(id, length, &length, errorMessages);
+    if (type == GL_VERTEX_SHADER)
+    {
+      qDebug() << "ERROR: GL_VERTEX_SHADER compilation failed!\n"
+               << errorMessages << "\n";
+    }
+    else if (type == GL_FRAGMENT_SHADER)
+    {
+      qDebug() << "ERROR: GL_FRAGMENT_SHADER compilation failed!\n"
+               << errorMessages << "\n";
+    }
+    // Reclaim our memory
+    delete[] errorMessages;
+    // Delete our broken shader
+    glDeleteShader(id);
+    return 0;
   }
 
   return id;
@@ -135,25 +145,25 @@ void BasicWidget::initializeGL()
   makeCurrent();
   initializeOpenGLFunctions();
 
-  QOpenGLContext* curContext = this->context();
+  QOpenGLContext *curContext = this->context();
   qDebug() << "[BasicWidget]::initializeGL() -- Context Information:";
   qDebug() << "  Context Valid: " << std::string(curContext->isValid() ? "true" : "false").c_str();
   qDebug() << "  GL Version Used: " << curContext->format().majorVersion() << "." << curContext->format().minorVersion();
-  qDebug() << "  Vendor: " << reinterpret_cast<const char*>(glGetString(GL_VENDOR));
-  qDebug() << "  Renderer: " << reinterpret_cast<const char*>(glGetString(GL_RENDERER));
-  qDebug() << "  Version: " << reinterpret_cast<const char*>(glGetString(GL_VERSION));
-  qDebug() << "  GLSL Version: " << reinterpret_cast<const char*>(glGetString(GL_SHADING_LANGUAGE_VERSION));
+  qDebug() << "  Vendor: " << reinterpret_cast<const char *>(glGetString(GL_VENDOR));
+  qDebug() << "  Renderer: " << reinterpret_cast<const char *>(glGetString(GL_RENDERER));
+  qDebug() << "  Version: " << reinterpret_cast<const char *>(glGetString(GL_VERSION));
+  qDebug() << "  GLSL Version: " << reinterpret_cast<const char *>(glGetString(GL_SHADING_LANGUAGE_VERSION));
 
   // Set up our shaders.
   createShader();
 
   // Define our verts
   static const GLfloat verts[9] =
-  {
-	-0.8f, -0.8f, 0.0f, // Left vertex position
-	0.8f, -0.8f, 0.0f,  // right vertex position
-	0.0f,  0.8f, 0.0f,  // Top vertex position
-  };
+      {
+          -0.8f, -0.8f, 0.0f, // Left vertex position
+          0.8f, -0.8f, 0.0f,  // right vertex position
+          0.0f, 0.8f, 0.0f,   // Top vertex position
+      };
   // Set up our buffers and our vao
 #if USE_QT_OPENGL
   // Temporary bind of our shader.
@@ -199,7 +209,7 @@ void BasicWidget::paintGL()
   glDisable(GL_DEPTH_TEST);
   glDisable(GL_CULL_FACE);
 
-  glClearColor(0.f, 0.f, 0.f, 1.f);
+  glClearColor(1.f, 0.f, 0.f, 1.f);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 #if USE_QT_OPENGL
@@ -214,11 +224,11 @@ void BasicWidget::paintGL()
   glEnableVertexAttribArray(0);
   glBindBuffer(GL_ARRAY_BUFFER, vboID_);
   glVertexAttribPointer(0,        // Attribute 0 matches our layout for vertex positions
-      3,        // Size
-      GL_FLOAT, // Type
-      GL_FALSE, // Not normalized
-      0,        // Stride - no interleaving
-      (void*)0  // nullptr
+                        3,        // Size
+                        GL_FLOAT, // Type
+                        GL_FALSE, // Not normalized
+                        0,        // Stride - no interleaving
+                        (void *)0 // nullptr
   );
   // Render
   glDrawArrays(GL_TRIANGLES, 0, 3);

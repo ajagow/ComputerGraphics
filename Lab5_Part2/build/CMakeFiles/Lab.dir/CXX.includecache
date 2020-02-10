@@ -1,0 +1,84 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../BasicWidget.h
+QtGui
+-
+QtWidgets
+-
+QtOpenGL
+-
+
+../Lab.h
+QtGui
+-
+QtCore
+-
+QtWidgets
+-
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Lab5_Part2/BasicWidget.cpp
+BasicWidget.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Lab5_Part2/BasicWidget.h
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Lab5_Part2/BasicWidget.h
+QtGui
+-
+QtWidgets
+-
+QtOpenGL
+-
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Lab5_Part2/Lab.cpp
+Lab.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Lab5_Part2/Lab.h
+BasicWidget.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Lab5_Part2/BasicWidget.h
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Lab5_Part2/Lab.h
+QtGui
+-
+QtCore
+-
+QtWidgets
+-
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Lab5_Part2/build/Lab_autogen/EWIEGA46WW/moc_BasicWidget.cpp
+memory
+-
+BasicWidget.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Lab5_Part2/build/Lab_autogen/EWIEGA46WW/BasicWidget.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Lab5_Part2/build/Lab_autogen/EWIEGA46WW/moc_Lab.cpp
+memory
+-
+Lab.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Lab5_Part2/build/Lab_autogen/EWIEGA46WW/Lab.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Lab5_Part2/build/Lab_autogen/mocs_compilation.cpp
+EWIEGA46WW/moc_BasicWidget.cpp
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Lab5_Part2/build/Lab_autogen/EWIEGA46WW/moc_BasicWidget.cpp
+EWIEGA46WW/moc_Lab.cpp
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Lab5_Part2/build/Lab_autogen/EWIEGA46WW/moc_Lab.cpp
+
+/Users/anika/Qt/5.14.0/clang_64/lib/QtCore.framework/QtCore
+
+/Users/anika/Qt/5.14.0/clang_64/lib/QtGui.framework/QtGui
+
+/Users/anika/Qt/5.14.0/clang_64/lib/QtOpenGL.framework/QtOpenGL
+
+/Users/anika/Qt/5.14.0/clang_64/lib/QtWidgets.framework/QtWidgets
+

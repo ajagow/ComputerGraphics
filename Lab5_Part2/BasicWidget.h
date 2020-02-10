@@ -20,10 +20,11 @@ private:
   QString fragmentShaderString() const;
   void createShader();
   QOpenGLVertexArrayObject vao_;
+  int shapeType = 3;
 
 protected:
   // Required interaction overrides
-  void keyReleaseEvent(QKeyEvent* keyEvent) override;
+  void keyReleaseEvent(QKeyEvent *keyEvent) override;
 
   // Required overrides form QOpenGLWidget
   void initializeGL() override;
@@ -41,16 +42,24 @@ protected:
   GLuint cboID_;
   unsigned int shaderID_;
 
-  unsigned int compileShader(unsigned int type, const QString& shaderSrc);
-  
+  unsigned int compileShader(unsigned int type, const QString &shaderSrc);
+
 #endif
 
-  
-  
 public:
-  BasicWidget(QWidget* parent=nullptr);
+  BasicWidget(QWidget *parent = nullptr);
   virtual ~BasicWidget();
-  
+
   // Make sure we have some size that makes sense.
-  QSize sizeHint() const {return QSize(800,600);}
+  QSize sizeHint() const { return QSize(800, 600); }
+
+  void setShapeType(int s)
+  {
+    shapeType = s;
+  }
+  // Getter
+  int getShapeType()
+  {
+    return shapeType;
+  }
 };
