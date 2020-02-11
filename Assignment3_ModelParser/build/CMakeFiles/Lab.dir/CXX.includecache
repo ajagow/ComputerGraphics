@@ -1,0 +1,104 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../Application.h
+QtGui
+-
+QtCore
+-
+QtWidgets
+-
+
+../BasicWidget.h
+QtGui
+-
+QtWidgets
+-
+QtOpenGL
+-
+ObjReader.h
+../ObjReader.h
+
+../ObjReader.h
+string
+-
+vector
+-
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/Application.cpp
+Application.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/Application.h
+BasicWidget.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/BasicWidget.h
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/Application.h
+QtGui
+-
+QtCore
+-
+QtWidgets
+-
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/BasicWidget.cpp
+BasicWidget.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/BasicWidget.h
+ObjReader.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/ObjReader.h
+iostream
+-
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/BasicWidget.h
+QtGui
+-
+QtWidgets
+-
+QtOpenGL
+-
+ObjReader.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/ObjReader.h
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/ObjReader.h
+string
+-
+vector
+-
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/build/Lab_autogen/EWIEGA46WW/moc_Application.cpp
+memory
+-
+Application.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/build/Lab_autogen/EWIEGA46WW/Application.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/build/Lab_autogen/EWIEGA46WW/moc_BasicWidget.cpp
+memory
+-
+BasicWidget.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/build/Lab_autogen/EWIEGA46WW/BasicWidget.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/build/Lab_autogen/mocs_compilation.cpp
+EWIEGA46WW/moc_Application.cpp
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/build/Lab_autogen/EWIEGA46WW/moc_Application.cpp
+EWIEGA46WW/moc_BasicWidget.cpp
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/build/Lab_autogen/EWIEGA46WW/moc_BasicWidget.cpp
+
+/Users/anika/Qt/5.14.0/clang_64/lib/QtCore.framework/QtCore
+
+/Users/anika/Qt/5.14.0/clang_64/lib/QtGui.framework/QtGui
+
+/Users/anika/Qt/5.14.0/clang_64/lib/QtOpenGL.framework/QtOpenGL
+
+/Users/anika/Qt/5.14.0/clang_64/lib/QtWidgets.framework/QtWidgets
+

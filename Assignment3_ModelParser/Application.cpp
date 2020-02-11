@@ -4,7 +4,7 @@
 
 Application::Application(QWidget* parent) : QMainWindow(parent)
 {
-  buildGui();
+  Application::buildGui();
 }
 
 Application::~Application()

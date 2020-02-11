@@ -6,6 +6,10 @@
 #include <QtCore>
 #include <QtWidgets>
 
+
+#ifndef Application_H
+#define Application_H
+
 class Application : public QMainWindow
 {
   Q_OBJECT
@@ -21,3 +25,5 @@ public slots:
 private:
   void buildGui();
 };
+
+#endif

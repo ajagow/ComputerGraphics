@@ -23,5 +23,6 @@ int main(int argc, char** argv) {
   
   Application app;
   app.show();
+
   return QApplication::exec();
 }
