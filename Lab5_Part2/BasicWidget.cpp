@@ -297,7 +297,7 @@ void BasicWidget::paintGL()
   shaderProgram_.bind();
   vao_.bind();
   // TODO: Change number of indices drawn
-  glDrawElements(GL_TRIANGLES, BasicWidget::getShapeType()f, GL_UNSIGNED_INT, 0);
+  glDrawElements(GL_TRIANGLES, BasicWidget::getShapeType(), GL_UNSIGNED_INT, 0);
   // ENDTODO
   vao_.release();
   shaderProgram_.release();
