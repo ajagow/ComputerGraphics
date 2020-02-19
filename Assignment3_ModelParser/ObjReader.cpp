@@ -51,10 +51,17 @@ ObjReader::ObjReader(std::string filename)
 
             for (int i = 1; i < something.size(); i++)
             {
-                std::vector<std::string> grabbedVertices = ObjReader::split(something[i], "\/\/");
-                // std::cout<< "\n hello: " << grabbedVertices[0] << ", " << grabbedVertices[1] << "\n";
+                std::string currString = something[i];
+                std::vector<std::string> grabbedVertices = ObjReader::split(currString, "\/\/");
+                try {
+                    vertexIndices.push_back(std::stoi(grabbedVertices[0]));
+                }
+                catch (const std::invalid_argument& i) {
+                    // just in case there are texture coords
+                    std::vector<std::string> grabbedVertices = ObjReader::split(currString, "\/");
+                    vertexIndices.push_back(std::stoi(grabbedVertices[0]));
 
-                vertexIndices.push_back(std::stoi(grabbedVertices[0]));
+                }
             }
         }
         else if (line[0] == '#')
@@ -83,17 +90,6 @@ std::vector<float> ObjReader::getVertices()
 
     return ans;
 
-    //     std::vector<float> ans;
-    // for( unsigned int i=0; i<vertexIndices.size(); i++ ){
-    //     unsigned int vertexIndex = vertexIndices[i];
-    //     ObjReader::Vector3 v = vertices[ vertexIndex-1 ];
-    //     ans.push_back(v.x);
-    //     ans.push_back(v.y);
-    //     ans.push_back(v.z);
-    // }
-
-    // std::cout<< "here!!!!\n";
-    // return ans;
 }
 
 std::vector<float> ObjReader::getNormals()
@@ -114,16 +110,6 @@ std::vector<float> ObjReader::getNormals()
 
 std::vector<unsigned int> ObjReader::getFaces()
 {
-    // std::vector<ObjReader::Vector3> ans;
-    // for( unsigned int i=0; i<vertexIndices.size(); i++ ){
-    //     unsigned int vertexIndex = vertexIndices[i];
-    //     ObjReader::Vector3 v = vertices[ vertexIndex-1 ];
-    //     ans.push_back(v);
-    // }
-
-    // std::cout<< "here!!!!\n";
-    // return ans;
-
     std::vector<unsigned int> ans;
     for (int i = 0; i < vertexIndices.size(); i++)
     {
@@ -134,26 +120,6 @@ std::vector<unsigned int> ObjReader::getFaces()
     return ans;
 }
 
-std::vector<unsigned int> ObjReader::getLineFaces()
-{
-
-    std::vector<unsigned int> ans;
-    for (int i = 0; i < vertexIndices.size(); i += 3)
-    {
-
-        unsigned int first = vertexIndices[i];
-        unsigned int second = vertexIndices[i + 1];
-        unsigned int third = vertexIndices[i + 2];
-        ans.push_back(first - 1);
-        ans.push_back(second - 1);
-        ans.push_back(second - 1);
-        ans.push_back(third - 1);
-        ans.push_back(first - 1);
-        ans.push_back(third - 1);
-    }
-
-    return ans;
-}
 
 std::vector<std::string> ObjReader::split(std::string s, std::string regexMatch)
 {

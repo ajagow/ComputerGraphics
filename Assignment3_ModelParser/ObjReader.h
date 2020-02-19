@@ -20,6 +20,7 @@ public:
     // Destructor clears any memory that has been allocated
     ~ObjReader(){};
 
+    // Struct to represent the x, y, z values of a Vector
     struct Vector3
     {
         float x, y, z;
@@ -28,17 +29,18 @@ public:
     std::vector<float> getVertices();
     std::vector<float> getNormals();
     std::vector<unsigned int> getFaces();
-    std::vector<unsigned int> getLineFaces();
 
     // NOTE:    You may add any helper functions you like in the
     //          private section.
 private:
+    // vertices of .obj
     std::vector<Vector3> vertices;
+    // normal values of .obj
     std::vector<Vector3> normal;
-
+    // vertex indices of face values of .obj
     std::vector<unsigned int> vertexIndices;
 
-    //splits a string based on whitespace
+    //splits a string based on regex passed into function
     std::vector<std::string> split(std::string givenString, std::string regexMatch);
 };
 

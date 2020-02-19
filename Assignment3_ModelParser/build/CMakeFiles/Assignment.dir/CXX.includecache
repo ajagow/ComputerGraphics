@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/ObjReader.cpp
+ObjReader.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/ObjReader.h
+iostream
+-
+fstream
+-
+regex
+-
+algorithm
+-
+typeinfo
+-
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/ObjReader.h
+string
+-
+vector
+-
+

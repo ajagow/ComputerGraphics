@@ -64,6 +64,24 @@ QString BasicWidget::fragmentShaderString() const
   return str;
 }
 
+void BasicWidget::setIndicesAndVertices() {
+std::vector<float> vertices = obj.getVertices();
+  float *verticesArr = &vertices[0];
+
+  std::vector<unsigned int> faces = obj.getFaces();
+  unsigned int *facesArr = &faces[0];
+
+  vbo_.setUsagePattern(QOpenGLBuffer::StaticDraw);
+  vbo_.create();
+  vbo_.bind();
+  vbo_.allocate(verticesArr, vertices.size() * sizeof(GL_FLOAT));
+
+  ibo_.setUsagePattern(QOpenGLBuffer::StaticDraw);
+  ibo_.create();
+  ibo_.bind();
+  ibo_.allocate(facesArr, faces.size() * sizeof(GL_INT));
+}
+
 #if USE_QT_OPENGL
 void BasicWidget::createShader()
 {
@@ -163,12 +181,18 @@ void BasicWidget::keyReleaseEvent(QKeyEvent *keyEvent)
 
     BasicWidget::setShapeType(1);
 
+    BasicWidget::setIndicesAndVertices();
+
     update(); // We call update after we handle a key press to trigger a redraw when we are ready
   }
+
+
   else if (keyEvent->key() == Qt::Key_2)
   {
     qDebug() << "2  Pressed";
     BasicWidget::setShapeType(2);
+    BasicWidget::setIndicesAndVertices();
+
     update(); // We call update after we handle a key press to trigger a redraw when we are ready
   }
   else if (keyEvent->key() == Qt::Key_Q)
@@ -212,43 +236,14 @@ void BasicWidget::initializeGL()
   // Set up our shaders.
   createShader();
 
-  std::vector<float> s = obj.getVertices();
-  float *arr = &s[0];
 
-  std::vector<unsigned int> s2 = obj.getLineFaces();
-  unsigned int *arr2 = &s2[0];
-
-  std::vector<float> s3 = obj.getNormals();
-  float *arr3 = &s3[0];
-
-  std::cout << "size: " << s2.size() << ", " << s.size() << "\n";
 
   // Set up our buffers and our vao
 
   // Temporary bind of our shader.
   shaderProgram_.bind();
   // Create and prepare a vbo
-  vbo_.setUsagePattern(QOpenGLBuffer::StaticDraw);
-  vbo_.create();
-  // Bind our vbo inside our vao
-  vbo_.bind();
-  vbo_.allocate(arr, s.size() * sizeof(GL_FLOAT));
-
-  // TODO:  Generate our color buffer
-
-  cbo_.setUsagePattern(QOpenGLBuffer::StaticDraw);
-  cbo_.create();
-
-  cbo_.bind();
-  cbo_.allocate(arr3, s3.size() * sizeof(GL_FLOAT));
-  // ENDTODO
-
-  // TODO:  Generate our index buffer
-
-  ibo_.setUsagePattern(QOpenGLBuffer::StaticDraw);
-  ibo_.create();
-  ibo_.bind();
-  ibo_.allocate(arr2, s2.size() * sizeof(GL_INT));
+    BasicWidget::setIndicesAndVertices();
 
   // Create a VAO to keep track of things for us.
   vao_.create();
@@ -285,35 +280,6 @@ void BasicWidget::paintGL()
 
   shaderProgram_.bind();
   vao_.bind();
-
-  // TODO: Change number of indices drawn
-
-  std::vector<float> s = obj.getVertices();
-  float *arr = &s[0];
-
-  std::vector<unsigned int> s2;
-  if (frameType == 1)
-  {
-    s2 = obj.getFaces();
-  }
-
-  else if (frameType == 2)
-  {
-    s2 = obj.getLineFaces();
-  }
-
-  // std::vector<unsigned int> s2 = obj.getLineFaces();
-  unsigned int *arr2 = &s2[0];
-
-  vbo_.setUsagePattern(QOpenGLBuffer::StaticDraw);
-  vbo_.create();
-  vbo_.bind();
-  vbo_.allocate(arr, s.size() * sizeof(GL_FLOAT));
-
-  ibo_.setUsagePattern(QOpenGLBuffer::StaticDraw);
-  ibo_.create();
-  ibo_.bind();
-  ibo_.allocate(arr2, s2.size() * sizeof(GL_INT));
 
   if (frameType == 1)
   {

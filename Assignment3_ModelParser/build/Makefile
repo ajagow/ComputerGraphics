@@ -111,30 +111,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Lab
+# Target rules for targets named Assignment
 
 # Build rule for target.
-Lab: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Lab
-.PHONY : Lab
+Assignment: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Assignment
+.PHONY : Assignment
 
 # fast build rule for target.
-Lab/fast:
-	$(MAKE) -f CMakeFiles/Lab.dir/build.make CMakeFiles/Lab.dir/build
-.PHONY : Lab/fast
+Assignment/fast:
+	$(MAKE) -f CMakeFiles/Assignment.dir/build.make CMakeFiles/Assignment.dir/build
+.PHONY : Assignment/fast
 
 #=============================================================================
-# Target rules for targets named Lab_autogen
+# Target rules for targets named Assignment_autogen
 
 # Build rule for target.
-Lab_autogen: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Lab_autogen
-.PHONY : Lab_autogen
+Assignment_autogen: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Assignment_autogen
+.PHONY : Assignment_autogen
 
 # fast build rule for target.
-Lab_autogen/fast:
-	$(MAKE) -f CMakeFiles/Lab_autogen.dir/build.make CMakeFiles/Lab_autogen.dir/build
-.PHONY : Lab_autogen/fast
+Assignment_autogen/fast:
+	$(MAKE) -f CMakeFiles/Assignment_autogen.dir/build.make CMakeFiles/Assignment_autogen.dir/build
+.PHONY : Assignment_autogen/fast
 
 Application.o: Application.cpp.o
 
@@ -142,7 +142,7 @@ Application.o: Application.cpp.o
 
 # target to build an object file
 Application.cpp.o:
-	$(MAKE) -f CMakeFiles/Lab.dir/build.make CMakeFiles/Lab.dir/Application.cpp.o
+	$(MAKE) -f CMakeFiles/Assignment.dir/build.make CMakeFiles/Assignment.dir/Application.cpp.o
 .PHONY : Application.cpp.o
 
 Application.i: Application.cpp.i
@@ -151,7 +151,7 @@ Application.i: Application.cpp.i
 
 # target to preprocess a source file
 Application.cpp.i:
-	$(MAKE) -f CMakeFiles/Lab.dir/build.make CMakeFiles/Lab.dir/Application.cpp.i
+	$(MAKE) -f CMakeFiles/Assignment.dir/build.make CMakeFiles/Assignment.dir/Application.cpp.i
 .PHONY : Application.cpp.i
 
 Application.s: Application.cpp.s
@@ -160,8 +160,35 @@ Application.s: Application.cpp.s
 
 # target to generate assembly for a file
 Application.cpp.s:
-	$(MAKE) -f CMakeFiles/Lab.dir/build.make CMakeFiles/Lab.dir/Application.cpp.s
+	$(MAKE) -f CMakeFiles/Assignment.dir/build.make CMakeFiles/Assignment.dir/Application.cpp.s
 .PHONY : Application.cpp.s
+
+Assignment_autogen/mocs_compilation.o: Assignment_autogen/mocs_compilation.cpp.o
+
+.PHONY : Assignment_autogen/mocs_compilation.o
+
+# target to build an object file
+Assignment_autogen/mocs_compilation.cpp.o:
+	$(MAKE) -f CMakeFiles/Assignment.dir/build.make CMakeFiles/Assignment.dir/Assignment_autogen/mocs_compilation.cpp.o
+.PHONY : Assignment_autogen/mocs_compilation.cpp.o
+
+Assignment_autogen/mocs_compilation.i: Assignment_autogen/mocs_compilation.cpp.i
+
+.PHONY : Assignment_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+Assignment_autogen/mocs_compilation.cpp.i:
+	$(MAKE) -f CMakeFiles/Assignment.dir/build.make CMakeFiles/Assignment.dir/Assignment_autogen/mocs_compilation.cpp.i
+.PHONY : Assignment_autogen/mocs_compilation.cpp.i
+
+Assignment_autogen/mocs_compilation.s: Assignment_autogen/mocs_compilation.cpp.s
+
+.PHONY : Assignment_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+Assignment_autogen/mocs_compilation.cpp.s:
+	$(MAKE) -f CMakeFiles/Assignment.dir/build.make CMakeFiles/Assignment.dir/Assignment_autogen/mocs_compilation.cpp.s
+.PHONY : Assignment_autogen/mocs_compilation.cpp.s
 
 BasicWidget.o: BasicWidget.cpp.o
 
@@ -169,7 +196,7 @@ BasicWidget.o: BasicWidget.cpp.o
 
 # target to build an object file
 BasicWidget.cpp.o:
-	$(MAKE) -f CMakeFiles/Lab.dir/build.make CMakeFiles/Lab.dir/BasicWidget.cpp.o
+	$(MAKE) -f CMakeFiles/Assignment.dir/build.make CMakeFiles/Assignment.dir/BasicWidget.cpp.o
 .PHONY : BasicWidget.cpp.o
 
 BasicWidget.i: BasicWidget.cpp.i
@@ -178,7 +205,7 @@ BasicWidget.i: BasicWidget.cpp.i
 
 # target to preprocess a source file
 BasicWidget.cpp.i:
-	$(MAKE) -f CMakeFiles/Lab.dir/build.make CMakeFiles/Lab.dir/BasicWidget.cpp.i
+	$(MAKE) -f CMakeFiles/Assignment.dir/build.make CMakeFiles/Assignment.dir/BasicWidget.cpp.i
 .PHONY : BasicWidget.cpp.i
 
 BasicWidget.s: BasicWidget.cpp.s
@@ -187,35 +214,8 @@ BasicWidget.s: BasicWidget.cpp.s
 
 # target to generate assembly for a file
 BasicWidget.cpp.s:
-	$(MAKE) -f CMakeFiles/Lab.dir/build.make CMakeFiles/Lab.dir/BasicWidget.cpp.s
+	$(MAKE) -f CMakeFiles/Assignment.dir/build.make CMakeFiles/Assignment.dir/BasicWidget.cpp.s
 .PHONY : BasicWidget.cpp.s
-
-Lab_autogen/mocs_compilation.o: Lab_autogen/mocs_compilation.cpp.o
-
-.PHONY : Lab_autogen/mocs_compilation.o
-
-# target to build an object file
-Lab_autogen/mocs_compilation.cpp.o:
-	$(MAKE) -f CMakeFiles/Lab.dir/build.make CMakeFiles/Lab.dir/Lab_autogen/mocs_compilation.cpp.o
-.PHONY : Lab_autogen/mocs_compilation.cpp.o
-
-Lab_autogen/mocs_compilation.i: Lab_autogen/mocs_compilation.cpp.i
-
-.PHONY : Lab_autogen/mocs_compilation.i
-
-# target to preprocess a source file
-Lab_autogen/mocs_compilation.cpp.i:
-	$(MAKE) -f CMakeFiles/Lab.dir/build.make CMakeFiles/Lab.dir/Lab_autogen/mocs_compilation.cpp.i
-.PHONY : Lab_autogen/mocs_compilation.cpp.i
-
-Lab_autogen/mocs_compilation.s: Lab_autogen/mocs_compilation.cpp.s
-
-.PHONY : Lab_autogen/mocs_compilation.s
-
-# target to generate assembly for a file
-Lab_autogen/mocs_compilation.cpp.s:
-	$(MAKE) -f CMakeFiles/Lab.dir/build.make CMakeFiles/Lab.dir/Lab_autogen/mocs_compilation.cpp.s
-.PHONY : Lab_autogen/mocs_compilation.cpp.s
 
 ObjReader.o: ObjReader.cpp.o
 
@@ -223,7 +223,7 @@ ObjReader.o: ObjReader.cpp.o
 
 # target to build an object file
 ObjReader.cpp.o:
-	$(MAKE) -f CMakeFiles/Lab.dir/build.make CMakeFiles/Lab.dir/ObjReader.cpp.o
+	$(MAKE) -f CMakeFiles/Assignment.dir/build.make CMakeFiles/Assignment.dir/ObjReader.cpp.o
 .PHONY : ObjReader.cpp.o
 
 ObjReader.i: ObjReader.cpp.i
@@ -232,7 +232,7 @@ ObjReader.i: ObjReader.cpp.i
 
 # target to preprocess a source file
 ObjReader.cpp.i:
-	$(MAKE) -f CMakeFiles/Lab.dir/build.make CMakeFiles/Lab.dir/ObjReader.cpp.i
+	$(MAKE) -f CMakeFiles/Assignment.dir/build.make CMakeFiles/Assignment.dir/ObjReader.cpp.i
 .PHONY : ObjReader.cpp.i
 
 ObjReader.s: ObjReader.cpp.s
@@ -241,7 +241,7 @@ ObjReader.s: ObjReader.cpp.s
 
 # target to generate assembly for a file
 ObjReader.cpp.s:
-	$(MAKE) -f CMakeFiles/Lab.dir/build.make CMakeFiles/Lab.dir/ObjReader.cpp.s
+	$(MAKE) -f CMakeFiles/Assignment.dir/build.make CMakeFiles/Assignment.dir/ObjReader.cpp.s
 .PHONY : ObjReader.cpp.s
 
 main.o: main.cpp.o
@@ -250,7 +250,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) -f CMakeFiles/Lab.dir/build.make CMakeFiles/Lab.dir/main.cpp.o
+	$(MAKE) -f CMakeFiles/Assignment.dir/build.make CMakeFiles/Assignment.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -259,7 +259,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles/Lab.dir/build.make CMakeFiles/Lab.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles/Assignment.dir/build.make CMakeFiles/Assignment.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -268,7 +268,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles/Lab.dir/build.make CMakeFiles/Lab.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles/Assignment.dir/build.make CMakeFiles/Assignment.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -279,17 +279,17 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... Lab"
-	@echo "... Lab_autogen"
+	@echo "... Assignment"
+	@echo "... Assignment_autogen"
 	@echo "... Application.o"
 	@echo "... Application.i"
 	@echo "... Application.s"
+	@echo "... Assignment_autogen/mocs_compilation.o"
+	@echo "... Assignment_autogen/mocs_compilation.i"
+	@echo "... Assignment_autogen/mocs_compilation.s"
 	@echo "... BasicWidget.o"
 	@echo "... BasicWidget.i"
 	@echo "... BasicWidget.s"
-	@echo "... Lab_autogen/mocs_compilation.o"
-	@echo "... Lab_autogen/mocs_compilation.i"
-	@echo "... Lab_autogen/mocs_compilation.s"
 	@echo "... ObjReader.o"
 	@echo "... ObjReader.i"
 	@echo "... ObjReader.s"

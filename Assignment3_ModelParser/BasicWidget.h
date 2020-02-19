@@ -27,6 +27,7 @@ private:
   ObjReader bunny = ObjReader("../objects/bunny_centered.obj");
   ObjReader monkey = ObjReader("../objects/monkey_centered.obj");
   ObjReader obj = bunny;
+  void setIndicesAndVertices();
 
 protected:
   // Required interaction overrides

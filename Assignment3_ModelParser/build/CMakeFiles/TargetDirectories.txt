@@ -1,4 +1,4 @@
 /Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/build/CMakeFiles/rebuild_cache.dir
 /Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/build/CMakeFiles/edit_cache.dir
-/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/build/CMakeFiles/Lab.dir
-/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/build/CMakeFiles/Lab_autogen.dir
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/build/CMakeFiles/Assignment.dir
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/build/CMakeFiles/Assignment_autogen.dir
