@@ -5,13 +5,15 @@
 *TODO*: Please edit the following information in your assignment
 
 * Name and partners name(At most 1 partner for this Assignment): 
+* Noelle Wong
 * How many hours did it take you to complete this Assignment? 
+* 12 hours
 * Did you collaborate or share ideas with any other students/TAs/Professors? 
+* Talked to Erik.
 * Did you use any external resources? 
-  * (tbd if any)
-  * (tbd if any)
-  * (tbd if any)
+  * I used the links below and a few random stack overflow comments for C++ syntax help.
 * (Optional) What was the most interesting part of the assignment? How would you improve this assignment?
+* It was cool when i messed up some of the colors and had a disco rabbit.  It's sad that I now only have a white rabbit :(
   
 ## Description
 
