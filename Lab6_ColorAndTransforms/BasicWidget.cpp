@@ -1,8 +1,11 @@
 #include "BasicWidget.h"
 
+#include <QtGui/QMatrix4x4>
+#include <QtGui/QVector4D>
+
 //////////////////////////////////////////////////////////////////////
 // Publics
-BasicWidget::BasicWidget(QWidget* parent) : QOpenGLWidget(parent), vbo_(QOpenGLBuffer::VertexBuffer), cbo_(QOpenGLBuffer::VertexBuffer), ibo_(QOpenGLBuffer::IndexBuffer), logger_(this)
+BasicWidget::BasicWidget(QWidget *parent) : QOpenGLWidget(parent), vbo_(QOpenGLBuffer::VertexBuffer), ibo_(QOpenGLBuffer::IndexBuffer), logger_(this)
 {
   setFocusPolicy(Qt::StrongFocus);
 }
@@ -12,8 +15,8 @@ BasicWidget::~BasicWidget()
   vbo_.release();
   vbo_.destroy();
   // TODO: Remove the CBO
-  cbo_.release();
-  cbo_.destroy();
+  // cbo_.release();
+  // cbo_.destroy();
   // End TODO
   ibo_.release();
   ibo_.destroy();
@@ -26,36 +29,36 @@ BasicWidget::~BasicWidget()
 QString BasicWidget::vertexShaderString() const
 {
   QString str =
-    "#version 330\n"
-    "layout(location = 0) in vec3 position;\n"
-    "layout(location = 1) in vec4 color;\n"
+      "#version 330\n"
+      "layout(location = 0) in vec3 position;\n"
+      "layout(location = 1) in vec4 color;\n"
 
-    "uniform mat4 modelMatrix;\n"
-    "uniform mat4 viewMatrix;\n"
-    "uniform mat4 projectionMatrix;\n"
-    
-    "out vec4 vertColor;\n"
+      "uniform mat4 modelMatrix;\n"
+      "uniform mat4 viewMatrix;\n"
+      "uniform mat4 projectionMatrix;\n"
 
-    "void main()\n"
-    "{\n"
-    // TODO: gl_Position must be updated!
-    "  gl_Position = vec4(position, 1.0);\n"
-    // END TODO
-    "  vertColor = color;\n"
-    "}\n";
+      "out vec4 vertColor;\n"
+
+      "void main()\n"
+      "{\n"
+      // TODO: gl_Position must be updated!
+      "  gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(position, 1.0);\n"
+      // END TODO
+      "  vertColor = color;\n"
+      "}\n";
   return str;
 }
 
 QString BasicWidget::fragmentShaderString() const
 {
   QString str =
-	"#version 330\n"
-    "in vec4 vertColor;\n"
-	"out vec4 color;\n"
-	"void main()\n"
-	"{\n"
-	"  color = vertColor;\n"
-	"}\n";
+      "#version 330\n"
+      "in vec4 vertColor;\n"
+      "out vec4 color;\n"
+      "void main()\n"
+      "{\n"
+      "  color = vertColor;\n"
+      "}\n";
   return str;
 }
 
@@ -66,30 +69,38 @@ void BasicWidget::createShader()
   QOpenGLShader frag(QOpenGLShader::Fragment);
   frag.compileSourceCode(fragmentShaderString());
   bool ok = shaderProgram_.addShader(&vert);
-  if(!ok) {
-	qDebug() << shaderProgram_.log();
+  if (!ok)
+  {
+    qDebug() << shaderProgram_.log();
   }
   ok = shaderProgram_.addShader(&frag);
-  if(!ok) {
-	qDebug() << shaderProgram_.log();
+  if (!ok)
+  {
+    qDebug() << shaderProgram_.log();
   }
   ok = shaderProgram_.link();
-  if(!ok) {
-	qDebug() << shaderProgram_.log();
+  if (!ok)
+  {
+    qDebug() << shaderProgram_.log();
   }
 }
 ///////////////////////////////////////////////////////////////////////
 // Protected
-void BasicWidget::keyReleaseEvent(QKeyEvent* keyEvent)
+void BasicWidget::keyReleaseEvent(QKeyEvent *keyEvent)
 {
   // Handle key events here.
-  if (keyEvent->key() == Qt::Key_Left) {
+  if (keyEvent->key() == Qt::Key_Left)
+  {
     qDebug() << "Left Arrow Pressed";
-    update();  // We call update after we handle a key press to trigger a redraw when we are ready
-  } else if (keyEvent->key() == Qt::Key_Right) {
+    update(); // We call update after we handle a key press to trigger a redraw when we are ready
+  }
+  else if (keyEvent->key() == Qt::Key_Right)
+  {
     qDebug() << "Right Arrow Pressed";
-    update();  // We call update after we handle a key press to trigger a redraw when we are ready
-  } else {
+    update(); // We call update after we handle a key press to trigger a redraw when we are ready
+  }
+  else
+  {
     qDebug() << "You Pressed an unsupported Key!";
   }
 }
@@ -103,64 +114,68 @@ void BasicWidget::initializeGL()
   model_.setToIdentity();
   view_.setToIdentity();
   projection_.setToIdentity();
-  
+
   // Setup the logger for real-time messaging
-  connect(&logger_, &QOpenGLDebugLogger::messageLogged, [=](){
+  connect(&logger_, &QOpenGLDebugLogger::messageLogged, [=]() {
     const QList<QOpenGLDebugMessage> messages = logger_.loggedMessages();
-    for(auto msg : messages) {
+    for (auto msg : messages)
+    {
       qDebug() << msg;
     }
   });
   logger_.startLogging();
-  
-  QOpenGLContext* curContext = this->context();
+
+  QOpenGLContext *curContext = this->context();
   qDebug() << "[BasicWidget]::initializeGL() -- Context Information:";
   qDebug() << "  Context Valid: " << std::string(curContext->isValid() ? "true" : "false").c_str();
   qDebug() << "  GL Version Used: " << curContext->format().majorVersion() << "." << curContext->format().minorVersion();
-  qDebug() << "  Vendor: " << reinterpret_cast<const char*>(glGetString(GL_VENDOR));
-  qDebug() << "  Renderer: " << reinterpret_cast<const char*>(glGetString(GL_RENDERER));
-  qDebug() << "  Version: " << reinterpret_cast<const char*>(glGetString(GL_VERSION));
-  qDebug() << "  GLSL Version: " << reinterpret_cast<const char*>(glGetString(GL_SHADING_LANGUAGE_VERSION));
+  qDebug() << "  Vendor: " << reinterpret_cast<const char *>(glGetString(GL_VENDOR));
+  qDebug() << "  Renderer: " << reinterpret_cast<const char *>(glGetString(GL_RENDERER));
+  qDebug() << "  Version: " << reinterpret_cast<const char *>(glGetString(GL_VERSION));
+  qDebug() << "  GLSL Version: " << reinterpret_cast<const char *>(glGetString(GL_SHADING_LANGUAGE_VERSION));
 
   // Set up our shaders.
   createShader();
 
   // Define our verts
   static const GLfloat verts[9] =
-  {
-    0.0f, 0.0f, 0.0f, // Center vertex position
-    1.0f, 1.0f, 0.0f,  // Top right vertex position
-    -1.0f,  1.0f, 0.0f  // Top left vertex position
-  };
+      {
+          0.0f, 0.0f, 0.0f, // Center vertex position
+          1.0f, 1.0f, 0.0f, // Top right vertex position
+          -1.0f, 1.0f, 0.0f // Top left vertex position
+      };
   // Define our vert colors
   static const GLfloat colors[12] =
-  {
-      1.0f, 0.0f, 0.0f, 1.0f, // red
-      0.0f, 1.0f, 0.0f, 1.0f, // green
-      0.0f, 0.0f, 1.0f, 1.0f // blue
-  };
+      {
+          1.0f, 0.0f, 0.0f, 1.0f, // red
+          0.0f, 1.0f, 0.0f, 1.0f, // green
+          0.0f, 0.0f, 1.0f, 1.0f  // blue
+      };
   // Define our indices
   static const GLuint idx[3] =
-  {
-      0, 1, 2
-  };
+      {
+          0, 1, 2};
+
+  static const GLfloat colorsAndVerts[21] =
+      {
+          0.0f, 0.0f, 0.0f,       // Center vertex position
+          1.0f, 0.0f, 0.0f, 1.0f, // color 1
+          1.0f, 1.0f, 0.0f,       // Top right vertex position
+          0.0f, 1.0f, 0.0f, 1.0f, // color 2
+          -1.0f, 1.0f, 0.0f,      // Top left vertex position
+          0.0f, 0.0f, 1.0f, 1.0f, // color3
+      };
+
   // Set up our buffers and our vao
   // Temporary bind of our shader.
   shaderProgram_.bind();
 
   // TODO:  Create a position + color buffer
-  // Note - use the vbo_ member provided 
+  // Note - use the vbo_ member provided
   vbo_.create();
   vbo_.setUsagePattern(QOpenGLBuffer::StaticDraw);
   vbo_.bind();
-  vbo_.allocate(verts, 3 * 3 * sizeof(GL_FLOAT));
-  // END TODO
-  
-  // TODO:  Remove the cbo_
-  cbo_.create();
-  cbo_.setUsagePattern(QOpenGLBuffer::StaticDraw);
-  cbo_.bind();
-  cbo_.allocate(colors, 3 * 4 * sizeof(GL_FLOAT));
+  vbo_.allocate(colorsAndVerts, 21 * sizeof(GL_FLOAT));
   // END TODO
 
   // TODO:  Generate our index buffer
@@ -178,10 +193,10 @@ void BasicWidget::initializeGL()
   // Note:  Remember that Offset and Stride are expressed in terms
   //        of bytes!
   shaderProgram_.enableAttributeArray(0);
-  shaderProgram_.setAttributeBuffer(0, GL_FLOAT, 0, 3);
-  cbo_.bind();
+  shaderProgram_.setAttributeBuffer(0, GL_FLOAT, 0, 3, 7 * sizeof(float));
+  // cbo_.bind();
   shaderProgram_.enableAttributeArray(1);
-  shaderProgram_.setAttributeBuffer(1, GL_FLOAT, 0, 4);
+  shaderProgram_.setAttributeBuffer(1, GL_FLOAT, 3 * sizeof(float), 4, 7 * sizeof(float));
   // END TODO
 
   ibo_.bind();
@@ -197,6 +212,25 @@ void BasicWidget::resizeGL(int w, int h)
   glViewport(0, 0, w, h);
   // TODO:  Set up the model, view, and projection matrices
   // END TODO
+
+  shaderProgram_.bind();
+
+  QMatrix4x4 model;
+  model.scale(-0.5);
+
+  QMatrix4x4 view;
+  view.lookAt(
+      QVector3D(0.0, 0.0, 10.0), // Eye
+      QVector3D(0.0, 0.0, 0.0),  // Focal Point
+      QVector3D(0.0, 1.0, 0.0)); // Up vector
+  QMatrix4x4 proj;
+  proj.perspective(30, w / h, 1.0, 100.0);
+
+  shaderProgram_.setUniformValue("modelMatrix", model);
+  shaderProgram_.setUniformValue("viewMatrix", view);
+  shaderProgram_.setUniformValue("projectionMatrix", proj);
+
+  shaderProgram_.release();
 }
 
 void BasicWidget::paintGL()
