@@ -27,7 +27,7 @@ add_executable(Assignment
   ${srcs}
 )
 
-target_link_libraries(Assignment Qt5::Widgets Qt5::Core Qt5::Gui Qt5::OpenGL ${OPENGL_LIBRARIES})
+target_link_libraries(Assignment Qt5::Widgets Qt5::Core Qt5::Gui Qt5::OpenGL OpenGL::GL)
 
 if(WIN32)
 	add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
