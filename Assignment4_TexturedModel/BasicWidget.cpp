@@ -1,10 +1,12 @@
 #include "BasicWidget.h"
 #include <iostream>
+#include <vector>
 
 //////////////////////////////////////////////////////////////////////
 // Publics
-BasicWidget::BasicWidget(QWidget *parent) : QOpenGLWidget(parent), logger_(this)
+BasicWidget::BasicWidget(const std::string filePath, QWidget *parent) : QOpenGLWidget(parent), logger_(this)
 {
+  
   setFocusPolicy(Qt::StrongFocus);
 }
 
@@ -16,6 +18,15 @@ BasicWidget::~BasicWidget()
   }
   renderables_.clear();
 }
+
+std::string BasicWidget::getPath() {
+  return filePath;
+}
+
+std::string BasicWidget::setPath(std::string given) {
+  return given;
+}
+
 
 //////////////////////////////////////////////////////////////////////
 // Privates
@@ -45,47 +56,26 @@ void BasicWidget::initializeGL()
   initializeOpenGLFunctions();
 
   qDebug() << QDir::currentPath();
-  // QString texFile = "../objects/house/house_diffuse.ppm";
-  // std::cout<< "textfile: " << "../objects/house/house_diffuse.jpg" << "\n";
-  // QString texFile = "../objects/windmill/windmill_diffuse.ppm";
-  // QString texFile = "../objects/capsule/capsule0.ppm";
-  QString texFile = "../objects/chapel/chapel_diffuse.ppm";
-  // QString texFile = "../objects/dice.png";
-  QVector<QVector3D> pos;
-  QVector<QVector3D> pos2;
-  QVector<QVector3D> norm;
-  QVector<QVector2D> texCoord;
-  QVector<unsigned int> idx;
-  pos << QVector3D(-0.8, -0.8, 0.0);
-  pos << QVector3D(0.8, -0.8, 0.0);
-  pos << QVector3D(-0.8, 0.8, 0.0);
-  pos << QVector3D(0.8, 0.8, 0.0);
 
-  // We don't actually use the normals right now, but this will be useful later!
-  norm << QVector3D(0.0, 0.0, 1.0);
-  norm << QVector3D(0.0, 0.0, 1.0);
-  norm << QVector3D(0.0, 0.0, 1.0);
-  norm << QVector3D(0.0, 0.0, 1.0);
-  // TODO:  Make sure to add texture coordinates to pass into the initialization of our renderable
+  QStringList d = QCoreApplication::arguments();
 
-  texCoord << QVector2D(0.0, 0.0); // top left
-  texCoord << QVector2D(1.0, 0.0); // bottom left
-  texCoord << QVector2D(0.0, 1.0);
-  texCoord << QVector2D(1.0, 1.0);
 
-  idx << 0 << 1 << 2 << 2 << 1 << 3;
+  ObjReader house = ObjReader(d.at(1).toUtf8().constData());
+
+  std::string texturePath = house.getMtlFilepath();
+  QString texFile = QString::fromUtf8(texturePath.c_str());;
+  
+
+  std::vector<float> vertexInfo = house.getVerticesAndTextures();
+
+  std::vector<unsigned int> faces = house.getFaces();
 
   Renderable *ren = new Renderable();
-  ren->init(pos, norm, texCoord, idx, texFile);
-
-  // QMatrix4x4 matrix;
-  // matrix.setToIdentity();
-  // matrix.ortho(-1.0f, 1.0f, -1.0f, 1.0f, -1.0f, 1.0f);
-  // ren2->setModelMatrix(matrix);
+  ren->init(vertexInfo, faces, texFile);
 
   renderables_.push_back(ren);
   glViewport(0, 0, width(), height());
-  // frameTimer_.start();
+
 }
 
 void BasicWidget::resizeGL(int w, int h)

@@ -3,8 +3,10 @@
 #include <QtGui>
 #include <QtWidgets>
 #include <QtOpenGL>
+#include <string>
 
 #include "Renderable.h"
+#include "ObjReader.h"
 
 /**
  * This is just a basic OpenGL widget that will allow a change of background color.
@@ -17,6 +19,8 @@ private:
   QMatrix4x4 model_;
   QMatrix4x4 view_;
   QMatrix4x4 projection_;
+
+  std::string filePath;
   
   QElapsedTimer frameTimer_;
 
@@ -34,9 +38,11 @@ protected:
   void paintGL() override;
   
 public:
-  BasicWidget(QWidget* parent=nullptr);
+  BasicWidget(const std::string filePath, QWidget* parent=nullptr);
   virtual ~BasicWidget();
   
   // Make sure we have some size that makes sense.
   QSize sizeHint() const {return QSize(800,600);}
+  std::string getPath();
+  std::string setPath(std::string given);
 };

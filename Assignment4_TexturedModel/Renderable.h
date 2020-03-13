@@ -3,6 +3,7 @@
 #include <QtCore>
 #include <QtGui>
 #include <QtOpenGL>
+#include <vector>
 
 class Renderable
 {
@@ -39,7 +40,7 @@ public:
 	// currently don't use normals in our implementation, but the array is checked
 	// for the appropriate size.  The values can be all 0, but must be the same size as
 	// the position array!
-	virtual void init(const QVector<QVector3D>& positions, const QVector<QVector3D>& normals, const QVector<QVector2D>& texCoords, const QVector<unsigned int>& indexes, const QString& textureFile);
+	virtual void init(std::vector<float>& positions, std::vector<unsigned int>& indexes, const QString& textureFile);
 	virtual void update(const qint64 msSinceLastFrame);
 	virtual void draw(const QMatrix4x4& view, const QMatrix4x4& projection);
 

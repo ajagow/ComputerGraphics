@@ -31,41 +31,10 @@ int main(int argc, char **argv)
     fmt.setOption(QSurfaceFormat::DebugContext);
   }
   QSurfaceFormat::setDefaultFormat(fmt);
+  std::cout << "My argument is: " << argv[1] << "\n";
+  App app(argv[1]);
 
-  App app;
   app.show();
-
-  // ObjReader house = ObjReader("../objects/house/house_obj.obj");
-
-  // ObjReader::VertexData newVertex(-1, -1, -1, -0.57735, -0.57735);
-  // ObjReader::VertexData newVertex2(-1, -1, 1, -0.57735, -0.57735);
-
-  // bool isEqual = newVertex == newVertex2;
-  // std::cout<<"hello: " << isEqual << "\n";
-
-
-  // std::vector<ObjReader::VertexData> v = house.getVerticesAndTextures2();
-
-  // std::map<ObjReader::VertexData, int> vals;
-
-  // for (int i = 0; i < v.size(); i++)
-  // {
-  //   ObjReader::VertexData vector = v[i];
-  //   vals.insert(std::pair<ObjReader::VertexData, int>(vector, i));
-  // }
-
-
-
-  //     try {
-  //       int value = vals.at(newVertex2);
-  //       std::cout << "Value of key \"" << value << std::endl;
-  //       // TODO: Handle the element found.
-  //   }
-  //   catch (const std::out_of_range&) {
-  //       std::cout << "Key \"" << "not found" << std::endl;
-
-  //   }
-
   
 
 

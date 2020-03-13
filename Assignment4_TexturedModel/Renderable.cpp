@@ -53,17 +53,17 @@ void Renderable::createShaders()
 	}
 }
 
-void Renderable::init(const QVector<QVector3D> &positions, const QVector<QVector3D> &normals, const QVector<QVector2D> &texCoords, const QVector<unsigned int> &indexes, const QString &textureFile)
+void Renderable::init(std::vector<float> &positions, std::vector<unsigned int> &indexes, const QString &textureFile)
 {
 	// NOTE:  We do not currently do anything with normals -- we just
 	// have it here for a later implementation!
 	// We need to make sure our sizes all work out ok.
-	if (positions.size() != texCoords.size() ||
-		positions.size() != normals.size())
-	{
-		qDebug() << "[Renderable]::init() -- positions size mismatch with normals/texture coordinates";
-		return;
-	}
+	// if (positions.size() != texCoords.size() ||
+	// 	positions.size() != normals.size())
+	// {
+	// 	qDebug() << "[Renderable]::init() -- positions size mismatch with normals/texture coordinates";
+	// 	return;
+	// }
 
 	// Set our model matrix to identity
 	modelMatrix_.setToIdentity();
@@ -87,7 +87,7 @@ void Renderable::init(const QVector<QVector3D> &positions, const QVector<QVector
 	// ObjReader house = ObjReader("../objects/house/house_obj.obj");
 	// ObjReader house = ObjReader("../objects/windmill/windmill.obj");
 	// ObjReader house = ObjReader("../objects/capsule/capsule.obj");
-	ObjReader house = ObjReader("../objects/chapel/chapel_obj.obj");
+	// ObjReader house = ObjReader("../objects/chapel/chapel_obj.obj");
 	// ObjReader house = ObjReader("../objects/dice_obj.obj");
 
 	// Now we can set up our buffers.
@@ -98,14 +98,14 @@ void Renderable::init(const QVector<QVector3D> &positions, const QVector<QVector
 	vbo_.setUsagePattern(QOpenGLBuffer::StaticDraw);
 	vbo_.bind();
 
-	std::vector<float> vertexInfo = house.getVerticesAndTextures();
+	// std::vector<float> vertexInfo = house.getVerticesAndTextures();
 	// std::vector<float> vertexInfo = house.getVertices();
-	std::cout << "\n ver and tex num: " << house.getVerticesAndTextures().size() << "\n";
-	float *data = &vertexInfo[0];
+	// std::cout << "\n ver and tex num: " << positions.getVerticesAndTextures().size() << "\n";
+	float *data = &positions[0];
 
 	
 
-	vbo_.allocate(data, vertexInfo.size() * sizeof(float));
+	vbo_.allocate(data, positions.size() * sizeof(float));
 	// delete[] data;
 
 	// Create our index buffer
@@ -114,11 +114,11 @@ void Renderable::init(const QVector<QVector3D> &positions, const QVector<QVector
 	ibo_.setUsagePattern(QOpenGLBuffer::StaticDraw);
 
 
-	std::vector<unsigned int> faces = house.getFaces();
-		std::cout << "\n faces num: " << faces.size() << "\n";
-	unsigned int *facesArr = &faces[0];
+	// std::vector<unsigned int> faces = house.getFaces();
+		std::cout << "\n faces num: " << indexes.size() << "\n";
+	unsigned int *facesArr = &indexes[0];
 
-	ibo_.allocate(facesArr, faces.size() * sizeof(unsigned int));
+	ibo_.allocate(facesArr, indexes.size() * sizeof(unsigned int));
 	// delete[] facesArr;
 
 	// Make sure we setup our shader inputs properly

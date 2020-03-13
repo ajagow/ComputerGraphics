@@ -5,13 +5,14 @@
 #include <QtGui>
 #include <QtCore>
 #include <QtWidgets>
+#include <string>
 
 class App : public QMainWindow
 {
   Q_OBJECT
 
 public:
-  App(QWidget* parent=0);
+  App(std::string filePath, QWidget* parent=0);
   virtual ~App();
   
 signals:
@@ -19,5 +20,5 @@ signals:
 public slots:
 
 private:
-  void buildGui();
+  void buildGui(std::string filePath);
 };

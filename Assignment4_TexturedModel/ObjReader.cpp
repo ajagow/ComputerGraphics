@@ -21,10 +21,34 @@ ObjReader::ObjReader(std::string filename)
         exit(1);
     }
 
+
     std::string line;
 
     while (std::getline(file, line))
     {
+        if (line.substr(0, 6) == "mtllib") {
+            std::vector<std::string> splitLine = ObjReader::split(line, "\\s+");
+            std::string mtlFile = splitLine[1];
+
+            std::vector<std::string> filePath = ObjReader::split(filename, "\/");
+
+            std::string ans = "";
+
+            for (int i = 0; i < filePath.size() - 1; i++) {
+                std::cout<< "dkfjl: " << filePath[i] << "\n";
+                ans += filePath[i] + "/";
+            }
+
+            objFilePath = ans;
+
+
+
+            std::cout<< "here::: " << ans << "\n";
+
+
+            MtlFileReader mtlReader = MtlFileReader(objFilePath + mtlFile);
+            mtlFilePath = objFilePath + mtlReader.getPath();
+        }
         if (line.substr(0, 2) == "v ")
         {
 
@@ -170,6 +194,12 @@ std::vector<float> ObjReader::getVerticesAndTextures()
 {
 
     return vertexAndTextures;
+}
+
+std::string ObjReader::getMtlFilepath()
+{
+
+    return mtlFilePath;
 }
 
 

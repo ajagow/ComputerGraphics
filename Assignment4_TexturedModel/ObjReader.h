@@ -12,6 +12,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include "MtlFileReader.h"
 
 class ObjReader
 {
@@ -60,10 +61,15 @@ public:
     std::vector<float> getVerticesAndTextures();
     std::vector<VertexData> getVerticesAndTextures2();
     std::vector<unsigned int> getFaces();
+    std::string getMtlFilepath();
 
     // NOTE:    You may add any helper functions you like in the
     //          private section.
 private:
+    // filepath info
+    std::string objFilePath;
+    std::string mtlFilePath;
+
     // vertices of .obj
     std::vector<Vector3> vertices;
     // normal values of .obj
