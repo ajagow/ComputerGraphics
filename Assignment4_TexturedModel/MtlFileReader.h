@@ -1,7 +1,7 @@
 /** @file MtlFileReader.h
  *  @brief Class for getting the texture file out of a material file
  *
- *  @author your_name_here
+ *  @author Anika
  *  @bug No known bugs.
  */
 #ifndef MTLFILEREADER_H

@@ -2,9 +2,9 @@
 
 #include "BasicWidget.h"
 
-App::App(std::string filePath, QWidget* parent) : QMainWindow(parent)
+App::App(QWidget* parent) : QMainWindow(parent)
 {
-  buildGui(filePath);
+  buildGui();
 }
 
 
@@ -12,7 +12,7 @@ App::App(std::string filePath, QWidget* parent) : QMainWindow(parent)
 App::~App()
 {}
 
-void App::buildGui(std::string filePath)
+void App::buildGui()
 {
   // A simple menubar.
   QMenuBar* menu = menuBar();
@@ -20,6 +20,6 @@ void App::buildGui(std::string filePath)
   QAction* exit = file->addAction("Quit", [this]() {close();});
 
   // Our basic widget.
-  BasicWidget* widget = new BasicWidget(filePath, this);
+  BasicWidget* widget = new BasicWidget(this);
   setCentralWidget(widget);
 }

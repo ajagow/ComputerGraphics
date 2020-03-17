@@ -4,7 +4,7 @@
 
 //////////////////////////////////////////////////////////////////////
 // Publics
-BasicWidget::BasicWidget(const std::string filePath, QWidget *parent) : QOpenGLWidget(parent), logger_(this)
+BasicWidget::BasicWidget(QWidget *parent) : QOpenGLWidget(parent), logger_(this)
 {
   
   setFocusPolicy(Qt::StrongFocus);
@@ -19,14 +19,6 @@ BasicWidget::~BasicWidget()
   renderables_.clear();
 }
 
-std::string BasicWidget::getPath() {
-  return filePath;
-}
-
-std::string BasicWidget::setPath(std::string given) {
-  return given;
-}
-
 
 //////////////////////////////////////////////////////////////////////
 // Privates
@@ -35,14 +27,21 @@ std::string BasicWidget::setPath(std::string given) {
 void BasicWidget::keyReleaseEvent(QKeyEvent *keyEvent)
 {
   // Handle key events here.
-  if (keyEvent->key() == Qt::Key_Left)
+  if (keyEvent->key() == Qt::Key_Q)
   {
-    qDebug() << "Left Arrow Pressed";
-    update(); // We call update after we handle a key press to trigger a redraw when we are ready
+    exit(1);
   }
-  else if (keyEvent->key() == Qt::Key_Right)
+  else if (keyEvent->key() == Qt::Key_W)
   {
-    qDebug() << "Right Arrow Pressed";
+    qDebug() << "W Pressed";
+    if (frameType == 1)
+    {
+      BasicWidget::setWireframe(2);
+    }
+    else
+    {
+      BasicWidget::setWireframe(1);
+    }
     update(); // We call update after we handle a key press to trigger a redraw when we are ready
   }
   else
@@ -95,7 +94,7 @@ void BasicWidget::resizeGL(int w, int h)
   }
   glViewport(0, 0, w, h);
   view_.setToIdentity();
-  view_.lookAt(QVector3D(-1.0f, 1.0f, 5.0f),
+  view_.lookAt(QVector3D(-5.0f, 1.0f, 1.0f),
                QVector3D(0.0f, 1.0f, 0.0f),
                QVector3D(0.0f, 1.0f, 0.0f));
   projection_.setToIdentity();
@@ -111,6 +110,16 @@ void BasicWidget::paintGL()
 
   glClearColor(0.f, 0.f, 0.f, 1.f);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    if (frameType == 1)
+  {
+    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+  }
+
+  if (frameType == 2)
+  {
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+  }
 
   for (auto renderable : renderables_)
   {

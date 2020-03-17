@@ -12,7 +12,6 @@ MtlFileReader::MtlFileReader(std::string filename)
 {
     std::ifstream file(filename);
 
-    std::cout << "filename: " << filename << "\n";
 
     // if file isn't there, print out warning
     if (!file)
@@ -32,7 +31,6 @@ MtlFileReader::MtlFileReader(std::string filename)
             std::vector<std::string> lineSplit = MtlFileReader::split(line, "\\s+");
             textureFile = lineSplit[1];
 
-             std::cout<< "lien: " << textureFile << "\n";
         }
 
     }

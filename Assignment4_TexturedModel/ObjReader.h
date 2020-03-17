@@ -33,33 +33,18 @@ public:
     {
         float s, t;
 
+
+        // override the < operator so we can use Vector2 as a key in a map
         bool operator<(const Vector2 &ob) const
         {
             return s < ob.s || (s == ob.s && t < ob.t);
         }
     };
 
-    struct VertexData{
-        float x,y,z;
-        float s,t;
-
-        VertexData(float _x, float _y, float _z, float _s, float _t): x(_x),y(_y),z(_z),s(_s),t(_t) { }
-        
-        // Tests if two VertexData are equal
-        bool operator== (const VertexData &rhs){
-            if( (x == rhs.x) && (y == rhs.y) && (z == rhs.z) && (s == rhs.s) && (t == rhs.t) ){
-                return true;
-            }
-            return false;
-        }
-    };
-
-
 
     std::vector<float> getVertices();
     std::vector<float> getNormals();
     std::vector<float> getVerticesAndTextures();
-    std::vector<VertexData> getVerticesAndTextures2();
     std::vector<unsigned int> getFaces();
     std::string getMtlFilepath();
 
@@ -68,6 +53,8 @@ public:
 private:
     // filepath info
     std::string objFilePath;
+
+    // filepath to .mtl file associated with .obj file
     std::string mtlFilePath;
 
     // vertices of .obj

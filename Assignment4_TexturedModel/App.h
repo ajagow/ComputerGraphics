@@ -12,7 +12,7 @@ class App : public QMainWindow
   Q_OBJECT
 
 public:
-  App(std::string filePath, QWidget* parent=0);
+  App(QWidget* parent=0);
   virtual ~App();
   
 signals:
@@ -20,5 +20,5 @@ signals:
 public slots:
 
 private:
-  void buildGui(std::string filePath);
+  void buildGui();
 };

@@ -55,15 +55,6 @@ void Renderable::createShaders()
 
 void Renderable::init(std::vector<float> &positions, std::vector<unsigned int> &indexes, const QString &textureFile)
 {
-	// NOTE:  We do not currently do anything with normals -- we just
-	// have it here for a later implementation!
-	// We need to make sure our sizes all work out ok.
-	// if (positions.size() != texCoords.size() ||
-	// 	positions.size() != normals.size())
-	// {
-	// 	qDebug() << "[Renderable]::init() -- positions size mismatch with normals/texture coordinates";
-	// 	return;
-	// }
 
 	// Set our model matrix to identity
 	modelMatrix_.setToIdentity();
@@ -83,12 +74,7 @@ void Renderable::init(std::vector<float> &positions, std::vector<unsigned int> &
 
 	// Setup our shader.
 	createShaders();
-		// ObjReader house = ObjReader("../objects/cube.obj");
-	// ObjReader house = ObjReader("../objects/house/house_obj.obj");
-	// ObjReader house = ObjReader("../objects/windmill/windmill.obj");
-	// ObjReader house = ObjReader("../objects/capsule/capsule.obj");
-	// ObjReader house = ObjReader("../objects/chapel/chapel_obj.obj");
-	// ObjReader house = ObjReader("../objects/dice_obj.obj");
+
 
 	// Now we can set up our buffers.
 	// The VBO is created -- now we must create our VAO
@@ -166,10 +152,9 @@ void Renderable::draw(const QMatrix4x4 &view, const QMatrix4x4 &projection)
 	vao_.bind();
 	texture_.bind();
 	// glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-// 	glEnable(GL_CULL_FACE);
-// glCullFace(GL_BACK);
-glEnable(GL_DEPTH_TEST); 
-glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);  
+
+	glEnable(GL_DEPTH_TEST); 
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);  
 
 	glDrawElements(GL_TRIANGLES, 3935, GL_UNSIGNED_INT, 0);
 	texture_.release();

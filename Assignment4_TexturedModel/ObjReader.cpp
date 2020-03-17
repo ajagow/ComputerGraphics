@@ -79,14 +79,11 @@ ObjReader::ObjReader(std::string filename)
             vertexTexture.s = std::stof(something[1]);
             vertexTexture.t = std::stof(something[2]);
 
-            // std::cout << "\n vertex texture: " << something[1] << ", " << something[2] << "\n";
-
             textures.push_back(vertexTexture);
         }
         else if (line.substr(0, 2) == "f ")
         {
             std::vector<std::string> something = ObjReader::split(line, "\\s+");
-            // std::cout<<"line: " << line << "\n";
 
             for (int i = 1; i < something.size(); i++)
             {
@@ -104,20 +101,16 @@ ObjReader::ObjReader(std::string filename)
                     Vector3 vertex = vertices.at(std::stoi(grabbedVertices[0]) - 1);
                     Vector2 vertexTexture = textures.at(std::stoi(grabbedVertices[1]) - 1);
 
-
-                    VertexData newVertex(vertex.x, vertex.y, vertex.z, vertexTexture.s, vertexTexture.t);
                     Vector2 combo;
                     combo.s = std::stoi(grabbedVertices[0]) - 1;
                     combo.t = std::stoi(grabbedVertices[1]) - 1;
                     try {
                         int value = vectorVals.at(combo);
-                        // std::cout << "Value of key \"" << value << std::endl;
                         vertexIndices.push_back(value);
 
 
                     }
                     catch (const std::out_of_range&) {
-                        // std::cout << "Key \"" << "not found" << std::endl;
                         int size = vectorVals.size();
                         vectorVals.insert(std::pair<ObjReader::Vector2, int>(combo, size));
                         vertexIndices.push_back(size);

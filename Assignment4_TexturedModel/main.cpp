@@ -32,7 +32,7 @@ int main(int argc, char **argv)
   }
   QSurfaceFormat::setDefaultFormat(fmt);
   std::cout << "My argument is: " << argv[1] << "\n";
-  App app(argv[1]);
+  App app;
 
   app.show();
   

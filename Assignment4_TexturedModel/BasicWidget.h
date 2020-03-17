@@ -20,7 +20,11 @@ private:
   QMatrix4x4 view_;
   QMatrix4x4 projection_;
 
+  // file path
   std::string filePath;
+
+  // frame type. 1 = textured, 2 = wireframe
+  unsigned int frameType = 1;
   
   QElapsedTimer frameTimer_;
 
@@ -38,11 +42,17 @@ protected:
   void paintGL() override;
   
 public:
-  BasicWidget(const std::string filePath, QWidget* parent=nullptr);
+  BasicWidget(QWidget* parent=nullptr);
   virtual ~BasicWidget();
   
   // Make sure we have some size that makes sense.
   QSize sizeHint() const {return QSize(800,600);}
-  std::string getPath();
-  std::string setPath(std::string given);
+
+  void setWireframe(int type)
+  {
+      // if type = 1 then solid, if type = 2, then wireframe
+      frameType = type;
+  }
+
+
 };
