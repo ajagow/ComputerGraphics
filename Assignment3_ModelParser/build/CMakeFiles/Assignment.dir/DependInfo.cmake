@@ -36,6 +36,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/Users/anika/Qt/5.14.0/clang_64/./mkspecs/macx-clang"
   "/Users/anika/Qt/5.14.0/clang_64/lib/QtOpenGL.framework"
   "/Users/anika/Qt/5.14.0/clang_64/lib/QtOpenGL.framework/Headers"
+  "/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework"
   )
 
 # Targets to which this target links.

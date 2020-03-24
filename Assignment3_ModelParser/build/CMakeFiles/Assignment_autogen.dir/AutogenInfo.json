@@ -4,7 +4,7 @@
 	"CMAKE_CURRENT_BINARY_DIR" : "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/build",
 	"CMAKE_CURRENT_SOURCE_DIR" : "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser",
 	"CMAKE_EXECUTABLE" : "/Applications/CMake.app/Contents/bin/cmake",
-	"CMAKE_SOURCE_DIR" : "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/",
+	"CMAKE_SOURCE_DIR" : "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser",
 	"HEADERS" : 
 	[
 		[
@@ -55,6 +55,7 @@
 		"/Users/anika/Qt/5.14.0/clang_64/mkspecs/macx-clang",
 		"/Users/anika/Qt/5.14.0/clang_64/lib/QtOpenGL.framework",
 		"/Users/anika/Qt/5.14.0/clang_64/lib/QtOpenGL.framework/Headers",
+		"/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework",
 		"/Library/Developer/CommandLineTools/usr/include/c++/v1",
 		"/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include",
 		"/Library/Developer/CommandLineTools/usr/include",

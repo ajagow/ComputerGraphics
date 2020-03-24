@@ -64,13 +64,17 @@ QString BasicWidget::fragmentShaderString() const
   return str;
 }
 
-void BasicWidget::setIndicesAndVertices() {
-std::vector<float> vertices = obj.getVertices();
+void BasicWidget::setIndicesAndVertices()
+{
+  std::vector<float> vertices = obj.getVertices();
   float *verticesArr = &vertices[0];
+
+  std::cout << "\n ver num: " << vertices.size() << "\n";
 
   std::vector<unsigned int> faces = obj.getFaces();
   unsigned int *facesArr = &faces[0];
 
+std::cout << "\n faces num: " << faces.size() << "\n";
   vbo_.setUsagePattern(QOpenGLBuffer::StaticDraw);
   vbo_.create();
   vbo_.bind();
@@ -186,7 +190,6 @@ void BasicWidget::keyReleaseEvent(QKeyEvent *keyEvent)
     update(); // We call update after we handle a key press to trigger a redraw when we are ready
   }
 
-
   else if (keyEvent->key() == Qt::Key_2)
   {
     qDebug() << "2  Pressed";
@@ -236,14 +239,12 @@ void BasicWidget::initializeGL()
   // Set up our shaders.
   createShader();
 
-
-
   // Set up our buffers and our vao
 
   // Temporary bind of our shader.
   shaderProgram_.bind();
   // Create and prepare a vbo
-    BasicWidget::setIndicesAndVertices();
+  BasicWidget::setIndicesAndVertices();
 
   // Create a VAO to keep track of things for us.
   vao_.create();

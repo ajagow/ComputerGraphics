@@ -6,23 +6,33 @@
 
 #IncludeRegexTransform: 
 
-/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/ObjReader.cpp
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/BasicWidget.cpp
+BasicWidget.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/BasicWidget.h
 ObjReader.h
 /Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/ObjReader.h
 iostream
 -
-fstream
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/BasicWidget.h
+QtGui
 -
-regex
+QtWidgets
 -
-algorithm
+QtOpenGL
 -
-typeinfo
--
+ObjReader.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/ObjReader.h
 
 /Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment3_ModelParser/ObjReader.h
 string
 -
 vector
 -
+
+/Users/anika/Qt/5.14.0/clang_64/lib/QtGui.framework/QtGui
+
+/Users/anika/Qt/5.14.0/clang_64/lib/QtOpenGL.framework/QtOpenGL
+
+/Users/anika/Qt/5.14.0/clang_64/lib/QtWidgets.framework/QtWidgets
 

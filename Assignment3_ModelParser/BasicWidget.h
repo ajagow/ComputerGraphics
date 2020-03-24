@@ -24,7 +24,7 @@ private:
   QOpenGLVertexArrayObject vao_;
   unsigned int objectType = 1;
   unsigned int frameType = 1;
-  ObjReader bunny = ObjReader("../objects/bunny_centered.obj");
+  ObjReader bunny = ObjReader("../objects/house_obj.obj");
   ObjReader monkey = ObjReader("../objects/monkey_centered.obj");
   ObjReader obj = bunny;
   void setIndicesAndVertices();

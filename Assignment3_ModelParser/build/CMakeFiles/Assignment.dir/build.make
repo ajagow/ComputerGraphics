@@ -140,6 +140,7 @@ Assignment: CMakeFiles/Assignment.dir/main.cpp.o
 Assignment: CMakeFiles/Assignment.dir/ObjReader.cpp.o
 Assignment: CMakeFiles/Assignment.dir/build.make
 Assignment: /Users/anika/Qt/5.14.0/clang_64/lib/QtOpenGL.framework/QtOpenGL
+Assignment: /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework/OpenGL.tbd
 Assignment: /Users/anika/Qt/5.14.0/clang_64/lib/QtWidgets.framework/QtWidgets
 Assignment: /Users/anika/Qt/5.14.0/clang_64/lib/QtGui.framework/QtGui
 Assignment: /Users/anika/Qt/5.14.0/clang_64/lib/QtCore.framework/QtCore
