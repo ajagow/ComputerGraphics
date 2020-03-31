@@ -1,0 +1,52 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Lab8_CameraAndIllumination/BasicWidget.cpp
+BasicWidget.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Lab8_CameraAndIllumination/BasicWidget.h
+UnitQuad.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Lab8_CameraAndIllumination/UnitQuad.h
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Lab8_CameraAndIllumination/BasicWidget.h
+QtGui
+-
+QtWidgets
+-
+QtOpenGL
+-
+Renderable.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Lab8_CameraAndIllumination/Renderable.h
+Camera.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Lab8_CameraAndIllumination/Camera.h
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Lab8_CameraAndIllumination/Camera.h
+QtGui/QMatrix4x4
+-
+QtGui/QVector3D
+-
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Lab8_CameraAndIllumination/Renderable.h
+QtCore
+-
+QtGui
+-
+QtOpenGL
+-
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Lab8_CameraAndIllumination/UnitQuad.h
+Renderable.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Lab8_CameraAndIllumination/Renderable.h
+
+/Users/anika/Qt/5.14.0/clang_64/lib/QtCore.framework/QtCore
+
+/Users/anika/Qt/5.14.0/clang_64/lib/QtGui.framework/QtGui
+
+/Users/anika/Qt/5.14.0/clang_64/lib/QtOpenGL.framework/QtOpenGL
+
+/Users/anika/Qt/5.14.0/clang_64/lib/QtWidgets.framework/QtWidgets
+

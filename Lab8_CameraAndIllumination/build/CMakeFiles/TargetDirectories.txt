@@ -1,0 +1,4 @@
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Lab8_CameraAndIllumination/build/CMakeFiles/rebuild_cache.dir
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Lab8_CameraAndIllumination/build/CMakeFiles/edit_cache.dir
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Lab8_CameraAndIllumination/build/CMakeFiles/App.dir
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Lab8_CameraAndIllumination/build/CMakeFiles/App_autogen.dir
