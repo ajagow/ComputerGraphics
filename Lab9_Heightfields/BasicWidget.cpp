@@ -5,7 +5,7 @@
 
 //////////////////////////////////////////////////////////////////////
 // Publics
-BasicWidget::BasicWidget(QWidget* parent) : QOpenGLWidget(parent), logger_(this), isFilled_(true)
+BasicWidget::BasicWidget(QWidget *parent) : QOpenGLWidget(parent), logger_(this), isFilled_(true)
 {
   setFocusPolicy(Qt::StrongFocus);
   camera_.setPosition(QVector3D(0.5, 0.5, -0.5));
@@ -15,63 +15,78 @@ BasicWidget::BasicWidget(QWidget* parent) : QOpenGLWidget(parent), logger_(this)
 
 BasicWidget::~BasicWidget()
 {
-    for (auto renderable : renderables_) {
-        delete renderable;
-    }
-    renderables_.clear();
+  for (auto renderable : renderables_)
+  {
+    delete renderable;
+  }
+  renderables_.clear();
 }
 
 //////////////////////////////////////////////////////////////////////
 // Privates
 ///////////////////////////////////////////////////////////////////////
 // Protected
-void BasicWidget::keyReleaseEvent(QKeyEvent* keyEvent)
+void BasicWidget::keyReleaseEvent(QKeyEvent *keyEvent)
 {
   // Handle key events here.
-  if (keyEvent->key() == Qt::Key_Left) {
+  if (keyEvent->key() == Qt::Key_Left)
+  {
     qDebug() << "Left Arrow Pressed";
-    update();  // We call update after we handle a key press to trigger a redraw when we are ready
-  } else if (keyEvent->key() == Qt::Key_Right) {
+    update(); // We call update after we handle a key press to trigger a redraw when we are ready
+  }
+  else if (keyEvent->key() == Qt::Key_Right)
+  {
     qDebug() << "Right Arrow Pressed";
-    update();  // We call update after we handle a key press to trigger a redraw when we are ready
-  } else if (keyEvent->key() == Qt::Key_R) {
+    update(); // We call update after we handle a key press to trigger a redraw when we are ready
+  }
+  else if (keyEvent->key() == Qt::Key_R)
+  {
     camera_.setPosition(QVector3D(0.5, 0.5, -2.0));
     camera_.setLookAt(QVector3D(0.5, 0.5, 0.0));
     update();
-  } else {
+  }
+  else
+  {
     qDebug() << "You Pressed an unsupported Key!";
   }
 }
 
-void BasicWidget::mousePressEvent(QMouseEvent* mouseEvent)
+void BasicWidget::mousePressEvent(QMouseEvent *mouseEvent)
 {
-  if (mouseEvent->button() == Qt::LeftButton) {
+  if (mouseEvent->button() == Qt::LeftButton)
+  {
     mouseAction_ = Rotate;
-  } else if (mouseEvent->button() == Qt::RightButton) {
+  }
+  else if (mouseEvent->button() == Qt::RightButton)
+  {
     mouseAction_ = Zoom;
   }
   lastMouseLoc_ = mouseEvent->pos();
 }
 
-void BasicWidget::mouseMoveEvent(QMouseEvent* mouseEvent)
+void BasicWidget::mouseMoveEvent(QMouseEvent *mouseEvent)
 {
-  if (mouseAction_ == NoAction) {
+  if (mouseAction_ == NoAction)
+  {
     return;
   }
   QPoint delta = mouseEvent->pos() - lastMouseLoc_;
   lastMouseLoc_ = mouseEvent->pos();
-  if (mouseAction_ == Rotate) {
+  if (mouseAction_ == Rotate)
+  {
     // TODO:  Implement rotating the camera
-  } else if (mouseAction_ == Zoom) {
+  }
+  else if (mouseAction_ == Zoom)
+  {
     // TODO:  Implement zoom by moving the camera
     // Zooming is moving along the gaze direction by some amount.
-  } 
+  }
   update();
 }
 
-void BasicWidget::mouseReleaseEvent(QMouseEvent* mouseEvent)
+void BasicWidget::mouseReleaseEvent(QMouseEvent *mouseEvent)
 {
-    mouseAction_ = NoAction;
+  mouseAction_ = NoAction;
 }
 
 void BasicWidget::initializeGL()
@@ -79,11 +94,20 @@ void BasicWidget::initializeGL()
   makeCurrent();
   initializeOpenGLFunctions();
 
+  QOpenGLContext *curContext = this->context();
+  qDebug() << "[BasicWidget]::initializeGL() -- Context Information:";
+  qDebug() << " Context Valid: " << std::string(curContext->isValid() ? "true" : "false").c_str();
+  qDebug() << " GL Version Used: " << curContext->format().majorVersion() << "." << curContext->format().minorVersion();
+  qDebug() << " Vendor: " << reinterpret_cast<const char *>(glGetString(GL_VENDOR));
+  qDebug() << " Renderer: " << reinterpret_cast<const char *>(glGetString(GL_RENDERER));
+  qDebug() << " Version: " << reinterpret_cast<const char *>(glGetString(GL_VERSION));
+  qDebug() << " GLSL Version: " << reinterpret_cast<const char *>(glGetString(GL_SHADING_LANGUAGE_VERSION));
+
   qDebug() << QDir::currentPath();
   // TODO:  You may have to change these paths.
-  QString terrainTex = "../../colormap.ppm";
+  QString terrainTex = "../colormap.ppm";
 
-  TerrainQuad* terrain = new TerrainQuad();
+  TerrainQuad *terrain = new TerrainQuad();
   terrain->init(terrainTex);
   QMatrix4x4 floorXform;
   floorXform.setToIdentity();
@@ -98,17 +122,19 @@ void BasicWidget::initializeGL()
 
 void BasicWidget::resizeGL(int w, int h)
 {
-    if (!logger_.isLogging()) {
-        logger_.initialize();
-        // Setup the logger for real-time messaging
-        connect(&logger_, &QOpenGLDebugLogger::messageLogged, [=]() {
-            const QList<QOpenGLDebugMessage> messages = logger_.loggedMessages();
-            for (auto msg : messages) {
-                qDebug() << msg;
-            }
-            });
-        logger_.startLogging();
-    }
+  if (!logger_.isLogging())
+  {
+    logger_.initialize();
+    // Setup the logger for real-time messaging
+    connect(&logger_, &QOpenGLDebugLogger::messageLogged, [=]() {
+      const QList<QOpenGLDebugMessage> messages = logger_.loggedMessages();
+      for (auto msg : messages)
+      {
+        qDebug() << msg;
+      }
+    });
+    logger_.startLogging();
+  }
   glViewport(0, 0, w, h);
 
   camera_.setPerspective(70.f, (float)w / (float)h, 0.001, 1000.0);
@@ -126,10 +152,11 @@ void BasicWidget::paintGL()
 
   glEnable(GL_DEPTH_TEST);
 
-  for (auto renderable : renderables_) {
-      renderable->update(msSinceRestart);
-      // TODO:  Understand that the camera is now governing the view and projection matrices
-      renderable->draw(world_, camera_.getViewMatrix(), camera_.getProjectionMatrix());
+  for (auto renderable : renderables_)
+  {
+    renderable->update(msSinceRestart);
+    // TODO:  Understand that the camera is now governing the view and projection matrices
+    renderable->draw(world_, camera_.getViewMatrix(), camera_.getProjectionMatrix());
   }
-  update();
+  // update();
 }
