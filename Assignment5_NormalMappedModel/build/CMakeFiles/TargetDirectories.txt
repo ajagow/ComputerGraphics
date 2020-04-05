@@ -1,0 +1,4 @@
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/build/CMakeFiles/rebuild_cache.dir
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/build/CMakeFiles/edit_cache.dir
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/build/CMakeFiles/App.dir
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/build/CMakeFiles/App_autogen.dir
