@@ -7,9 +7,10 @@
  *  @author Mike
  *  @bug No known bugs.
  */
-#include "Object.h"
-#include "Geometry.h"
+//#include "Geometry.h"
 #include <cmath>
+
+#include <vector>
 
 #include <QtGui>
 
@@ -25,7 +26,39 @@ public:
     QVector<QVector3D> positions() const {return positions_;}
     QVector<QVector3D> normals() const {return normals_;}
     QVector<QVector2D> texCoords() const {return textureCoords_;}
-    QVector<unsigned int> indexes() const {return index_;}
+    std::vector<float> getVertexInfo() const {
+        std::vector<float> ans;
+        for (int i = 0; i < positions_.size(); i++) {
+            QVector3D p = positions_[i];
+            QVector3D n = normals_[i];
+            QVector2D t = textureCoords_[i];
+
+            ans.push_back(p.x());
+            ans.push_back(p.y());
+            ans.push_back(p.z());
+
+            ans.push_back(n.x());
+            ans.push_back(n.y());
+            ans.push_back(n.z());
+
+            ans.push_back(t.x());
+            ans.push_back(t.y());
+        }
+
+        return ans;
+    }
+    std::vector<unsigned int> indexes() const {
+        std::vector<unsigned int> ans;
+
+            for (int i = 0; i < index_.size(); i++) {
+
+                ans.push_back(index_[i]);
+
+            }
+
+            return ans;
+        
+    }
 
 private:
     QVector<QVector3D> positions_;
@@ -36,7 +69,7 @@ private:
 
 // Calls the initalization routine
 Sphere::Sphere(){
-    std::cout << "(Sphere.cpp) Sphere constructor called (derived from Object)\n";
+    //std::cout << "(Sphere.cpp) Sphere constructor called (derived from Object)\n";
     init();
 }
 
