@@ -20,9 +20,10 @@ set(srcs
   App.cpp
   BasicWidget.cpp
   Renderable.cpp
-  UnitQuad.cpp
   Camera.cpp
   main.cpp
+  TreeNode.cpp
+  Tree.cpp
 )
 
 add_executable(App

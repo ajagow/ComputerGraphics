@@ -1,26 +1,21 @@
 #include "BasicWidget.h"
 
-#include "UnitQuad.h"
 
-#include "Sphere.h"
+
 
 //////////////////////////////////////////////////////////////////////
 // Publics
 BasicWidget::BasicWidget(QWidget *parent) : QOpenGLWidget(parent), logger_(this)
 {
   setFocusPolicy(Qt::StrongFocus);
-  camera_.setPosition(QVector3D(0.5, 0.5, -2.0));
-  camera_.setLookAt(QVector3D(0.5, 0.5, 0.0));
+  camera_.setPosition(QVector3D(0, 40, 0));
+  camera_.setLookAt(QVector3D(1, 10, 0.0));
   world_.setToIdentity();
 }
 
 BasicWidget::~BasicWidget()
 {
-  for (auto renderable : renderables_)
-  {
-    delete renderable;
-  }
-  renderables_.clear();
+  delete root_;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -42,8 +37,8 @@ void BasicWidget::keyReleaseEvent(QKeyEvent *keyEvent)
   }
   else if (keyEvent->key() == Qt::Key_R)
   {
-    camera_.setPosition(QVector3D(0.5, 0.5, -2.0));
-    camera_.setLookAt(QVector3D(0.5, 0.5, 0.0));
+  camera_.setPosition(QVector3D(0, 40, 0));
+  camera_.setLookAt(QVector3D(1, 10, 0.0));
     update();
   }
   else
@@ -74,25 +69,18 @@ void BasicWidget::mouseMoveEvent(QMouseEvent *mouseEvent)
   QPoint delta = mouseEvent->pos() - lastMouseLoc_;
   lastMouseLoc_ = mouseEvent->pos();
 
-  qDebug() << delta;
-  // qDebug() << lastMouseLoc_;
 
   if (mouseAction_ == Rotate)
   {
 
-    qDebug() << "rotate";
-    // TODO:  Implement rotating the camera
     float mouseSpeed = 0.005f;
-    float horizontalAngle = mouseSpeed * float(1024 / 2 - lastMouseLoc_.x());
-    float verticalAngle = mouseSpeed * float(768 / 2 - lastMouseLoc_.y());
+    float horizontalAngle = mouseSpeed * float(width() / 2 - lastMouseLoc_.x());
+    float verticalAngle = mouseSpeed * float(height() / 2 - lastMouseLoc_.y());
 
     camera_.translateLookAt(QVector3D(cos(verticalAngle) * sin(horizontalAngle), sin(verticalAngle), cos(verticalAngle) * cos(horizontalAngle)));
   }
   else if (mouseAction_ == Zoom)
   {
-    // TODO:  Implement zoom by moving the camera
-    // Zooming is moving along the gaze direction by some amount.
-    qDebug() << "zoom";
 
     camera_.translateCamera(QVector3D(0, 0, delta.y()));
   }
@@ -110,52 +98,97 @@ void BasicWidget::initializeGL()
   initializeOpenGLFunctions();
 
   qDebug() << QDir::currentPath();
-  // TODO:  You may have to change these paths.
-  //QStringList d = QCoreApplication::arguments();
 
-  Sphere planet = Sphere();
- 
-  //std::string texturePath = planet.getMtlFilepath();
-  QString texFile = "../mercury.ppm";//QString::fromUtf8(texturePath.c_str());
+  // create the sun
+  QMatrix4x4 identity;
+  identity.setToIdentity();
 
-  std::vector<float> vertexInfo = planet.getVertexInfo();
+  QString texFile = "../sun.ppm";
+  TreeNode *sun = new TreeNode();
+  sun->init(texFile, "sun", identity, 4);
 
-  std::vector<unsigned int> faces = planet.indexes();
+  // create earth1
+  QString earthTex = "../earth.ppm";
+    QMatrix4x4 earthMatrix;
+    earthMatrix.setToIdentity();
+    earthMatrix.translate(QVector3D(10, 0, 0));
 
-  UnitQuad *backWall = new UnitQuad();
-  backWall->init(texFile, vertexInfo, faces);
-  QMatrix4x4 backXform;
-  backXform.setToIdentity();
-  backXform.scale(1.0, 1.0, -1.0);
-  backWall->setModelMatrix(backXform);
-  renderables_.push_back(backWall);
+    TreeNode *earthNode = new TreeNode();
+  earthNode->init(earthTex, "earth", earthMatrix, 1.5);
 
-  // UnitQuad *rightWall = new UnitQuad();
-  // rightWall->init(brickTex);
-  // QMatrix4x4 rightXform;
-  // rightXform.setToIdentity();
-  // rightXform.rotate(90.0, 0.0, 1.0, 0.0);
-  // rightWall->setModelMatrix(rightXform);
-  // renderables_.push_back(rightWall);
+  // create earth2
+    QMatrix4x4 earthMatrix2;
+    earthMatrix2.setToIdentity();
+    earthMatrix.translate(QVector3D(15, 0, 0));
 
-  // UnitQuad *leftWall = new UnitQuad();
-  // leftWall->init(brickTex);
-  // QMatrix4x4 leftXform;
-  // leftXform.setToIdentity();
-  // leftXform.translate(1.0, 0.0, -1.0);
-  // leftXform.rotate(-90.0, 0.0, 1.0, 0.0);
-  // leftWall->setModelMatrix(leftXform);
-  // renderables_.push_back(leftWall);
+    TreeNode *earthNode2 = new TreeNode();
+  earthNode2->init(earthTex, "earth", earthMatrix, 2);
 
-  // UnitQuad *floor = new UnitQuad();
-  // floor->init(grassTex);
-  // QMatrix4x4 floorXform;
-  // floorXform.setToIdentity();
-  // floorXform.translate(-0.5, 0.0, 0.5);
-  // floorXform.scale(2.0, 2.0, 2.0);
-  // floorXform.rotate(-90.0, 1.0, 0.0, 0.0);
-  // floor->setModelMatrix(floorXform);
-  // renderables_.push_back(floor);
+// create a mercury
+QString mercuryTex = "../mercury.ppm";
+      QMatrix4x4 mercuryMatrix;
+    mercuryMatrix.setToIdentity();
+    mercuryMatrix.translate(QVector3D(5, 0, 7));
+
+  TreeNode *mercuryNode = new TreeNode();
+  mercuryNode->init(mercuryTex, "mercury", mercuryMatrix, 1);
+
+// create moons moon
+
+  QString rockTex = "../rock.ppm";
+    QMatrix4x4 moonMatrix;
+    moonMatrix.setToIdentity();
+    moonMatrix.translate(QVector3D(2, 0, 0));
+
+    TreeNode *moonNode = new TreeNode();
+  moonNode->init(rockTex, "moonforearth", moonMatrix, .5);
+
+    TreeNode *moonNodeMerc = new TreeNode();
+  moonNodeMerc->init(rockTex, "moonformerc", moonMatrix, .5);
+
+      QMatrix4x4 moonMatrix2;
+    moonMatrix2.setToIdentity();
+    moonMatrix2.translate(QVector3D(2, 0, 2));
+
+    TreeNode *moonNode2 = new TreeNode();
+  moonNode2->init(rockTex, "moon2forearth", moonMatrix2, .5);
+
+      TreeNode *moonNodeMerc2 = new TreeNode();
+  moonNodeMerc2->init(rockTex, "moon2merc2", moonMatrix2, .5);
+
+        QMatrix4x4 mercMoonMatrix2;
+    mercMoonMatrix2.setToIdentity();
+    mercMoonMatrix2.translate(QVector3D(3.3, 0, 1));
+
+  TreeNode *moonNodeMerc3 = new TreeNode();
+  moonNodeMerc3->init(rockTex, "moon2merc2", mercMoonMatrix2, .7);
+
+    QMatrix4x4 moonMatrix3;
+    moonMatrix3.setToIdentity();
+    moonMatrix3.translate(QVector3D(9, 0, 2));
+
+    
+  TreeNode *farMoonNode = new TreeNode();
+  farMoonNode->init(rockTex, "farmoon", moonMatrix3, .5);
+
+  earthNode->addChild(moonNode);
+  earthNode->addChild(moonNode2);
+
+  mercuryNode->addChild(moonNodeMerc);
+  mercuryNode->addChild(moonNodeMerc2);
+  mercuryNode->addChild(moonNodeMerc3);
+
+  earthNode2->addChild(farMoonNode);
+
+
+  sun->addChild(earthNode);
+  sun->addChild(earthNode2);
+  sun->addChild(mercuryNode);
+
+
+  root_ = new Tree();
+  root_->setRoot(sun);
+
 
   glViewport(0, 0, width(), height());
   frameTimer_.start();
@@ -193,11 +226,8 @@ void BasicWidget::paintGL()
 
   glEnable(GL_DEPTH_TEST);
 
-  for (auto renderable : renderables_)
-  {
-    renderable->update(msSinceRestart);
-    // TODO:  Understand that the camera is now governing the view and projection matrices
-    renderable->draw(world_, camera_.getViewMatrix(), camera_.getProjectionMatrix());
-  }
+  root_->traverse(msSinceRestart, camera_.getViewMatrix(), camera_.getProjectionMatrix());
+
+
   update();
 }

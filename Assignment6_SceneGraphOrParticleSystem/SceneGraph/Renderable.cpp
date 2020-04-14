@@ -2,8 +2,9 @@
 
 #include <QtGui>
 #include <QtOpenGL>
+#include <iostream>
 
-Renderable::Renderable() : vbo_(QOpenGLBuffer::VertexBuffer), ibo_(QOpenGLBuffer::IndexBuffer), texture_(QOpenGLTexture::Target2D), numTris_(0), vertexSize_(0), rotationAxis_(0.0, 0.0, 1.0), rotationSpeed_(0.25)
+Renderable::Renderable() : vbo_(QOpenGLBuffer::VertexBuffer), ibo_(QOpenGLBuffer::IndexBuffer), texture_(QOpenGLTexture::Target2D), numTris_(0), vertexSize_(0), rotationAxis_(0.0, 1.0, 0.0), rotationSpeed_(0.25)
 {
 	rotationAngle_ = 0.0;
 }
@@ -119,6 +120,8 @@ void Renderable::init(std::vector<float> &positions, std::vector<unsigned int> &
 
 void Renderable::update(const qint64 msSinceLastFrame)
 {
+
+
 	// For this lab, we want our polygon to rotate.
 	float sec = msSinceLastFrame / 1000.0f;
 	float anglePart = sec * rotationSpeed_ * 360.f;
@@ -130,16 +133,18 @@ void Renderable::update(const qint64 msSinceLastFrame)
 
 }
 
-void Renderable::draw(const QMatrix4x4 &world, const QMatrix4x4 &view, const QMatrix4x4 &projection)
+void Renderable::draw(const QMatrix4x4 &world, const QMatrix4x4 &view, const QMatrix4x4 &projection, const float scaleSize)
 {
 	// Create our model matrix.
-	QMatrix4x4 rotMatrix;
-	rotMatrix.setToIdentity();
-	rotMatrix.rotate(rotationAngle_, rotationAxis_);
+	QMatrix4x4 scaleMatrix;
+	scaleMatrix.setToIdentity();
+	scaleMatrix.scale(scaleSize);
+
 
 	// incorporate a real world transform if want it.
-	QMatrix4x4 modelMat = modelMatrix_ * rotMatrix;
-	modelMat = world * modelMat;
+	QMatrix4x4 modelMat;
+	modelMat = world * scaleMatrix;
+
 	// Make sure our state is what we want
 	shader_.bind();
 	// Set our matrix uniforms!
@@ -151,13 +156,12 @@ void Renderable::draw(const QMatrix4x4 &world, const QMatrix4x4 &view, const QMa
 
 	vao_.bind();
 
-	glActiveTexture(GL_TEXTURE0);
 
 	texture_.bind();
 
 	//qDebug() << glGetError();
 
-	glDrawElements(GL_TRIANGLES, 3935, GL_UNSIGNED_INT, 0);
+	glDrawElements(GL_TRIANGLES, 50000, GL_UNSIGNED_INT, 0);
 	texture_.release();
 	//bumpTexture_.release();
 	vao_.release();

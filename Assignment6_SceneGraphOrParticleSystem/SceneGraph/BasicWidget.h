@@ -7,6 +7,9 @@
 #include "Renderable.h"
 #include "Camera.h"
 
+#include "TreeNode.h"
+#include "Tree.h"
+
 /**
  * This is just a basic OpenGL widget that will allow a change of background color.
  */
@@ -20,7 +23,7 @@ private:
   
   QElapsedTimer frameTimer_;
 
-  QVector<Renderable*> renderables_;
+  Tree* root_;
 
   QOpenGLDebugLogger logger_;
 
