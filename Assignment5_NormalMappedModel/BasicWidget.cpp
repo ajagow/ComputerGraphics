@@ -14,11 +14,8 @@ BasicWidget::BasicWidget(QWidget *parent) : QOpenGLWidget(parent), logger_(this)
 
 BasicWidget::~BasicWidget()
 {
-  for (auto renderable : renderables_)
-  {
-    delete renderable;
-  }
-  renderables_.clear();
+
+  delete renderable_;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -30,12 +27,10 @@ void BasicWidget::keyReleaseEvent(QKeyEvent *keyEvent)
   // Handle key events here.
   if (keyEvent->key() == Qt::Key_Left)
   {
-    qDebug() << "Left Arrow Pressed";
     update(); // We call update after we handle a key press to trigger a redraw when we are ready
   }
   else if (keyEvent->key() == Qt::Key_Right)
   {
-    qDebug() << "Right Arrow Pressed";
     update(); // We call update after we handle a key press to trigger a redraw when we are ready
   }
   else if (keyEvent->key() == Qt::Key_R)
@@ -125,7 +120,7 @@ void BasicWidget::initializeGL()
   UnitQuad *object = new UnitQuad();
   object->init(texFile, normalFile, vertexInfo, faces);
 
-  renderables_.push_back(object);
+  renderable_ = object;
 
   glViewport(0, 0, width(), height());
   frameTimer_.start();
@@ -163,10 +158,8 @@ void BasicWidget::paintGL()
 
   glEnable(GL_DEPTH_TEST);
 
-  for (auto renderable : renderables_)
-  {
-    renderable->update(msSinceRestart);
-    renderable->draw(world_, camera_.getViewMatrix(), camera_.getProjectionMatrix());
-  }
+  renderable_->update(msSinceRestart);
+  renderable_->draw(world_, camera_.getViewMatrix(), camera_.getProjectionMatrix());
+
   update();
 }
