@@ -17,10 +17,12 @@ include_directories(
 )
 
 set(srcs
-  main.cpp
   App.cpp
   BasicWidget.cpp
   Renderable.cpp
+  UnitQuad.cpp
+  Camera.cpp
+  main.cpp
   ObjReader.cpp
   MtlFileReader.cpp
 )

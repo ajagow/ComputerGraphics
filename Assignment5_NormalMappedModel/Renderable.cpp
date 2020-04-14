@@ -3,11 +3,7 @@
 #include <QtGui>
 #include <QtOpenGL>
 
-#include <iostream>
-
-#include "ObjReader.h"
-
-Renderable::Renderable() : vbo_(QOpenGLBuffer::VertexBuffer), ibo_(QOpenGLBuffer::IndexBuffer), texture_(QOpenGLTexture::Target2D), numTris_(0), vertexSize_(0), rotationAxis_(0.0, 0.0, 1.0), rotationSpeed_(0.25)
+Renderable::Renderable() : vbo_(QOpenGLBuffer::VertexBuffer), ibo_(QOpenGLBuffer::IndexBuffer), texture_(QOpenGLTexture::Target2D), bumpTexture_(QOpenGLTexture::Target2D), numTris_(0), vertexSize_(0), rotationAxis_(0.0, 0.0, 1.0), rotationSpeed_(0.25)
 {
 	rotationAngle_ = 0.0;
 }
@@ -17,6 +13,10 @@ Renderable::~Renderable()
 	if (texture_.isCreated())
 	{
 		texture_.destroy();
+	}
+	if (bumpTexture_.isCreated())
+	{
+		bumpTexture_.destroy();
 	}
 	if (vbo_.isCreated())
 	{
@@ -53,7 +53,7 @@ void Renderable::createShaders()
 	}
 }
 
-void Renderable::init(std::vector<float> &positions, std::vector<unsigned int> &indexes, const QString &textureFile)
+void Renderable::init(std::vector<float> &positions, std::vector<unsigned int> &indexes, const QString &textureFile, const QString &normalFile)
 {
 
 	// Set our model matrix to identity
@@ -64,41 +64,21 @@ void Renderable::init(std::vector<float> &positions, std::vector<unsigned int> &
 	myImage = myImage.mirrored(true, true);
 	texture_.setData(myImage);
 
+	// load normal texture
+	QImage bumpImage(normalFile);
+	bumpImage = bumpImage.mirrored(true, true);
+	bumpTexture_.setData(bumpImage);
+
 	// set our number of trianges.
 	numTris_ = indexes.size() / 3;
 
 	// num verts (used to size our vbo)
 	int numVerts = positions.size();
-	vertexSize_ = 3 + 2; // Position + texCoord
+	vertexSize_ = 3 + 2 + 3 + 3 + 3; // Position + normal + texCoord + tangent + bitangent
 	int numVBOEntries = numVerts * vertexSize_;
-
-	// lighting
-	float angle = 180.0f;
-
-	QMatrix4x4 rot;
-	rot.setToIdentity();
-	rot.rotate(angle, 0.0, 1.0, 0.0);
-
-	QVector3D newPos = rot * lightPos_;
-
-	lightPos_ = newPos;
-
-	newPos.setX(0.5);
 
 	// Setup our shader.
 	createShaders();
-
-	shader_.bind();
-	shader_.setUniformValue("pointLights[0].color", 0.0f, 1.0f, 0.0f);
-	shader_.setUniformValue("pointLights[0].position", newPos);
-
-	shader_.setUniformValue("pointLights[0].ambientIntensity", 0.5f);
-	shader_.setUniformValue("pointLights[0].specularStrength", 0.5f);
-	shader_.setUniformValue("pointLights[0].constant", 1.0f);
-	shader_.setUniformValue("pointLights[0].linear", 0.09f);
-	shader_.setUniformValue("pointLights[0].quadratic", 0.032f);
-
-	shader_.release();
 
 	// Now we can set up our buffers.
 	// The VBO is created -- now we must create our VAO
@@ -108,41 +88,32 @@ void Renderable::init(std::vector<float> &positions, std::vector<unsigned int> &
 	vbo_.setUsagePattern(QOpenGLBuffer::StaticDraw);
 	vbo_.bind();
 
-	// std::vector<float> vertexInfo = house.getVerticesAndTextures();
-	// std::vector<float> vertexInfo = house.getVertices();
-	// std::cout << "\n ver and tex num: " << positions.getVerticesAndTextures().size() << "\n";
 	float *data = &positions[0];
-
 	vbo_.allocate(data, positions.size() * sizeof(float));
-	// delete[] data;
 
 	// Create our index buffer
 	ibo_.create();
 	ibo_.bind();
 	ibo_.setUsagePattern(QOpenGLBuffer::StaticDraw);
 
-	// std::vector<unsigned int> faces = house.getFaces();
-	std::cout << "\n faces num: " << indexes.size() << "\n";
 	unsigned int *facesArr = &indexes[0];
-
 	ibo_.allocate(facesArr, indexes.size() * sizeof(unsigned int));
-	// delete[] facesArr;
 
 	// Make sure we setup our shader inputs properly
 	shader_.enableAttributeArray(0);
-	shader_.setAttributeBuffer(0, GL_FLOAT, 0, 3, 14 * sizeof(float));
+	shader_.setAttributeBuffer(0, GL_FLOAT, 0, 3, vertexSize_ * sizeof(float));
 
 	shader_.enableAttributeArray(1);
-	shader_.setAttributeBuffer(1, GL_FLOAT, 3 * sizeof(float), 2, 14 * sizeof(float));
+	shader_.setAttributeBuffer(1, GL_FLOAT, 3 * sizeof(float), 2, vertexSize_ * sizeof(float));
 
 	shader_.enableAttributeArray(2);
-	shader_.setAttributeBuffer(2, GL_FLOAT, 5 * sizeof(float), 3, 14 * sizeof(float));
+	shader_.setAttributeBuffer(2, GL_FLOAT, 5 * sizeof(float), 3, vertexSize_ * sizeof(float));
 
 	shader_.enableAttributeArray(3);
-	shader_.setAttributeBuffer(3, GL_FLOAT, 8 * sizeof(float), 3, 14 * sizeof(float));
+	shader_.setAttributeBuffer(3, GL_FLOAT, 8 * sizeof(float), 3, vertexSize_ * sizeof(float));
 
 	shader_.enableAttributeArray(4);
-	shader_.setAttributeBuffer(4, GL_FLOAT, 11 * sizeof(float), 3, 14 * sizeof(float));
+	shader_.setAttributeBuffer(4, GL_FLOAT, 11 * sizeof(float), 3, vertexSize_ * sizeof(float));
 
 	// Release our vao and THEN release our buffers.
 	vao_.release();
@@ -162,14 +133,16 @@ void Renderable::update(const qint64 msSinceLastFrame)
 	}
 }
 
-void Renderable::draw(const QMatrix4x4 &view, const QMatrix4x4 &projection)
+void Renderable::draw(const QMatrix4x4 &world, const QMatrix4x4 &view, const QMatrix4x4 &projection)
 {
 	// Create our model matrix.
 	QMatrix4x4 rotMatrix;
 	rotMatrix.setToIdentity();
 	rotMatrix.rotate(rotationAngle_, rotationAxis_);
 
+	// incorporate a real world transform if want it.
 	QMatrix4x4 modelMat = modelMatrix_ * rotMatrix;
+	modelMat = world * modelMat;
 	// Make sure our state is what we want
 	shader_.bind();
 	// Set our matrix uniforms!
@@ -180,14 +153,21 @@ void Renderable::draw(const QMatrix4x4 &view, const QMatrix4x4 &projection)
 	shader_.setUniformValue("projectionMatrix", projection);
 
 	vao_.bind();
-	texture_.bind();
-	// glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
-	glEnable(GL_DEPTH_TEST);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glActiveTexture(GL_TEXTURE0);
+
+	texture_.bind();
+	// // And our color texture at Texture Unit 1.
+	glActiveTexture(GL_TEXTURE1);
+	bumpTexture_.bind();
+
+	// TODO: I had to comment this out for my mac, but you might need this on windows
+	// shader_.setUniformValue("tex", GL_TEXTURE0);
+	shader_.setUniformValue("bumpTex", GL_TEXTURE1 - GL_TEXTURE0);
 
 	glDrawElements(GL_TRIANGLES, 3935, GL_UNSIGNED_INT, 0);
 	texture_.release();
+	bumpTexture_.release();
 	vao_.release();
 	shader_.release();
 }
