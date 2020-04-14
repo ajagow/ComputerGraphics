@@ -13,6 +13,9 @@
 #include <vector>
 #include <map>
 #include "MtlFileReader.h"
+#include <QtGui>
+#include <QtWidgets>
+#include <QtOpenGL>
 
 class ObjReader
 {
@@ -32,18 +35,29 @@ public:
     struct Vector2
     {
         float s, t;
+    };
 
+    struct VertexData
+    {
+        float x, y, z;    // x,y,z positions
+        float xn, yn, zn; // x,y,z normals
+        float s, t;       // s,t texture coordinates
 
-        // override the < operator so we can use Vector2 as a key in a map
-        bool operator<(const Vector2 &ob) const
+        VertexData(){};
+
+        VertexData(float _x, float _y, float _z, float _xn, float _yn, float _zn, float _s, float _t) : x(_x), y(_y), z(_z), xn(_xn), yn(_yn), zn(_zn), s(_s), t(_t) {}
+
+        // Tests if two VertexData are equal
+        bool operator==(const VertexData &rhs)
         {
-            return s < ob.s || (s == ob.s && t < ob.t);
+            if ((x == rhs.x) && (y == rhs.y) && (z == rhs.z) && (xn == rhs.xn) && (yn == rhs.yn) && (zn == rhs.zn) && (s == rhs.s) && (t == rhs.t))
+            {
+                return true;
+            }
+            return false;
         }
     };
 
-
-    std::vector<float> getVertices();
-    std::vector<float> getNormals();
     std::vector<float> getVerticesAndTextures();
     std::vector<unsigned int> getFaces();
     std::string getMtlFilepath();
@@ -57,20 +71,19 @@ private:
     // filepath to .mtl file associated with .obj file
     std::string mtlFilePath;
 
+    std::vector<VertexData> vertexDataOut;
+
     // vertices of .obj
     std::vector<Vector3> vertices;
     // normal values of .obj
     std::vector<Vector3> normal;
     // texture values of .obj
     std::vector<Vector2> textures;
+
     // vertex indices of face values of .obj
     std::vector<unsigned int> vertexIndices;
 
-    // vertex and texture data for buffer
-    std::vector<float> vertexAndTextures;
-
-
-    std::map<ObjReader::Vector2, int> vectorVals;
+    std::map<std::string, int> vectorVals;
 
     //splits a string based on regex passed into function
     std::vector<std::string> split(std::string givenString, std::string regexMatch);
