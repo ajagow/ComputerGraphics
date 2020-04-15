@@ -1,9 +1,9 @@
 /** @file ObjReader.h
  *  @brief Class for working with PPM images
  *  
- *  Class for working with P3 PPM images specifically.
+ *  Class for loading obj files
  *
- *  @author your_name_here
+ *  @Anika Jagow
  *  @bug No known bugs.
  */
 #ifndef OBJREADER_H
