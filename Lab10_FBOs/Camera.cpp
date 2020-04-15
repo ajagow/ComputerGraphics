@@ -6,7 +6,8 @@ Camera::Camera() : position_(0.0, 0.0, 0.0), lookAt_(0.0, 0.0, 0.0), up_(0.0, 1.
 }
 
 Camera::~Camera()
-{}
+{
+}
 
 void Camera::setPerspective(float fov, float aspect, float near, float far)
 {
@@ -14,7 +15,7 @@ void Camera::setPerspective(float fov, float aspect, float near, float far)
 	projection_.perspective(fov, aspect, near, far);
 }
 
-void Camera::setPosition(const QVector3D& position)
+void Camera::setPosition(const QVector3D &position)
 {
 	position_ = position;
 }
@@ -24,12 +25,12 @@ QVector3D Camera::position() const
 	return position_;
 }
 
-void Camera::translateCamera(const QVector3D& delta)
+void Camera::translateCamera(const QVector3D &delta)
 {
-	// TODO:  Implement camera translation
+	position_ += delta;
 }
 
-void Camera::setGazeVector(const QVector3D& gaze)
+void Camera::setGazeVector(const QVector3D &gaze)
 {
 	lookAt_ = gaze + position_;
 	lookAt_.normalize();
@@ -52,12 +53,12 @@ QVector3D Camera::upVector() const
 	return up_;
 }
 
-void Camera::setLookAt(const QVector3D& lookAt)
+void Camera::setLookAt(const QVector3D &lookAt)
 {
 	lookAt_ = lookAt;
 }
 
-void Camera::translateLookAt(const QVector3D& delta)
+void Camera::translateLookAt(const QVector3D &delta)
 {
 	lookAt_ += delta;
 }

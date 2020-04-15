@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/App.cpp" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/build/CMakeFiles/App.dir/App.cpp.o"
   "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/build/App_autogen/mocs_compilation.cpp" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/build/CMakeFiles/App.dir/App_autogen/mocs_compilation.cpp.o"
   "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/BasicWidget.cpp" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/build/CMakeFiles/App.dir/BasicWidget.cpp.o"
+  "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/Camera.cpp" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/build/CMakeFiles/App.dir/Camera.cpp.o"
   "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/MtlFileReader.cpp" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/build/CMakeFiles/App.dir/MtlFileReader.cpp.o"
   "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/ObjReader.cpp" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/build/CMakeFiles/App.dir/ObjReader.cpp.o"
   "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/Renderable.cpp" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/build/CMakeFiles/App.dir/Renderable.cpp.o"

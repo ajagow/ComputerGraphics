@@ -165,7 +165,7 @@ void Renderable::draw(const QMatrix4x4 &world, const QMatrix4x4 &view, const QMa
 	// shader_.setUniformValue("tex", GL_TEXTURE0);
 	shader_.setUniformValue("bumpTex", GL_TEXTURE1 - GL_TEXTURE0);
 
-	glDrawElements(GL_TRIANGLES, 3935, GL_UNSIGNED_INT, 0);
+	glDrawElements(GL_TRIANGLES, numTris_ * 3, GL_UNSIGNED_INT, 0);
 	texture_.release();
 	bumpTexture_.release();
 	vao_.release();

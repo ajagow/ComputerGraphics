@@ -14,7 +14,6 @@ BasicWidget::BasicWidget(QWidget *parent) : QOpenGLWidget(parent), logger_(this)
 
 BasicWidget::~BasicWidget()
 {
-
   delete renderable_;
 }
 
@@ -67,13 +66,11 @@ void BasicWidget::mouseMoveEvent(QMouseEvent *mouseEvent)
   QPoint delta = mouseEvent->pos() - lastMouseLoc_;
   lastMouseLoc_ = mouseEvent->pos();
 
-  qDebug() << delta;
   // qDebug() << lastMouseLoc_;
 
   if (mouseAction_ == Rotate)
   {
 
-    qDebug() << "rotate";
     // TODO:  Implement rotating the camera
     float mouseSpeed = 0.005f;
     float horizontalAngle = mouseSpeed * float(width() / 2 - lastMouseLoc_.x());

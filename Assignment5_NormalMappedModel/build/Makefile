@@ -217,6 +217,33 @@ BasicWidget.cpp.s:
 	$(MAKE) -f CMakeFiles/App.dir/build.make CMakeFiles/App.dir/BasicWidget.cpp.s
 .PHONY : BasicWidget.cpp.s
 
+Camera.o: Camera.cpp.o
+
+.PHONY : Camera.o
+
+# target to build an object file
+Camera.cpp.o:
+	$(MAKE) -f CMakeFiles/App.dir/build.make CMakeFiles/App.dir/Camera.cpp.o
+.PHONY : Camera.cpp.o
+
+Camera.i: Camera.cpp.i
+
+.PHONY : Camera.i
+
+# target to preprocess a source file
+Camera.cpp.i:
+	$(MAKE) -f CMakeFiles/App.dir/build.make CMakeFiles/App.dir/Camera.cpp.i
+.PHONY : Camera.cpp.i
+
+Camera.s: Camera.cpp.s
+
+.PHONY : Camera.s
+
+# target to generate assembly for a file
+Camera.cpp.s:
+	$(MAKE) -f CMakeFiles/App.dir/build.make CMakeFiles/App.dir/Camera.cpp.s
+.PHONY : Camera.cpp.s
+
 MtlFileReader.o: MtlFileReader.cpp.o
 
 .PHONY : MtlFileReader.o
@@ -298,6 +325,33 @@ Renderable.cpp.s:
 	$(MAKE) -f CMakeFiles/App.dir/build.make CMakeFiles/App.dir/Renderable.cpp.s
 .PHONY : Renderable.cpp.s
 
+UnitQuad.o: UnitQuad.cpp.o
+
+.PHONY : UnitQuad.o
+
+# target to build an object file
+UnitQuad.cpp.o:
+	$(MAKE) -f CMakeFiles/App.dir/build.make CMakeFiles/App.dir/UnitQuad.cpp.o
+.PHONY : UnitQuad.cpp.o
+
+UnitQuad.i: UnitQuad.cpp.i
+
+.PHONY : UnitQuad.i
+
+# target to preprocess a source file
+UnitQuad.cpp.i:
+	$(MAKE) -f CMakeFiles/App.dir/build.make CMakeFiles/App.dir/UnitQuad.cpp.i
+.PHONY : UnitQuad.cpp.i
+
+UnitQuad.s: UnitQuad.cpp.s
+
+.PHONY : UnitQuad.s
+
+# target to generate assembly for a file
+UnitQuad.cpp.s:
+	$(MAKE) -f CMakeFiles/App.dir/build.make CMakeFiles/App.dir/UnitQuad.cpp.s
+.PHONY : UnitQuad.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -344,6 +398,9 @@ help:
 	@echo "... BasicWidget.o"
 	@echo "... BasicWidget.i"
 	@echo "... BasicWidget.s"
+	@echo "... Camera.o"
+	@echo "... Camera.i"
+	@echo "... Camera.s"
 	@echo "... MtlFileReader.o"
 	@echo "... MtlFileReader.i"
 	@echo "... MtlFileReader.s"
@@ -353,6 +410,9 @@ help:
 	@echo "... Renderable.o"
 	@echo "... Renderable.i"
 	@echo "... Renderable.s"
+	@echo "... UnitQuad.o"
+	@echo "... UnitQuad.i"
+	@echo "... UnitQuad.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

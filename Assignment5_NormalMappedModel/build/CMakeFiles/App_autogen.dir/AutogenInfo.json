@@ -18,6 +18,11 @@
 			"EWIEGA46WW/moc_BasicWidget.cpp"
 		],
 		[
+			"/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/Camera.h",
+			"Mu",
+			"EWIEGA46WW/moc_Camera.cpp"
+		],
+		[
 			"/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/MtlFileReader.h",
 			"Mu",
 			"EWIEGA46WW/moc_MtlFileReader.cpp"
@@ -31,6 +36,11 @@
 			"/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/Renderable.h",
 			"Mu",
 			"EWIEGA46WW/moc_Renderable.cpp"
+		],
+		[
+			"/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/UnitQuad.h",
+			"Mu",
+			"EWIEGA46WW/moc_UnitQuad.cpp"
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -103,6 +113,10 @@
 			"Mu"
 		],
 		[
+			"/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/Camera.cpp",
+			"Mu"
+		],
+		[
 			"/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/MtlFileReader.cpp",
 			"Mu"
 		],
@@ -112,6 +126,10 @@
 		],
 		[
 			"/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/Renderable.cpp",
+			"Mu"
+		],
+		[
+			"/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/UnitQuad.cpp",
 			"Mu"
 		],
 		[

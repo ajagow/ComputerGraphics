@@ -18,6 +18,11 @@
 			"EWIEGA46WW/moc_BasicWidget.cpp"
 		],
 		[
+			"/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/Camera.h",
+			"Mu",
+			"EWIEGA46WW/moc_Camera.cpp"
+		],
+		[
 			"/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/MtlFileReader.h",
 			"Mu",
 			"EWIEGA46WW/moc_MtlFileReader.cpp"
@@ -100,6 +105,10 @@
 		],
 		[
 			"/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/BasicWidget.cpp",
+			"Mu"
+		],
+		[
+			"/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/Camera.cpp",
 			"Mu"
 		],
 		[

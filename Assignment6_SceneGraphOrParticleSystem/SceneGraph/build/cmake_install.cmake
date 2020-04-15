@@ -1,4 +1,4 @@
-# Install script for directory: /Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph
+# Install script for directory: /Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

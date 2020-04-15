@@ -1,4 +1,4 @@
-/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/rebuild_cache.dir
-/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/edit_cache.dir
-/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/App.dir
-/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/App_autogen.dir
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/rebuild_cache.dir
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/edit_cache.dir
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/App.dir
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/App_autogen.dir

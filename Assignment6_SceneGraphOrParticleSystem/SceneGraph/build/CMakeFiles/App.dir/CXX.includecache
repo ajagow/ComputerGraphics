@@ -6,23 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/Users/anika/Qt/5.14.0/clang_64/lib/QtCore.framework/QtCore
+../App.h
+QtGui
+-
+QtCore
+-
+QtWidgets
+-
 
-/Users/anika/Qt/5.14.0/clang_64/lib/QtGui.framework/QtGui
-
-/Users/anika/Qt/5.14.0/clang_64/lib/QtOpenGL.framework/QtOpenGL
-
-/Users/anika/Qt/5.14.0/clang_64/lib/QtWidgets.framework/QtWidgets
-
-/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/BasicWidget.cpp
-BasicWidget.h
-/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/BasicWidget.h
-UnitQuad.h
-/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/UnitQuad.h
-Sphere.h
-/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Sphere.h
-
-/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/BasicWidget.h
+../BasicWidget.h
 QtGui
 -
 QtWidgets
@@ -30,25 +22,21 @@ QtWidgets
 QtOpenGL
 -
 Renderable.h
-/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Renderable.h
+../Renderable.h
 Camera.h
-/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Camera.h
+../Camera.h
+TreeNode.h
+../TreeNode.h
+Tree.h
+../Tree.h
 
-/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Camera.h
+../Camera.h
 QtGui/QMatrix4x4
 -
 QtGui/QVector3D
 -
 
-/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Renderable.cpp
-Renderable.h
-/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Renderable.h
-QtGui
--
-QtOpenGL
--
-
-/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Renderable.h
+../Renderable.h
 QtCore
 -
 QtGui
@@ -58,17 +46,69 @@ QtOpenGL
 vector
 -
 
-/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Sphere.h
-cmath
+../Tree.h
+QtGui
+-
+QtWidgets
+-
+QtOpenGL
+-
+TreeNode.h
+../TreeNode.h
+
+../TreeNode.h
+QtGui
+-
+QtWidgets
+-
+QtOpenGL
 -
 vector
 -
+Renderable.h
+../Renderable.h
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/App.cpp
+App.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/App.h
+BasicWidget.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/BasicWidget.h
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/App.h
 QtGui
 -
+QtCore
+-
+QtWidgets
+-
 
-/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/UnitQuad.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/BasicWidget.cpp
+BasicWidget.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/BasicWidget.h
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/BasicWidget.h
+QtGui
+-
+QtWidgets
+-
+QtOpenGL
+-
 Renderable.h
-/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Renderable.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Renderable.h
+Camera.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Camera.h
+TreeNode.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/TreeNode.h
+Tree.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Tree.h
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Camera.h
+QtGui/QMatrix4x4
+-
+QtGui/QVector3D
+-
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Renderable.h
 QtCore
 -
 QtGui
@@ -77,4 +117,60 @@ QtOpenGL
 -
 vector
 -
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Tree.h
+QtGui
+-
+QtWidgets
+-
+QtOpenGL
+-
+TreeNode.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/TreeNode.h
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/TreeNode.h
+QtGui
+-
+QtWidgets
+-
+QtOpenGL
+-
+vector
+-
+Renderable.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Renderable.h
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/App_autogen/EWIEGA46WW/moc_App.cpp
+memory
+-
+App.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/App_autogen/EWIEGA46WW/App.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/App_autogen/EWIEGA46WW/moc_BasicWidget.cpp
+memory
+-
+BasicWidget.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/App_autogen/EWIEGA46WW/BasicWidget.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/App_autogen/mocs_compilation.cpp
+EWIEGA46WW/moc_App.cpp
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/App_autogen/EWIEGA46WW/moc_App.cpp
+EWIEGA46WW/moc_BasicWidget.cpp
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/App_autogen/EWIEGA46WW/moc_BasicWidget.cpp
+
+/Users/anika/Qt/5.14.0/clang_64/lib/QtCore.framework/QtCore
+
+/Users/anika/Qt/5.14.0/clang_64/lib/QtGui.framework/QtGui
+
+/Users/anika/Qt/5.14.0/clang_64/lib/QtOpenGL.framework/QtOpenGL
+
+/Users/anika/Qt/5.14.0/clang_64/lib/QtWidgets.framework/QtWidgets
 

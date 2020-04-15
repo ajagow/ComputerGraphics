@@ -4,13 +4,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/App.cpp" "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/App.dir/App.cpp.o"
-  "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/App_autogen/mocs_compilation.cpp" "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/App.dir/App_autogen/mocs_compilation.cpp.o"
-  "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/BasicWidget.cpp" "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/App.dir/BasicWidget.cpp.o"
-  "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Camera.cpp" "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/App.dir/Camera.cpp.o"
-  "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Renderable.cpp" "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/App.dir/Renderable.cpp.o"
-  "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/UnitQuad.cpp" "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/App.dir/UnitQuad.cpp.o"
-  "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/main.cpp" "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/App.dir/main.cpp.o"
+  "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/App.cpp" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/App.dir/App.cpp.o"
+  "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/App_autogen/mocs_compilation.cpp" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/App.dir/App_autogen/mocs_compilation.cpp.o"
+  "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/BasicWidget.cpp" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/App.dir/BasicWidget.cpp.o"
+  "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Camera.cpp" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/App.dir/Camera.cpp.o"
+  "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Renderable.cpp" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/App.dir/Renderable.cpp.o"
+  "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Tree.cpp" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/App.dir/Tree.cpp.o"
+  "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/TreeNode.cpp" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/App.dir/TreeNode.cpp.o"
+  "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/main.cpp" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/App.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

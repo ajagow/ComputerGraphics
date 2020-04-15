@@ -6,85 +6,11 @@
 
 #IncludeRegexTransform: 
 
-../App.h
-QtGui
--
-QtCore
--
-QtWidgets
--
-string
--
-
-../BasicWidget.h
-QtGui
--
-QtWidgets
--
-QtOpenGL
--
-string
--
-Renderable.h
-../Renderable.h
-ObjReader.h
-../ObjReader.h
-
-../MtlFileReader.h
-string
--
-vector
--
-
-../ObjReader.h
-string
--
-vector
--
-map
--
-MtlFileReader.h
-../MtlFileReader.h
-QtGui
--
-QtWidgets
--
-QtOpenGL
--
-
-../Renderable.h
-QtCore
--
-QtGui
--
-QtOpenGL
--
-vector
--
-
-/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/App.cpp
-App.h
-/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/App.h
-BasicWidget.h
-/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/BasicWidget.h
-
-/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/App.h
-QtGui
--
-QtCore
--
-QtWidgets
--
-string
--
-
 /Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/BasicWidget.cpp
 BasicWidget.h
 /Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/BasicWidget.h
-iostream
--
-vector
--
+UnitQuad.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/UnitQuad.h
 
 /Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/BasicWidget.h
 QtGui
@@ -93,12 +19,18 @@ QtWidgets
 -
 QtOpenGL
 -
-string
--
 Renderable.h
 /Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/Renderable.h
+Camera.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/Camera.h
 ObjReader.h
 /Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/ObjReader.h
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/Camera.h
+QtGui/QMatrix4x4
+-
+QtGui/QVector3D
+-
 
 /Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/MtlFileReader.h
 string
@@ -122,18 +54,6 @@ QtWidgets
 QtOpenGL
 -
 
-/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/Renderable.cpp
-Renderable.h
-/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/Renderable.h
-QtGui
--
-QtOpenGL
--
-iostream
--
-ObjReader.h
-/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/ObjReader.h
-
 /Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/Renderable.h
 QtCore
 -
@@ -144,31 +64,17 @@ QtOpenGL
 vector
 -
 
-/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/build/App_autogen/EWIEGA46WW/moc_App.cpp
-memory
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/UnitQuad.h
+Renderable.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/Renderable.h
+QtCore
 -
-App.h
-/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/build/App_autogen/EWIEGA46WW/App.h
-QtCore/qbytearray.h
+QtGui
 -
-QtCore/qmetatype.h
+QtOpenGL
 -
-
-/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/build/App_autogen/EWIEGA46WW/moc_BasicWidget.cpp
-memory
+vector
 -
-BasicWidget.h
-/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/build/App_autogen/EWIEGA46WW/BasicWidget.h
-QtCore/qbytearray.h
--
-QtCore/qmetatype.h
--
-
-/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/build/App_autogen/mocs_compilation.cpp
-EWIEGA46WW/moc_App.cpp
-/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/build/App_autogen/EWIEGA46WW/moc_App.cpp
-EWIEGA46WW/moc_BasicWidget.cpp
-/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/build/App_autogen/EWIEGA46WW/moc_BasicWidget.cpp
 
 /Users/anika/Qt/5.14.0/clang_64/lib/QtCore.framework/QtCore
 

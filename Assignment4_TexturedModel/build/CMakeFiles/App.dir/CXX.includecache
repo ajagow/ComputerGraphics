@@ -6,32 +6,26 @@
 
 #IncludeRegexTransform: 
 
-/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/BasicWidget.cpp
-BasicWidget.h
-/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/BasicWidget.h
-iostream
--
-vector
--
-
-/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/BasicWidget.h
-QtGui
--
-QtWidgets
--
-QtOpenGL
--
-string
--
-Renderable.h
-/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/Renderable.h
-ObjReader.h
-/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/ObjReader.h
-
 /Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/MtlFileReader.h
 string
 -
 vector
+-
+
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/ObjReader.cpp
+ObjReader.h
+/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/ObjReader.h
+iostream
+-
+fstream
+-
+regex
+-
+algorithm
+-
+typeinfo
+-
+string
 -
 
 /Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/ObjReader.h
@@ -43,18 +37,12 @@ map
 -
 MtlFileReader.h
 /Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/MtlFileReader.h
-
-/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/Renderable.h
-QtCore
--
 QtGui
+-
+QtWidgets
 -
 QtOpenGL
 -
-vector
--
-
-/Users/anika/Qt/5.14.0/clang_64/lib/QtCore.framework/QtCore
 
 /Users/anika/Qt/5.14.0/clang_64/lib/QtGui.framework/QtGui
 

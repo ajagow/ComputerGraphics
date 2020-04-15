@@ -43,10 +43,10 @@ RM = /Applications/CMake.app/Contents/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph"
+CMAKE_SOURCE_DIR = "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build"
+CMAKE_BINARY_DIR = "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build"
 
 # Utility rule file for App_autogen.
 
@@ -54,8 +54,8 @@ CMAKE_BINARY_DIR = "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment
 include CMakeFiles/App_autogen.dir/progress.make
 
 CMakeFiles/App_autogen:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir="/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC for target App"
-	/Applications/CMake.app/Contents/bin/cmake -E cmake_autogen "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/App_autogen.dir/AutogenInfo.json" ""
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir="/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC for target App"
+	/Applications/CMake.app/Contents/bin/cmake -E cmake_autogen "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/App_autogen.dir/AutogenInfo.json" ""
 
 App_autogen: CMakeFiles/App_autogen
 App_autogen: CMakeFiles/App_autogen.dir/build.make
@@ -72,6 +72,6 @@ CMakeFiles/App_autogen.dir/clean:
 .PHONY : CMakeFiles/App_autogen.dir/clean
 
 CMakeFiles/App_autogen.dir/depend:
-	cd "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph" "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph" "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build" "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build" "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/App_autogen.dir/DependInfo.cmake" --color=$(COLOR)
+	cd "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/App_autogen.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/App_autogen.dir/depend
 

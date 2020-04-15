@@ -48,10 +48,10 @@ RM = /Applications/CMake.app/Contents/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph"
+CMAKE_SOURCE_DIR = "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build"
+CMAKE_BINARY_DIR = "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles" "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/progress.marks"
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -271,32 +271,59 @@ Renderable.cpp.s:
 	$(MAKE) -f CMakeFiles/App.dir/build.make CMakeFiles/App.dir/Renderable.cpp.s
 .PHONY : Renderable.cpp.s
 
-UnitQuad.o: UnitQuad.cpp.o
+Tree.o: Tree.cpp.o
 
-.PHONY : UnitQuad.o
+.PHONY : Tree.o
 
 # target to build an object file
-UnitQuad.cpp.o:
-	$(MAKE) -f CMakeFiles/App.dir/build.make CMakeFiles/App.dir/UnitQuad.cpp.o
-.PHONY : UnitQuad.cpp.o
+Tree.cpp.o:
+	$(MAKE) -f CMakeFiles/App.dir/build.make CMakeFiles/App.dir/Tree.cpp.o
+.PHONY : Tree.cpp.o
 
-UnitQuad.i: UnitQuad.cpp.i
+Tree.i: Tree.cpp.i
 
-.PHONY : UnitQuad.i
+.PHONY : Tree.i
 
 # target to preprocess a source file
-UnitQuad.cpp.i:
-	$(MAKE) -f CMakeFiles/App.dir/build.make CMakeFiles/App.dir/UnitQuad.cpp.i
-.PHONY : UnitQuad.cpp.i
+Tree.cpp.i:
+	$(MAKE) -f CMakeFiles/App.dir/build.make CMakeFiles/App.dir/Tree.cpp.i
+.PHONY : Tree.cpp.i
 
-UnitQuad.s: UnitQuad.cpp.s
+Tree.s: Tree.cpp.s
 
-.PHONY : UnitQuad.s
+.PHONY : Tree.s
 
 # target to generate assembly for a file
-UnitQuad.cpp.s:
-	$(MAKE) -f CMakeFiles/App.dir/build.make CMakeFiles/App.dir/UnitQuad.cpp.s
-.PHONY : UnitQuad.cpp.s
+Tree.cpp.s:
+	$(MAKE) -f CMakeFiles/App.dir/build.make CMakeFiles/App.dir/Tree.cpp.s
+.PHONY : Tree.cpp.s
+
+TreeNode.o: TreeNode.cpp.o
+
+.PHONY : TreeNode.o
+
+# target to build an object file
+TreeNode.cpp.o:
+	$(MAKE) -f CMakeFiles/App.dir/build.make CMakeFiles/App.dir/TreeNode.cpp.o
+.PHONY : TreeNode.cpp.o
+
+TreeNode.i: TreeNode.cpp.i
+
+.PHONY : TreeNode.i
+
+# target to preprocess a source file
+TreeNode.cpp.i:
+	$(MAKE) -f CMakeFiles/App.dir/build.make CMakeFiles/App.dir/TreeNode.cpp.i
+.PHONY : TreeNode.cpp.i
+
+TreeNode.s: TreeNode.cpp.s
+
+.PHONY : TreeNode.s
+
+# target to generate assembly for a file
+TreeNode.cpp.s:
+	$(MAKE) -f CMakeFiles/App.dir/build.make CMakeFiles/App.dir/TreeNode.cpp.s
+.PHONY : TreeNode.cpp.s
 
 main.o: main.cpp.o
 
@@ -350,9 +377,12 @@ help:
 	@echo "... Renderable.o"
 	@echo "... Renderable.i"
 	@echo "... Renderable.s"
-	@echo "... UnitQuad.o"
-	@echo "... UnitQuad.i"
-	@echo "... UnitQuad.s"
+	@echo "... Tree.o"
+	@echo "... Tree.i"
+	@echo "... Tree.s"
+	@echo "... TreeNode.o"
+	@echo "... TreeNode.i"
+	@echo "... TreeNode.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

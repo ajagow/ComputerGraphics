@@ -81,8 +81,8 @@ void BasicWidget::mouseMoveEvent(QMouseEvent *mouseEvent)
     qDebug() << "rotate";
     // TODO:  Implement rotating the camera
     float mouseSpeed = 0.005f;
-    float horizontalAngle = mouseSpeed * float(1024 / 2 - lastMouseLoc_.x());
-    float verticalAngle = mouseSpeed * float(768 / 2 - lastMouseLoc_.y());
+    float horizontalAngle = mouseSpeed * float(width() / 2 - lastMouseLoc_.x());
+    float verticalAngle = mouseSpeed * float(height() / 2 - lastMouseLoc_.y());
 
     camera_.translateLookAt(QVector3D(cos(verticalAngle) * sin(horizontalAngle), sin(verticalAngle), cos(verticalAngle) * cos(horizontalAngle)));
   }

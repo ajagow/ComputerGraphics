@@ -7,9 +7,11 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/App.cpp" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/build/CMakeFiles/App.dir/App.cpp.o"
   "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/build/App_autogen/mocs_compilation.cpp" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/build/CMakeFiles/App.dir/App_autogen/mocs_compilation.cpp.o"
   "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/BasicWidget.cpp" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/build/CMakeFiles/App.dir/BasicWidget.cpp.o"
+  "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/Camera.cpp" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/build/CMakeFiles/App.dir/Camera.cpp.o"
   "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/MtlFileReader.cpp" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/build/CMakeFiles/App.dir/MtlFileReader.cpp.o"
   "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/ObjReader.cpp" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/build/CMakeFiles/App.dir/ObjReader.cpp.o"
   "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/Renderable.cpp" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/build/CMakeFiles/App.dir/Renderable.cpp.o"
+  "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/UnitQuad.cpp" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/build/CMakeFiles/App.dir/UnitQuad.cpp.o"
   "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/main.cpp" "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment5_NormalMappedModel/build/CMakeFiles/App.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")

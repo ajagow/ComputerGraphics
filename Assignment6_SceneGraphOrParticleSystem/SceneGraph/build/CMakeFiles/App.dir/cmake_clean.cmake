@@ -9,7 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/App.dir/BasicWidget.cpp.o"
   "CMakeFiles/App.dir/Camera.cpp.o"
   "CMakeFiles/App.dir/Renderable.cpp.o"
-  "CMakeFiles/App.dir/UnitQuad.cpp.o"
+  "CMakeFiles/App.dir/Tree.cpp.o"
+  "CMakeFiles/App.dir/TreeNode.cpp.o"
   "CMakeFiles/App.dir/main.cpp.o"
 )
 

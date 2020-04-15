@@ -70,22 +70,9 @@ CMakeFiles/App.dir/App_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/App.dir/App_autogen/mocs_compilation.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/build/App_autogen/mocs_compilation.cpp" -o CMakeFiles/App.dir/App_autogen/mocs_compilation.cpp.s
 
-CMakeFiles/App.dir/main.cpp.o: CMakeFiles/App.dir/flags.make
-CMakeFiles/App.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/App.dir/main.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/App.dir/main.cpp.o -c "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/main.cpp"
-
-CMakeFiles/App.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/App.dir/main.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/main.cpp" > CMakeFiles/App.dir/main.cpp.i
-
-CMakeFiles/App.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/App.dir/main.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/main.cpp" -o CMakeFiles/App.dir/main.cpp.s
-
 CMakeFiles/App.dir/App.cpp.o: CMakeFiles/App.dir/flags.make
 CMakeFiles/App.dir/App.cpp.o: ../App.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/App.dir/App.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/App.dir/App.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/App.dir/App.cpp.o -c "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/App.cpp"
 
 CMakeFiles/App.dir/App.cpp.i: cmake_force
@@ -98,7 +85,7 @@ CMakeFiles/App.dir/App.cpp.s: cmake_force
 
 CMakeFiles/App.dir/BasicWidget.cpp.o: CMakeFiles/App.dir/flags.make
 CMakeFiles/App.dir/BasicWidget.cpp.o: ../BasicWidget.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/App.dir/BasicWidget.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/App.dir/BasicWidget.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/App.dir/BasicWidget.cpp.o -c "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/BasicWidget.cpp"
 
 CMakeFiles/App.dir/BasicWidget.cpp.i: cmake_force
@@ -111,7 +98,7 @@ CMakeFiles/App.dir/BasicWidget.cpp.s: cmake_force
 
 CMakeFiles/App.dir/Renderable.cpp.o: CMakeFiles/App.dir/flags.make
 CMakeFiles/App.dir/Renderable.cpp.o: ../Renderable.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/App.dir/Renderable.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/App.dir/Renderable.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/App.dir/Renderable.cpp.o -c "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/Renderable.cpp"
 
 CMakeFiles/App.dir/Renderable.cpp.i: cmake_force
@@ -122,9 +109,35 @@ CMakeFiles/App.dir/Renderable.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/App.dir/Renderable.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/Renderable.cpp" -o CMakeFiles/App.dir/Renderable.cpp.s
 
+CMakeFiles/App.dir/Camera.cpp.o: CMakeFiles/App.dir/flags.make
+CMakeFiles/App.dir/Camera.cpp.o: ../Camera.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/App.dir/Camera.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/App.dir/Camera.cpp.o -c "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/Camera.cpp"
+
+CMakeFiles/App.dir/Camera.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/App.dir/Camera.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/Camera.cpp" > CMakeFiles/App.dir/Camera.cpp.i
+
+CMakeFiles/App.dir/Camera.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/App.dir/Camera.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/Camera.cpp" -o CMakeFiles/App.dir/Camera.cpp.s
+
+CMakeFiles/App.dir/main.cpp.o: CMakeFiles/App.dir/flags.make
+CMakeFiles/App.dir/main.cpp.o: ../main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/App.dir/main.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/App.dir/main.cpp.o -c "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/main.cpp"
+
+CMakeFiles/App.dir/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/App.dir/main.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/main.cpp" > CMakeFiles/App.dir/main.cpp.i
+
+CMakeFiles/App.dir/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/App.dir/main.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/main.cpp" -o CMakeFiles/App.dir/main.cpp.s
+
 CMakeFiles/App.dir/ObjReader.cpp.o: CMakeFiles/App.dir/flags.make
 CMakeFiles/App.dir/ObjReader.cpp.o: ../ObjReader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/App.dir/ObjReader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/App.dir/ObjReader.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/App.dir/ObjReader.cpp.o -c "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/ObjReader.cpp"
 
 CMakeFiles/App.dir/ObjReader.cpp.i: cmake_force
@@ -137,7 +150,7 @@ CMakeFiles/App.dir/ObjReader.cpp.s: cmake_force
 
 CMakeFiles/App.dir/MtlFileReader.cpp.o: CMakeFiles/App.dir/flags.make
 CMakeFiles/App.dir/MtlFileReader.cpp.o: ../MtlFileReader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/App.dir/MtlFileReader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/App.dir/MtlFileReader.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/App.dir/MtlFileReader.cpp.o -c "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/MtlFileReader.cpp"
 
 CMakeFiles/App.dir/MtlFileReader.cpp.i: cmake_force
@@ -151,10 +164,11 @@ CMakeFiles/App.dir/MtlFileReader.cpp.s: cmake_force
 # Object files for target App
 App_OBJECTS = \
 "CMakeFiles/App.dir/App_autogen/mocs_compilation.cpp.o" \
-"CMakeFiles/App.dir/main.cpp.o" \
 "CMakeFiles/App.dir/App.cpp.o" \
 "CMakeFiles/App.dir/BasicWidget.cpp.o" \
 "CMakeFiles/App.dir/Renderable.cpp.o" \
+"CMakeFiles/App.dir/Camera.cpp.o" \
+"CMakeFiles/App.dir/main.cpp.o" \
 "CMakeFiles/App.dir/ObjReader.cpp.o" \
 "CMakeFiles/App.dir/MtlFileReader.cpp.o"
 
@@ -162,10 +176,11 @@ App_OBJECTS = \
 App_EXTERNAL_OBJECTS =
 
 App: CMakeFiles/App.dir/App_autogen/mocs_compilation.cpp.o
-App: CMakeFiles/App.dir/main.cpp.o
 App: CMakeFiles/App.dir/App.cpp.o
 App: CMakeFiles/App.dir/BasicWidget.cpp.o
 App: CMakeFiles/App.dir/Renderable.cpp.o
+App: CMakeFiles/App.dir/Camera.cpp.o
+App: CMakeFiles/App.dir/main.cpp.o
 App: CMakeFiles/App.dir/ObjReader.cpp.o
 App: CMakeFiles/App.dir/MtlFileReader.cpp.o
 App: CMakeFiles/App.dir/build.make
@@ -175,7 +190,7 @@ App: /Users/anika/Qt/5.14.0/clang_64/lib/QtWidgets.framework/QtWidgets
 App: /Users/anika/Qt/5.14.0/clang_64/lib/QtGui.framework/QtGui
 App: /Users/anika/Qt/5.14.0/clang_64/lib/QtCore.framework/QtCore
 App: CMakeFiles/App.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable App"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment4_TexturedModel/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable App"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/App.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

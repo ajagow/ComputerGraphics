@@ -14,9 +14,7 @@ BasicWidget::BasicWidget(QWidget *parent) : QOpenGLWidget(parent), logger_(this)
 
 BasicWidget::~BasicWidget()
 {
-    delete renderable_;
-
-
+  delete renderable_;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -103,14 +101,16 @@ void BasicWidget::initializeGL()
   QStringList objPath = QCoreApplication::arguments();
   std::string stringpath;
 
-  try {
+  try
+  {
     stringpath = objPath.at(1).toUtf8().constData();
   }
-  catch( int e) {
-    qDebug()<< "Please pass in a valid file path";
+  catch (int e)
+  {
+    qDebug() << "Please pass in a valid file path";
     exit(e);
   }
-  
+
   // create object from .obj specifications
   ObjReader house = ObjReader(stringpath);
   std::string texturePath = house.getMtlFilepath();
@@ -162,8 +162,7 @@ void BasicWidget::paintGL()
 
   glEnable(GL_DEPTH_TEST);
 
-
   renderable_->draw(world_, camera_.getViewMatrix(), camera_.getProjectionMatrix());
-  
+
   update();
 }

@@ -1,41 +1,46 @@
 {
-	"BUILD_DIR" : "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/App_autogen",
-	"CMAKE_BINARY_DIR" : "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build",
-	"CMAKE_CURRENT_BINARY_DIR" : "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build",
-	"CMAKE_CURRENT_SOURCE_DIR" : "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph",
+	"BUILD_DIR" : "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/App_autogen",
+	"CMAKE_BINARY_DIR" : "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph",
 	"CMAKE_EXECUTABLE" : "/Applications/CMake.app/Contents/bin/cmake",
-	"CMAKE_SOURCE_DIR" : "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph",
+	"CMAKE_SOURCE_DIR" : "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph",
 	"HEADERS" : 
 	[
 		[
-			"/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/App.h",
+			"/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/App.h",
 			"Mu",
 			"EWIEGA46WW/moc_App.cpp"
 		],
 		[
-			"/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/BasicWidget.h",
+			"/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/BasicWidget.h",
 			"Mu",
 			"EWIEGA46WW/moc_BasicWidget.cpp"
 		],
 		[
-			"/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Camera.h",
+			"/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Camera.h",
 			"Mu",
 			"EWIEGA46WW/moc_Camera.cpp"
 		],
 		[
-			"/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Renderable.h",
+			"/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Renderable.h",
 			"Mu",
 			"EWIEGA46WW/moc_Renderable.cpp"
 		],
 		[
-			"/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/UnitQuad.h",
+			"/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Tree.h",
 			"Mu",
-			"EWIEGA46WW/moc_UnitQuad.cpp"
+			"EWIEGA46WW/moc_Tree.cpp"
+		],
+		[
+			"/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/TreeNode.h",
+			"Mu",
+			"EWIEGA46WW/moc_TreeNode.cpp"
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/App_autogen/include",
-	"MOC_COMPILATION_FILE" : "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/App_autogen/mocs_compilation.cpp",
+	"INCLUDE_DIR" : "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/App_autogen/include",
+	"MOC_COMPILATION_FILE" : "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/App_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : 
 	[
 		"QT_CORE_LIB",
@@ -53,8 +58,8 @@
 	],
 	"MOC_INCLUDES" : 
 	[
-		"/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build",
-		"/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph",
+		"/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build",
+		"/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph",
 		"/Users/anika/Qt/5.14.0/clang_64/lib/QtWidgets.framework",
 		"/Users/anika/Qt/5.14.0/clang_64/lib/QtWidgets.framework/Headers",
 		"/Users/anika/Qt/5.14.0/clang_64/lib/QtGui.framework",
@@ -82,40 +87,44 @@
 		"-c",
 		"/Applications/CMake.app/Contents/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/App_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/App_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 4,
-	"PARSE_CACHE_FILE" : "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/App_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE" : "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/App_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "/Users/anika/Qt/5.14.0/clang_64/bin/moc",
 	"QT_UIC_EXECUTABLE" : "",
 	"QT_VERSION_MAJOR" : 5,
-	"SETTINGS_FILE" : "/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/App_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/build/CMakeFiles/App_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
 		[
-			"/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/App.cpp",
+			"/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/App.cpp",
 			"Mu"
 		],
 		[
-			"/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/BasicWidget.cpp",
+			"/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/BasicWidget.cpp",
 			"Mu"
 		],
 		[
-			"/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Camera.cpp",
+			"/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Camera.cpp",
 			"Mu"
 		],
 		[
-			"/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Renderable.cpp",
+			"/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Renderable.cpp",
 			"Mu"
 		],
 		[
-			"/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/UnitQuad.cpp",
+			"/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/Tree.cpp",
 			"Mu"
 		],
 		[
-			"/Users/anika/documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/main.cpp",
+			"/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/TreeNode.cpp",
+			"Mu"
+		],
+		[
+			"/Users/anika/Documents/Year 4/cg/ComputerGraphics/Assignment6_SceneGraphOrParticleSystem/SceneGraph/main.cpp",
 			"Mu"
 		]
 	],

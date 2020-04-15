@@ -7,9 +7,11 @@ file(REMOVE_RECURSE
   "CMakeFiles/App.dir/App.cpp.o"
   "CMakeFiles/App.dir/App_autogen/mocs_compilation.cpp.o"
   "CMakeFiles/App.dir/BasicWidget.cpp.o"
+  "CMakeFiles/App.dir/Camera.cpp.o"
   "CMakeFiles/App.dir/MtlFileReader.cpp.o"
   "CMakeFiles/App.dir/ObjReader.cpp.o"
   "CMakeFiles/App.dir/Renderable.cpp.o"
+  "CMakeFiles/App.dir/UnitQuad.cpp.o"
   "CMakeFiles/App.dir/main.cpp.o"
 )
 

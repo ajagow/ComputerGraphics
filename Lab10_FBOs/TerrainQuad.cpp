@@ -4,12 +4,14 @@
 #include <QOpenGLFunctions_3_3_core>
 
 TerrainQuad::TerrainQuad() : lightPos_(0.5f, 0.5f, -2.0f), sign_(1.0f), numIdxPerStrip_(0), numStrips_(0), heightTexture_(QOpenGLTexture::Target2D)
-{}
+{
+}
 
 TerrainQuad::~TerrainQuad()
-{}
+{
+}
 
-void TerrainQuad::init(const QString& textureFile)
+void TerrainQuad::init(const QString &textureFile)
 {
     // The unit quad goes from 0.0 to 1.0 in each dimension.
     QVector<QVector3D> pos;
@@ -24,16 +26,18 @@ void TerrainQuad::init(const QString& textureFile)
 
     QVector<unsigned int> stripIdx;
     QVector3D normal(0.0, 1.0, 0.0);
-    QImage heightImage("../../terrain2.ppm");
+    QImage heightImage("../terrain2.ppm");
     unsigned int curIdx = 0;
     // Populate our grid
-    for (unsigned int r = 0; r < numRows; ++r) {
-        for (unsigned int c = 0; c < numCols; ++c) {
+    for (unsigned int r = 0; r < numRows; ++r)
+    {
+        for (unsigned int c = 0; c < numCols; ++c)
+        {
             // compute our top coordinate
             float z = r * rowStep;
             float x = c * colStep;
-            int pixX = z * (heightImage.width()-1);
-            int pixY = x * (heightImage.height()-1);
+            int pixX = z * (heightImage.width() - 1);
+            int pixY = x * (heightImage.height() - 1);
             float val = heightImage.pixelColor(pixX, pixY).redF();
             float y = val / 4.0;
             // Be explicit about our texture coords
@@ -48,10 +52,12 @@ void TerrainQuad::init(const QString& textureFile)
     numStrips_ = numRows;
     int colsPerStrip = numCols;
     numIdxPerStrip_ = colsPerStrip * 2;
-    for (unsigned int s = 0; s < numStrips_; ++s) {
-        unsigned int startIDX = s * (numIdxPerStrip_/2);
+    for (unsigned int s = 0; s < numStrips_; ++s)
+    {
+        unsigned int startIDX = s * (numIdxPerStrip_ / 2);
         unsigned int topIdx = startIDX;
-        for (int i = 0; i < colsPerStrip; ++i) {
+        for (int i = 0; i < colsPerStrip; ++i)
+        {
             idx << topIdx;
             idx << topIdx + colsPerStrip;
             topIdx++;
@@ -63,16 +69,17 @@ void TerrainQuad::init(const QString& textureFile)
 
 void TerrainQuad::update(const qint64 msSinceLastFrame)
 {
-    // For this lab, we want our polygon to rotate. 
+    // For this lab, we want our polygon to rotate.
     float sec = msSinceLastFrame / 1000.0f;
     float anglePart = sec * rotationSpeed_ * 360.f;
     rotationAngle_ += anglePart;
-    while (rotationAngle_ >= 360.0) {
+    while (rotationAngle_ >= 360.0)
+    {
         rotationAngle_ -= 360.0;
     }
 }
 
-void TerrainQuad::draw(const QMatrix4x4& world, const QMatrix4x4& view, const QMatrix4x4& projection)
+void TerrainQuad::draw(const QMatrix4x4 &world, const QMatrix4x4 &view, const QMatrix4x4 &projection)
 {
     // Create our model matrix.
     QMatrix4x4 rotMatrix;
@@ -100,8 +107,9 @@ void TerrainQuad::draw(const QMatrix4x4& world, const QMatrix4x4& view, const QM
     texture_.bind();
 
     // Setup our shader uniforms for multiple textures.
-    for (int s = 0; s < numStrips_-1; ++s) {
-        glDrawElements(GL_TRIANGLE_STRIP, numIdxPerStrip_, GL_UNSIGNED_INT, (const GLvoid*)((s * numIdxPerStrip_) * sizeof(unsigned int)));
+    for (int s = 0; s < numStrips_ - 1; ++s)
+    {
+        glDrawElements(GL_TRIANGLE_STRIP, numIdxPerStrip_, GL_UNSIGNED_INT, (const GLvoid *)((s * numIdxPerStrip_) * sizeof(unsigned int)));
     }
 
     heightTexture_.release();

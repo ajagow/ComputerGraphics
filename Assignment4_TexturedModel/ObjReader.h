@@ -85,6 +85,18 @@ private:
 
     std::map<std::string, int> vectorVals;
 
+    // sets the material info, normal file and texture
+    void getMtlInfo(std::string line, std::string filename);
+
+    // use string to create a vector 3
+    ObjReader::Vector3 setVector3(std::string line);
+
+    // use string to create a vector 2
+    ObjReader::Vector2 setVector2(std::string line);
+
+    // use string to create a vertex data object
+    void setFace(std::string currString);
+
     //splits a string based on regex passed into function
     std::vector<std::string> split(std::string givenString, std::string regexMatch);
 };
