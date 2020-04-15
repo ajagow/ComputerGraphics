@@ -5,10 +5,16 @@
 *TODO*: Please edit the following information in your assignment
 
 * Name and partners name(At most 1 partner for this Assignment): 
+
+My name is Anika Jagow and my partner is Noelle Wong.
 * How many hours did it take you to complete this Assignment? 
+
+10 hours.
 * Did you collaborate or share ideas with any other students/TAs/Professors? 
+
+Erik.
 * Did you use any external resources? 
-  * (tbd if any)
+  * https://webglfundamentals.org/webgl/lessons/webgl-scene-graph.html
   * (tbd if any)
   * (tbd if any)
 * (Optional) What was the most interesting part of the assignment? How would you improve this assignment?
@@ -102,7 +108,9 @@ the final position of an object in world space? Note: There is a handy
 [tutorial](./media/SceneGraphs.pdf) in the repository including more
 information on scenegraphs which may help you answer.
   
-**Answer here**: *Your answer here*
+**Answer here**:
+
+It's more efficient to store the local and world transform rather than do a depth-first traversal.  Scene graphs can store the spacial relationship between parent and children. If we didn't store transformation information locally (the world matrix), we would have to traverse the tree everytime we needed the world matrix node.  This wouldn't be very efficient and in a very deep graph, there would be a lot of unnecessary multiplications. 
   
 ## How to run your program
 
