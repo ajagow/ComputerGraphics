@@ -2,8 +2,6 @@
 
 #include <QOpenGLFunctions_3_3_core>
 
-#include <iostream>
-
 TerrainQuad::TerrainQuad() : lightPos_(0.5f, 0.5f, -2.0f), sign_(1.0f), numIdxPerStrip_(0), numStrips_(0), heightTexture_(QOpenGLTexture::Target2D)
 {
 }
@@ -20,8 +18,8 @@ void TerrainQuad::init(const QString &textureFile)
     QVector<QVector2D> texCoord;
     QVector<unsigned int> idx;
     // We need to figure out how many rows and columns we want!
-    const unsigned int numRows = 3;
-    const unsigned int numCols = 3;
+    const unsigned int numRows = 300;
+    const unsigned int numCols = 300;
     float rowStep = 1.0f / (float)numRows;
     float colStep = 1.0f / (float)numCols;
 
@@ -42,14 +40,12 @@ void TerrainQuad::init(const QString &textureFile)
             float x = c * colStep;
             // TODO - Before changing anything in the shaders, we can get heightmapping
             // to work by changing this y coordinate.  Implement this now to create a heightmap!
-            float y = 0;
+            float y = 0.0;
+            float h = heightImage.pixelColor(z * (heightImage.height() - 1), x * (heightImage.width() - 1)).red();
+            h /= heightImage.width();
 
-            // float h = heightImage.pixelColor(z * (heightImage.height() - 1), x * (heightImage.width() - 1)).red();
-            // h /= heightImage.width();
-            // y = h;
-
+            y = h;
             // Be explicit about our texture coords
-
             float u = z;
             float v = x;
             pos << QVector3D(x, y, z);
@@ -76,8 +72,7 @@ void TerrainQuad::init(const QString &textureFile)
     // to be careful about things in the drawing call!
     Renderable::init(pos, norm, texCoord, idx, textureFile);
     // We want to setup our height texture AFTER initialization of our primary members/context
-    heightTexture_.setData(QImage("../terrain2.ppm"));
-    //heightTexture_.setData(heightImage);
+    heightTexture_.setData(heightImage);
 }
 
 void TerrainQuad::update(const qint64 msSinceLastFrame)
@@ -121,40 +116,27 @@ void TerrainQuad::draw(const QMatrix4x4 &world, const QMatrix4x4 &view, const QM
     // TODO - After seeing the initial heightmap by querying in C++ the height image
     // uncommment these lines to change implementations to use the vertex shader!
     // We bind our height texture at Texture Unit 0
-    f.glActiveTexture(GL_TEXTURE0);
+    //    f.glActiveTexture(GL_TEXTURE0);
+    //    heightTexture_.bind();
 
-    heightTexture_.bind();
-
-    // // And our color texture at Texture Unit 1.
-    f.glActiveTexture(GL_TEXTURE1);
-    heightTexture_.bind();
+    // And our color texture at Texture Unit 1.
+    //    f.glActiveTexture(GL_TEXTURE1);
+    texture_.bind();
 
     // Setup our shader uniforms for multiple textures.  Make sure we use the correct
     // texture units as defined above!
     // TODO - Uncomment these lines when youa re ready to move from C++ implementation to
     // the GPU shader implementation.
-    shader_.setUniformValue("heightTex", GL_TEXTURE0);
-
-    int MaxVertexTextureImageUnits;
-    glGetIntegerv(GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS, &MaxVertexTextureImageUnits);
-
-    std::cout << "Max number thing: " << MaxVertexTextureImageUnits << "\n";
-    std::cout << "line 137: " << glGetError() << "\n";
-
-    shader_.setUniformValue("colorTex", GL_TEXTURE1 - GL_TEXTURE0);
-    std::cout << "line 140: " << glGetError() << "\n";
+    //    shader_.setUniformValue("tex", GL_TEXTURE0);
+    //    shader_.setUniformValue("colorTex", GL_TEXTURE1 - GL_TEXTURE0);
     for (int s = 0; s < numStrips_; ++s)
     {
         // TODO:  Draw the correct number of triangle strips using glDrawElements
-        //glDrawElements(GL_TRIANGLE_STRIP, numIdxPerStrip_ * numStrips_, GL_UNSIGNED_INT, 0);
-        glDrawElements(GL_TRIANGLE_STRIP, numIdxPerStrip_, GL_UNSIGNED_INT, (const GLvoid *)((s * numIdxPerStrip_) * sizeof(unsigned int)));
-        std::cout << "line 145: "
-                  << "  s: " << s << "  error: " << glGetError() << "\n";
+         glDrawElements(GL_TRIANGLE_STRIP, numIdxPerStrip_, GL_UNSIGNED_INT, (const GLvoid *)((s * numIdxPerStrip_) * sizeof(unsigned int)));
     }
-    std::cout << "line 146: " << glGetError() << "\n";
-    heightTexture_.release();
+    //    heightTexture_.release();
     texture_.release();
-    f.glActiveTexture(GL_TEXTURE0);
+    //    f.glActiveTexture(GL_TEXTURE0);
     vao_.release();
     shader_.release();
 }
